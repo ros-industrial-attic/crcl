@@ -102,8 +102,6 @@ zaxis = VectorType(0, 0, 1)
 m = MoveToType(15, False, PoseType(point1, xaxis, zaxis), Name="EP")
 print m
 
-sys.exit(0)
-
 m = MoveThroughToType(17, True, [PoseType(point1, xaxis, zaxis), PoseType(point1, xaxis, zaxis)], Name="WP1")
 print m
 
