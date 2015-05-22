@@ -33,8 +33,7 @@
           Name (inherited, optional)
           InitCanon
           MiddleCommand (optional, multiple)
-          EndCanon
-          .
+          EndCanon.
 
         CRCLProgramType defines a CRCL program as a sequence of CRCL
         commands. The CRCL commands in an instance of CRCLProgramType

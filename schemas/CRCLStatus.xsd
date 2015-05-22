@@ -56,9 +56,15 @@
         force - as set by a SetForceUnits command
         torque - as set by a SetTorqueUnits command
 
-      If reporting a joint status requires a unit that has not yet been
-      set, no report may be made for that joint. There are no default
-      values for units.
+      If reporting a joint status requires a unit, the units are as
+      set by the most recent SetXXXUnits command. If no SetXXXUnits
+      command for a given unit type has been executed since the last
+      InitCanonType command was executed, the following default units
+      apply:
+        length -- meter
+        angle  -- radian
+        force  -- newton
+        torque -- newtonMeter
 
       In order that this file may be translateable into OWL, all
       complexTypes in this file include the (optional) Name element,
@@ -76,13 +82,21 @@
       <xs:documentation>
         CommandStateEnumType enumerates the command states that may be used
         to describe command status.
+
+        Done means that the most recent command is done.
+
+        Error means that the most recent command resulted in an error
+        of some sort.
+
+        Working means that the most recent command is being executed,
+        and no error has occurred so far, but execution of the command
+        is not yet done.
       </xs:documentation>
     </xs:annotation>
     <xs:restriction base="xs:string">
       <xs:enumeration value="Done"/>
       <xs:enumeration value="Error"/>
       <xs:enumeration value="Working"/>
-      <xs:enumeration value="Ready"/>
     </xs:restriction>
   </xs:simpleType>
 
@@ -141,7 +155,7 @@
         and should be reported when there is a gripper.
 
         The coordinate system in which the Pose is reported is always
-        robot coordinates.
+        workstation coordinates.
 
         If CRCL status is being reported on separate channels for both
         a robot and a gripper, the status reported on the robot
@@ -177,8 +191,8 @@
           Name (inherited, optional)
           GripperName.
  
-        GripperStatusType is an a parent type for more
-        specialized types of gripper status.
+        GripperStatusType is an abstract type from which more specialized
+        types of gripper status are derived.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -277,7 +291,8 @@
     <xs:annotation>
       <xs:documentation>
         ThreeFingerGripperStatusType is derived from GripperStatusType.
-        An instance of ThreeFingerGripperStatusType has the following elements:
+        An instance of ThreeFingerGripperStatusType has the following
+        elements:
           Name (inherited, optional)
           GripperName (inherited)
           Finger1Position (optional)
@@ -286,7 +301,7 @@
           Finger1Force (optional)
           Finger2Force (optional)
           Finger3Force (optional).
- 
+
         ThreeFingerGripperStatusType gives gripper status for a three
         finger gripper. The fingers are assumed to be non-articulated.
         Finger position is 0.0 at fully closed and 1.0 at fully open and

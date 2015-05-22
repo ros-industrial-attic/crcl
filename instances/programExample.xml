@@ -9,13 +9,17 @@
     <CommandID>2</CommandID>
     <UnitName>meter</UnitName>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransSpeedAbsoluteType">
+  <MiddleCommand xsi:type="SetTransSpeedType">
     <CommandID>3</CommandID>
-    <TransSpeed>1.0</TransSpeed>
+    <TransSpeed xsi:type="TransSpeedAbsoluteType">
+      <Setting>1.0</Setting>
+    </TransSpeed>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransAccelRelativeType">
+  <MiddleCommand xsi:type="SetTransAccelType">
     <CommandID>4</CommandID>
-    <Fraction>0.80</Fraction>
+    <TransAccel xsi:type="TransAccelRelativeType">
+      <Fraction>0.80</Fraction>
+    </TransAccel>
   </MiddleCommand>
   <MiddleCommand xsi:type="SetEndPoseToleranceType">
     <CommandID>5</CommandID>

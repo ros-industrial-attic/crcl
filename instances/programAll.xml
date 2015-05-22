@@ -101,12 +101,10 @@ only in the InitCanon command.
         <I>0</I> <J>0</J> <K>-1</K>
       </ZAxis>
       <Coordinated>true</Coordinated>
-      <TransSpeed xsi:type="SetTransSpeedRelativeType">
-        <CommandID>10</CommandID>
+      <TransSpeed xsi:type="TransSpeedRelativeType">
         <Fraction>0.9</Fraction>
       </TransSpeed>
-      <TransAccel xsi:type="SetTransAccelRelativeType">
-        <CommandID>11</CommandID>
+      <TransAccel xsi:type="TransAccelRelativeType">
         <Fraction>0.5</Fraction>
       </TransAccel>
       <Tolerance>
@@ -202,41 +200,57 @@ only in the InitCanon command.
       <ParameterValue>701</ParameterValue>
     </ParameterSetting>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetRotAccelAbsoluteType">
+  <MiddleCommand xsi:type="SetRotAccelType">
     <CommandID>24</CommandID>
-    <RotAccel>4.08</RotAccel>
+    <RotAccel xsi:type="RotAccelAbsoluteType">
+      <Setting>4.08</Setting>
+    </RotAccel>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetRotAccelRelativeType">
+  <MiddleCommand xsi:type="SetRotAccelType">
     <CommandID>25</CommandID>
-    <Fraction>0.77</Fraction>
+    <RotAccel xsi:type="RotAccelRelativeType">
+      <Fraction>0.77</Fraction>
+    </RotAccel>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetRotSpeedAbsoluteType">
+  <MiddleCommand xsi:type="SetRotSpeedType">
     <CommandID>26</CommandID>
-    <RotSpeed>6.28</RotSpeed>
+    <RotSpeed xsi:type="RotSpeedAbsoluteType">
+      <Setting>6.28</Setting>
+    </RotSpeed>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetRotSpeedRelativeType">
+  <MiddleCommand xsi:type="SetRotSpeedType">
     <CommandID>27</CommandID>
-    <Fraction>0.55</Fraction>
+    <RotSpeed xsi:type="RotSpeedRelativeType">
+      <Fraction>0.55</Fraction>
+    </RotSpeed>
   </MiddleCommand>
   <MiddleCommand xsi:type="SetTorqueUnitsType">
     <CommandID>28</CommandID>
     <UnitName>newtonMeter</UnitName>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransAccelAbsoluteType">
+  <MiddleCommand xsi:type="SetTransAccelType">
     <CommandID>29</CommandID>
-    <TransAccel>9.80</TransAccel>
+    <TransAccel xsi:type="TransAccelAbsoluteType">
+      <Setting>9.80</Setting>
+    </TransAccel>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransAccelRelativeType">
+  <MiddleCommand xsi:type="SetTransAccelType">
     <CommandID>30</CommandID>
-    <Fraction>0.75</Fraction>
+    <TransAccel xsi:type="TransAccelRelativeType">
+      <Fraction>0.75</Fraction>
+    </TransAccel>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransSpeedAbsoluteType">
+  <MiddleCommand xsi:type="SetTransSpeedType">
     <CommandID>31</CommandID>
-    <TransSpeed>5.0</TransSpeed>
+    <TransSpeed xsi:type="TransSpeedAbsoluteType">
+      <Setting>5.0</Setting>
+    </TransSpeed>
   </MiddleCommand>
-  <MiddleCommand xsi:type="SetTransSpeedRelativeType">
+  <MiddleCommand xsi:type="SetTransSpeedType">
     <CommandID>32</CommandID>
-    <Fraction>0.85</Fraction>
+    <TransSpeed xsi:type="TransSpeedRelativeType">
+      <Fraction>0.85</Fraction>
+    </TransSpeed>
   </MiddleCommand>
   <MiddleCommand xsi:type="StopMotionType">
     <CommandID>33</CommandID>
