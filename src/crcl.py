@@ -86,67 +86,35 @@ class VectorType(DataThingType):
         ET.SubElement(root, "K").text = str(self.K)
         return ET.ElementTree(root)
 
-class PhysicalLocationType(DataThingType):
+class PoseType(DataThingType):
 
-    def __init__(self, TimeStamp=None, **kwargs):
-        super(PhysicalLocationType, self).__init__(**kwargs)
-        self.TimeStamp = TimeStamp
-
-    def set(self, TimeStamp):
-        self.TimeStamp = TimeStamp
-        return True
-
-    def get(self):
-        return self.TimeStamp
-
-    def tree(self, root=None):
-        if root == None: root = ET.Element(None)
-        super(PhysicalLocationType, self).tree(root)
-        if self.TimeStamp != None: ET.SubElement(root, "TimeStamp").text = str(self.TimeStamp)
-        return ET.ElementTree(root)
-
-class PoseLocationType(PhysicalLocationType):
-
-    def __init__(self, Point = PointType(0,0,0), XAxis = VectorType(1,0,0), ZAxis = VectorType(0,0,1), PositionStandardDeviation = None, OrientationStandardDeviation = None, **kwargs):
-        super(PoseLocationType, self).__init__(**kwargs)
+    def __init__(self, Point = PointType(0,0,0), XAxis = VectorType(1,0,0), ZAxis = VectorType(0,0,1), **kwargs):
+        super(PoseType, self).__init__(**kwargs)
         self.Point = Point
         self.XAxis = XAxis
         self.ZAxis = ZAxis
-        self.PositionStandardDeviation = PositionStandardDeviation
-        self.OrientationStandardDeviation = OrientationStandardDeviation
 
-    def set(self, Point, XAxis, ZAxis, PositionStandardDeviation = None, OrientationStandardDeviation = None):
+    def set(self, Point, XAxis, ZAxis):
         self.Point = Point
         self.XAxis = XAxis
         self.ZAxis = ZAxis
-        self.PositionStandardDeviation = PositionStandardDeviation
-        self.OrientationStandardDeviation = OrientationStandardDeviation
         return True
 
     def get(self):
-        return self.Point.get(), self.XAxis.get(), self.ZAxis,get(), self.PositionStandardDeviation, self.OrientationStandardDeviation
-
+        return self.Point.get(), self.XAxis.get(), self.ZAxis,get()
     def tree(self, root=None):
         if root == None: 
             root = ET.Element(None)
-            el = ET.SubElement(root, "Pose")
         else:
-            el = root
-        super(PoseLocationType, self).tree(el)
+            super(PoseType, self).tree(root)
+        el = root
         pel = ET.SubElement(el, "Point")
         self.Point.tree(pel)
         xel = ET.SubElement(el, "XAxis")
         self.XAxis.tree(xel)
         zel = ET.SubElement(el, "ZAxis")
         self.ZAxis.tree(zel)
-        if self.PositionStandardDeviation != None: ET.SubElement(el, "PositionStandardDeviation").text = str(self.PositionStandardDeviation)
-        if self.OrientationStandardDeviation != None: ET.SubElement(el, "OrientationStandardDeviation").text = str(self.OrientationStandardDeviation)
         return ET.ElementTree(root)
-
-class PoseOnlyLocationType(PoseLocationType):
-
-    def __init__(self, Point = PointType(0,0,0), XAxis = VectorType(1,0,0), ZAxis = VectorType(0,0,1), **kwargs):
-        super(PoseOnlyLocationType, self).__init__(Point, XAxis, ZAxis, **kwargs)
 
 class TransSpeedType(DataThingType):
 
@@ -296,7 +264,7 @@ class PoseToleranceType(DataThingType):
         if self.ZAxisTolerance != None: ET.SubElement(root, "ZAxisTolerance").text = str(self.ZAxisTolerance)
         return ET.ElementTree(root)
 
-class PoseAndSetType(PoseOnlyLocationType):
+class PoseAndSetType(PoseType):
 
     def __init__(self, Coordinated, TransSpeed = None, RotSpeed = None, TransAccel = None, RotAccel = None, Tolerance = None, **kwargs):
         super(PoseAndSetType, self).__init__(**kwargs)
@@ -464,16 +432,7 @@ class MoveToType(MiddleCommandType):
         else: ET.SubElement(el, "MoveStraight").text = "false"
         ep = self.EndPosition
         epel = ET.SubElement(el, "EndPosition")
-        # FIXME -- derived type PoseAndSetType speeds don't come through
         ep.tree(epel)
-        '''
-        ptel = ET.SubElement(epel, "Point")
-        ep.Point.tree(ptel)
-        xel = ET.SubElement(epel, "XAxis")
-        ep.XAxis.tree(xel)
-        zel = ET.SubElement(epel, "ZAxis")
-        ep.ZAxis.tree(zel)
-        '''
         return ET.ElementTree(root)
 
 # --- speed control
@@ -589,7 +548,7 @@ def toCommandStateType(s):
 
 class CommandStatusType(DataThingType):
 
-    def __init__(self, CommandID, StatusID, CommandState, **kwargs):
+    def __init__(self, CommandID = 0, StatusID = 0, CommandState = CommandStateType.DONE, **kwargs):
         super(CommandStatusType, self).__init__(**kwargs)
         self.CommandID = CommandID
         self.StatusID = StatusID
@@ -602,6 +561,19 @@ class CommandStatusType(DataThingType):
         ET.SubElement(el, "CommandID").text = str(self.CommandID)
         ET.SubElement(el, "StatusID").text = str(self.StatusID)
         ET.SubElement(el, "CommandState").text = str(self.CommandState)
+        return ET.ElementTree(root)
+
+class PoseStatusType(DataThingType):
+
+    def __init__(self, Pose, **kwargs):
+        super(PoseStatusType, self).__init__(**kwargs)
+        self.Pose = Pose
+
+    def tree(self, root=None):
+        if root == None: root = ET.Element(None)
+        else: super(PoseStatusType, self).tree(root)
+        el = ET.SubElement(root, "Pose")
+        self.Pose.tree(el)
         return ET.ElementTree(root)
 
 class JointStatusType(DataThingType):
@@ -727,15 +699,15 @@ class VacuumGripperStatusType(GripperStatusType):
 
 class CRCLStatusType(DataThingType):
 
-    def __init__(self, CommandStatus, Pose=None, JointStatuses=None, GripperStatus=None, **kwargs):
+    def __init__(self, CommandStatus=CommandStatusType(), PoseStatus=None, JointStatuses=None, GripperStatus=None, **kwargs):
         super(CRCLStatusType, self).__init__(**kwargs)
         self.CommandStatus = CommandStatus
-        self.Pose = Pose
+        self.PoseStatus = PoseStatus
         self.JointStatuses = JointStatuses
         self.GripperStatus = GripperStatus
 
-    def setPose(self, Pose):
-        self.Pose = Pose
+    def setPoseStatus(self, PoseStatus):
+        self.PoseStatus = PoseStatus
 
     def setJointStatuses(self, JointStatuses):
         self.JointStatuses = JointStatuses
@@ -747,12 +719,41 @@ class CRCLStatusType(DataThingType):
         if root == None: root = ET.Element("CRCLStatus", attrib=dict)
         super(CRCLStatusType, self).tree(root)
         self.CommandStatus.tree(root)
-        if self.Pose != None: self.Pose.tree(root)
+        if self.PoseStatus != None: self.PoseStatus.tree(root)
         if self.JointStatuses != None: self.JointStatuses.tree(root)
         if self.GripperStatus != None: self.GripperStatus.tree(root)
         return ET.ElementTree(root)
 
-    def untree(self):
+    def write(self):
+        return str(self)
+
+    def read(self, treeStr):
+        tree = ET.parse(StringIO.StringIO(treeStr.rstrip(' \t\n\r\0')))
+        root = tree.getroot()
+        if root.tag == "CRCLStatus":
+            for child in root:
+                if child.tag == "CommandStatus":
+                    t = child.findtext("CommandID")
+                    if (t != None) and (t != ""): self.CommandStatus.CommandID = t
+                    t = child.findtext("StatusID")
+                    if (t != None) and (t != ""): self.CommandStatus.StatusID = t
+                    t = child.findtext("CommandState")
+                    if (t != None) and (t != ""): self.CommandStatus.CommandState = toCommandStateType(t)
+                elif child.tag == "Pose":
+                    for cc in child:
+                        if cc.tag == "Point":
+                            x = float(cc.findtext("X"))
+                            y = float(cc.findtext("Y"))
+                            z = float(cc.findtext("Z"))
+                        if cc.tag == "XAxis":
+                            xi = float(cc.findtext("I"))
+                            xj = float(cc.findtext("J"))
+                            xk = float(cc.findtext("K"))
+                        if cc.tag == "ZAxis":
+                            zi = float(cc.findtext("I"))
+                            zj = float(cc.findtext("J"))
+                            zk = float(cc.findtext("K"))
+                    self.Pose = PoseType(PointType(x,y,z), VectorType(xi,xj,xk), VectorType(zi,zj,zk))
         return True
 
 # --- Utility functions ---
@@ -925,5 +926,5 @@ def PosePoseMult(T1, T2):
     P2R = MatrixPointMult(R1, T2.Point)
     PointOut = PointPointAdd(T1.Point, P2R)
 
-    return PoseLocationType(PointOut, XAxisOut, ZAxisOut)
+    return PoseType(PointOut, XAxisOut, ZAxisOut)
 

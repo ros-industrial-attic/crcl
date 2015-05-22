@@ -49,27 +49,13 @@ print m.Name, "=", i, j, k
 
 # ---
 
-m = PhysicalLocationType()
+m = PoseType()
 print m
 
-m = PhysicalLocationType(time())
+m = PoseType(PointType(11,12,13), VectorType(0,1,0,Name="Ux"), ZAxis=VectorType(1,0,0))
 print m
 
-m = PhysicalLocationType(Name="Name 2")
-print m
-
-m = PhysicalLocationType(time(), Name="Name 3")
-print m
-
-# ---
-
-m = PoseLocationType()
-print m
-
-m = PoseLocationType(PointType(11,12,13), VectorType(0,1,0,Name="Ux"), ZAxis=VectorType(1,0,0))
-print m
-
-m = PoseLocationType(PointType(11,12,13), VectorType(1,0,0), VectorType(0,0,1), 0.2, 0.8, Name="Name 4", TimeStamp=time())
+m = PoseType(PointType(11,12,13), VectorType(1,0,0), VectorType(0,0,1), Name="Name 4")
 print m
 
 # ---
@@ -77,7 +63,7 @@ print m
 point_a = PointType(0.1, 0.2, 0.3, Name="point_a")
 ux = VectorType(1,0,0)
 uz = VectorType(0,0,1)
-m = PoseOnlyLocationType(point_a, ux, uz, Name="POL 1", TimeStamp=time())
+m = PoseType(point_a, ux, uz, Name="POL 1")
 print m
 
 # ---
@@ -113,21 +99,23 @@ point3 = PointType(0, 0, 0)
 xaxis = VectorType(1, 0, 0, Name="ux")
 zaxis = VectorType(0, 0, 1)
 
-m = MoveToType(15, False, PoseOnlyLocationType(point1, xaxis, zaxis), Name="EP")
+m = MoveToType(15, False, PoseType(point1, xaxis, zaxis), Name="EP")
 print m
 
-m = MoveThroughToType(17, True, [PoseOnlyLocationType(point1, xaxis, zaxis), PoseOnlyLocationType(point1, xaxis, zaxis)], Name="WP1")
+sys.exit(0)
+
+m = MoveThroughToType(17, True, [PoseType(point1, xaxis, zaxis), PoseType(point1, xaxis, zaxis)], Name="WP1")
 print m
 
 point2.set(4, 5, 6)
 point3.set(7, 8, 9)
-m.add(PoseOnlyLocationType(point3, xaxis, zaxis))
+m.add(PoseType(point3, xaxis, zaxis))
 print m
 
 cs = CommandStatusType(201, 202, CommandStateType.READY)
 print cs
 
-ps = PoseOnlyLocationType(Name="PoseStatus")
+ps = PoseType(Name="PoseStatus")
 print ps
 
 m = CRCLStatusType(cs, ps)
@@ -157,10 +145,14 @@ print m
 m = CRCLStatusType(cs, ps, jses, pg)
 print m
 
+n = CRCLStatusType()
+n.read(m.write())
+print n
+
 # ---
 
 pg = CRCLProgramType(Name="Test Program")
-pg.add(MoveThroughToType(2, True, [PoseOnlyLocationType(point1, xaxis, zaxis)]))
+pg.add(MoveThroughToType(2, True, [PoseType(point1, xaxis, zaxis)]))
 print pg
 
 print VectorVectorCross(VectorType(1, 0, 0), VectorType(0, 1, 0))
@@ -174,8 +166,8 @@ n = MatrixType(VectorType(0.866, -0.5, 0), VectorType(0.5, 0.866, 0), VectorType
 
 print MatrixMatrixMult(m, n)
 
-P1 = PoseLocationType(PointType(100, 200, 0), VectorType(1,0,0), VectorType(0,0,1))
-P21 = PoseLocationType(PointType(-5, 20, 12.7), VectorType(0,1,0), VectorType(0,0,1))
+P1 = PoseType(PointType(100, 200, 0), VectorType(1,0,0), VectorType(0,0,1))
+P21 = PoseType(PointType(-5, 20, 12.7), VectorType(0,1,0), VectorType(0,0,1))
 P2 = PosePoseMult(P1, P21)
 print P2
 
