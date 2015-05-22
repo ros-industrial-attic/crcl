@@ -2,8 +2,6 @@
 
 import sys, time, getopt, socket, time, threading, StringIO, xml.etree.ElementTree as ET, ConfigParser
 from crcl import *
-from simple_message import *
-from flexiforce import *
 
 xmldec = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 uri = "http://www.w3.org/2001/XMLSchema-instance"
@@ -17,9 +15,6 @@ def except_info():
 INIFILE = ""
 NAME = "robot_prim"
 PORT = ""
-SIMPLE_MESSAGE_HOST = ""
-SIMPLE_MESSAGE_CONTROL_PORT = ""
-SIMPLE_MESSAGE_STATE_PORT = ""
 PERIOD = 0.5
 DO_ROBOT = False
 DO_GRIPPER = False
@@ -29,14 +24,11 @@ DEBUG = False
 CommandID = 0
 StatusID = 0
 CommandState = "Ready"
-Pose = PoseLocationType()
+Pose = PoseType()
 ThreeFingerGripperStatus = ThreeFingerGripperStatusType("ThreeFingerGripper")
 ParallelGripperStatus = ParallelGripperStatusType("ParallelGripper", 0)
 VacuumGripperStatus = VacuumGripperStatusType("VacuumGripper", False)
 InMotion = False
-
-# the global socket to the Simple Message interface
-SMSocket = None
 
 # --- Status writer ---
 
@@ -45,13 +37,9 @@ def writer(conn, period):
     global CommandID, StatusID, CommandState
     global Pose
     global ThreeFingerGripperStatus
-    global SMSocket
 
     # loop with a delay while a client is connected
     while True:
-
-        if SMSocket != None:
-            pass
 
         StatusID += 1 
         cs = CRCLStatusType(CommandStatusType(CommandID, StatusID, CommandState), Pose)
@@ -140,7 +128,6 @@ def handleMoveThroughToType(child):
 
 def handleMoveToType(child):
     global DEBUG, CommandID, CommandState, Pose
-    global SMSocket
     if DEBUG: print "handleMoveToType"
     
     CommandID = child.findtext("CommandID")
@@ -159,20 +146,7 @@ def handleMoveToType(child):
         Pose.XAxis = xaxis
         Pose.ZAxis = zaxis
         print Pose
-        # pass down to Simple Message layer, if there is one
-        if SMSocket == None:
-            CommandState = CommandStateType.DONE
-        else:
-            try:
-                q = MatrixToQuaternion(MatrixType(xaxis, VectorVectorCross(zaxis, xaxis), zaxis))
-                ctp = CartTrajPtRequest(point.X, point.Y, point.Z, q.X, q.Y, q.Z, q.W)
-                ctp.setTranslationalSpeed(300)
-                SMSocket.send(ctp.pack())
-                CommandState = CommandStateType.WORKING
-            except:
-                CommandState = CommandStateType.ERROR
-                print except_info()
-        # end of Simple Message passing
+        CommandState = CommandStateType.DONE
     except:
         CommandState = CommandStateType.ERROR
 
@@ -205,7 +179,6 @@ def handleSetEndEffectorParametersType(child):
 def handleSetEndEffectorType(child):
     global DEBUG, CommandID, CommandState
     global ThreeFingerGripperStatus
-    global SMSocket
     if DEBUG: print "handleSetEndEffectorType"
 
     CommandID = child.findtext("CommandID")
@@ -215,23 +188,7 @@ def handleSetEndEffectorType(child):
         setting = child.findtext("Setting")
         ThreeFingerGripperStatus.setFingerPosition(float(setting), float(setting), float(setting))
         print ThreeFingerGripperStatus
-        # pass down to Simple Message layer, if there is one
-        if SMSocket == None:
-            CommandState = CommandStateType.DONE
-        else:
-            try:
-                if float(setting) < 0.5:
-                    jts = 0, -10, -40, 30, 15, 15, 40, -40, -40, 40
-                else:
-                    jts = 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-                jtp = JointTrajPtRequest(jts)
-                jtp.setVelocity(200)
-                SMSocket.send(jtp.pack())
-                CommandState = CommandStateType.WORKING
-            except:
-                CommandState = CommandStateType.ERROR
-                print except_info()
-        # end of Simple Message passing
+        CommandState = CommandStateType.DONE
     except:
         CommandState = CommandStateType.ERROR
 
@@ -289,62 +246,10 @@ def reader(conn):
     if DEBUG: print NAME, ": reader done"
     conn.close()
 
-def sm_control_reader(conn):
-    global CommandState 
-    size = 1024
-    while True:
-        try:
-            data = conn.recv(size)
-        except:
-            break
-        if not data: break
-
-        jtprep = JointTrajPtReply()
-        ctprep = CartTrajPtReply()
-        if jtprep.unpack(data):
-            s = jtprep.getStatus()
-        elif ctprep.unpack(data):
-            s = ctprep.getStatus()
-        else:
-            s = SimpleMessage.REPLY_NA
-
-        if s == SimpleMessage.REPLY_SUCCESS:
-            CommandState = CommandStateType.DONE
-        elif s == SimpleMessage.REPLY_EXECUTING:
-            CommandState = CommandStateType.WORKING
-        else:
-            CommandState = CommandStateType.ERROR
-        
-    if DEBUG: print NAME, ": sm_control_reader done"
-    conn.close()
-
-def sm_state_reader(conn):
-    global InMotion
-    size = 1024
-    while True:
-        try:
-            data = conn.recv(size)
-        except:
-            break
-        if not data: break
-
-        rs = RobotStatus()
-        if rs.unpack(data):
-            if rs.in_motion:
-                InMotion = True
-            else:
-                InMotion = False
-        else:
-            # some other message, like JointTrajPtState or ObjectState
-            pass
-        
-    if DEBUG: print NAME, ": sm_control_reader done"
-    conn.close()
-
 # --- Main ---
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "i:n:p:t:rgd", ["inifile=", "name=", "port=", "sm_host=", "sm_control_port=", "sm_state_port=", "period=", "robot", "gripper", "debug"])
+    opts, args = getopt.getopt(sys.argv[1:], "i:n:p:t:rgd", ["inifile=", "name=", "port=", "period=", "robot", "gripper", "debug"])
 except getopt.GetoptError, err:
     print NAME, ":", str(err)
     sys.exit(1)
@@ -356,12 +261,6 @@ for o, a in opts:
         NAME = a
     elif o in ("-p", "--port"):
         PORT = a
-    elif o in ("--sm_host"):
-        SIMPLE_MESSAGE_HOST = a
-    elif o in ("--sm_control_port"):
-        SIMPLE_MESSAGE_CONTROL_PORT = a
-    elif o in ("--sm_state_port"):
-        SIMPLE_MESSAGE_STATE_PORT = a
     elif o in ("-t", "--period"):
         PERIOD = a
     elif o in ("-r", "--robot"):
@@ -373,9 +272,6 @@ for o, a in opts:
 
 defdict = {
     "port" : "",
-    "simple_message_host" : "",
-    "simple_message_control_port" : "",
-    "simple_message_state_port" : "",
     "period" : "",
     }
 
@@ -386,12 +282,6 @@ if INIFILE != "":
             config.read(INIFILE)
             if PORT == "":
                 PORT = config.get(NAME, "port")
-            if SIMPLE_MESSAGE_HOST == "":
-                SIMPLE_MESSAGE_HOST = config.get(NAME, "simple_message_host")
-            if SIMPLE_MESSAGE_CONTROL_PORT == "":
-                SIMPLE_MESSAGE_CONTROL_PORT = config.get(NAME, "simple_message_control_port")
-            if SIMPLE_MESSAGE_STATE_PORT == "":
-                SIMPLE_MESSAGE_STATE_PORT = config.get(NAME, "simple_message_state_port")
             if PERIOD == "":
                 PERIOD = config.get(NAME, "period")
     except IOError as err:
@@ -405,15 +295,6 @@ if PORT == "":
     print NAME, ": no port provided"
     sys.exit(1)
 
-if SIMPLE_MESSAGE_HOST != "":
-    print NAME, ": using simple message host", SIMPLE_MESSAGE_HOST
-
-if SIMPLE_MESSAGE_CONTROL_PORT != "":
-    print NAME, ": using simple message control port", SIMPLE_MESSAGE_CONTROL_PORT
-
-if SIMPLE_MESSAGE_STATE_PORT != "":
-    print NAME, ": using simple message state port", SIMPLE_MESSAGE_STATE_PORT
-
 if PERIOD == "":
     PERIOD = 1
     print NAME, ": using default period", PERIOD
@@ -423,45 +304,11 @@ if (DO_ROBOT == False) and (DO_GRIPPER == False):
     DO_ROBOT == True
     DO_GRIPPER == True
 
-if (SIMPLE_MESSAGE_HOST != "") and (SIMPLE_MESSAGE_CONTROL_PORT != ""):
-    try:
-        SMControlSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        SMControlSocket.connect((SIMPLE_MESSAGE_HOST, int(SIMPLE_MESSAGE_CONTROL_PORT)))
-        sm_control_thr = threading.Thread(target=sm_control_reader, args=(SMControlSocket,))
-        sm_control_thr.daemon = True
-        sm_control_thr.start()
-    except:
-        print NAME, ": Simple Message :", except_info()
-        SMControlSocket = None
-
-if (SIMPLE_MESSAGE_HOST != "") and (SIMPLE_MESSAGE_STATE_PORT != ""):
-    try:
-        SMStateSocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        SMStateSocket.connect((SIMPLE_MESSAGE_HOST, int(SIMPLE_MESSAGE_STATE_PORT)))
-        sm_state_thr = threading.Thread(target=sm_state_reader, args=(SMStateSocket,))
-        sm_state_thr.daemon = True
-        sm_state_thr.start()
-    except:
-        print NAME, ": Simple Message :", except_info()
-        SMStateSocket = None
-
 BACKLOG = 1
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 s.bind(("", int(PORT)))
 s.listen(BACKLOG)
-
-def flexiforce(host, port):
-    global ThreeFingerGripperStatus
-    ff = FlexiForce()
-    if not ff.client(host, port): return False
-    while ff.connected():
-        try:
-            fs = ff.get()
-            ThreeFingerGripperStatus.setFingerForce(float(fs[0]), float(fs[1]), float(fs[2]))
-        except:
-            print except_info()
-        time.sleep(1)
 
 while True:
     if DEBUG: print NAME, ": accepting connections on", str(PORT)
@@ -474,12 +321,6 @@ while True:
     t = threading.Thread(target=writer, args=(conn,float(PERIOD)))
     t.daemon = True
     t.start()
-    # FIXME -- testing the FlexiForce sensor
-    '''
-    f = threading.Thread(target=flexiforce, args=("localhost", 1234))
-    f.daemon = True
-    f.start()
-    '''
 
 print NAME, ": done"
 

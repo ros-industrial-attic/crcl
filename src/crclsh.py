@@ -3,7 +3,6 @@
 import sys, os, time, getopt, string, threading, socket, ConfigParser, StringIO
 import xml.etree.ElementTree as ET
 from crcl import *
-from simple_message import *
 
 xmldec = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 uri = "http://www.w3.org/2001/XMLSchema-instance"
@@ -27,7 +26,7 @@ ZAXIS = VectorType(0, 0, 1)
 RobotCommandID = 0
 RobotStatusID = 0
 RobotCommandState = CommandStateType.READY
-RobotPose = PoseLocationType()
+RobotPose = PoseType()
 
 GripperCommandID = 0
 GripperStatusID = 0
@@ -40,30 +39,6 @@ def printStatus():
 
     print "Robot:", RobotCommandID, RobotStatusID, RobotCommandState, RobotPose
     print "Gripper:", GripperCommandID, GripperStatusID, GripperCommandState, GripperStatus
-
-'''
-Kuka LWR status looks like:
-
-<?xml version=\"1.0\" encoding=\"UTF-8\"?>
-<CRCLStatus xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:noNamespaceSchemaLocation=\"../xmlSchemas/CRCLStatus.xsd\">
-  <CommandStatus>
-    <CommandID>2</CommandID>
-    <StatusID>2322</StatusID>
-    <CommandState>Done</CommandState>
-  </CommandStatus>
-  <Pose>
-    <Point>
-      <X>122.072600</X><Y>-424.659200</Y><Z>507.135200</Z>
-    </Point>
-    <XAxis>
-      <I>-0.418876</I><J>-0.905497</J><K>0.067955</K>
-    </XAxis>
-    <ZAxis>
-      <I>-0.834241</I><J>0.354199</J><K>-0.422593</K>
-    </ZAxis>
-  </Pose>
-</CRCLStatus>
-'''
 
 def robot_reader(conn):
     global DEBUG, RobotCommandID, RobotStatusID, RobotCommandState, RobotPose
@@ -98,7 +73,7 @@ def robot_reader(conn):
                                 zi = float(cc.findtext("I"))
                                 zj = float(cc.findtext("J"))
                                 zk = float(cc.findtext("K"))
-                        RobotPose = PoseLocationType(PointType(x,y,z), VectorType(xi,xj,xk), VectorType(zi,zj,zk))
+                        RobotPose = PoseType(PointType(x,y,z), VectorType(xi,xj,xk), VectorType(zi,zj,zk))
         except:
             print "crclsh: robot_reader:", except_info()
     conn.close()
