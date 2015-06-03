@@ -25,12 +25,12 @@ ZAXIS = VectorType(0, 0, 1)
 
 RobotCommandID = 0
 RobotStatusID = 0
-RobotCommandState = CommandStateType.READY
+RobotCommandState = CommandStateType.DONE
 RobotPose = PoseType()
 
 GripperCommandID = 0
 GripperStatusID = 0
-GripperCommandState = CommandStateType.READY
+GripperCommandState = CommandStateType.DONE
 GripperStatus = ParallelGripperStatusType("ParallelGripper", 0)
 
 def printStatus():
@@ -347,7 +347,7 @@ while not done:
             print "need x y z xi xj xk zi zj zk"
             continue
         robot_cid += 1
-        m = MoveToType(robot_cid, False, PoseOnlyLocationType(PointType(x, y, z), unit(VectorType(xi, xj, xk)), unit(VectorType(zi, zj, zk))))
+        m = MoveToType(robot_cid, False, PoseType(PointType(x, y, z), unit(VectorType(xi, xj, xk)), unit(VectorType(zi, zj, zk))))
         robot_socket.send(str(m))
 
     elif cmd == "gwait":

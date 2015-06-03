@@ -536,13 +536,11 @@ class CommandStateType(object):
     DONE = "Done"
     ERROR = "Error"
     WORKING = "Working"
-    READY = "Ready"
     TIMEOUT = "Timeout"
 
 def toCommandStateType(s):
     if s == CommandStateType.DONE: return s
     if s == CommandStateType.WORKING: return s
-    if s == CommandStateType.READY: return s
     if s == CommandStateType.TIMEOUT: return s
     return CommandStateType.ERROR
 
@@ -553,6 +551,15 @@ class CommandStatusType(DataThingType):
         self.CommandID = CommandID
         self.StatusID = StatusID
         self.CommandState = CommandState
+
+    def setCommandID(self, n):
+        self.CommandID = n
+
+    def setStatusID(self, n):
+        self.StatusID = n
+
+    def setCommandState(self, s):
+        self.CommandState = s
 
     def tree(self, root=None):
         if root == None: root = ET.Element(None)
@@ -567,6 +574,9 @@ class PoseStatusType(DataThingType):
 
     def __init__(self, Pose, **kwargs):
         super(PoseStatusType, self).__init__(**kwargs)
+        self.Pose = Pose
+
+    def setPose(self, Pose):
         self.Pose = Pose
 
     def tree(self, root=None):
@@ -666,7 +676,7 @@ class ThreeFingerGripperStatusType(GripperStatusType):
         self.Finger2Force = Finger2Force
         self.Finger3Force = Finger3Force
 
-    def __init__(self, GripperName, **kwargs):
+    def __init__(self, GripperName = "ThreeFingerGripper", **kwargs):
         super(ThreeFingerGripperStatusType, self).__init__(GripperName, **kwargs)
         self.setFingerPosition(0, 0, 0)
         self.setFingerForce(0, 0, 0)
@@ -705,6 +715,9 @@ class CRCLStatusType(DataThingType):
         self.PoseStatus = PoseStatus
         self.JointStatuses = JointStatuses
         self.GripperStatus = GripperStatus
+
+    def setCommandStatus(self, CommandStatus):
+        self.CommandStatus = CommandStatus
 
     def setPoseStatus(self, PoseStatus):
         self.PoseStatus = PoseStatus
