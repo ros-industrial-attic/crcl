@@ -78,21 +78,29 @@ class CRCLSimulator(CRCLDevice):
         except:
             self.setCommandState(CommandStateType.ERROR)
 
+    '''
+    Add CRCL interface defs to load and unload grippers
+    '''
+
     def handleOpenToolChangerType(self, child):
         t = child.findtext("CommandID")
         if t == None:
             return
         self.setCommandID(t)
         self.setCommandState(CommandStateType.DONE)
+        if self.debug: print "removing tool", self.name
 
     def handleCloseToolChangerType(self, child):
         t = child.findtext("CommandID")
         if t == None:
             return
         self.setCommandID(t)
-        self.setCommandState(CommandStateType.DONE)
         name = child.findtext("Name")
-        self.threeFingerGripperStatus.setName(name)
+        if name == None:
+            self.setCommandState(CommandStateType.ERROR)
+        else:
+            self.setCommandState(CommandStateType.DONE)
+            if self.debug: print "adding tool", name
 
     '''
     def handleSetEndEffectorParametersType(self, child):

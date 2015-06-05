@@ -5,8 +5,12 @@ import math
 
 xmldec = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
 uri = "http://www.w3.org/2001/XMLSchema-instance"
-loc = "CRCLCommandInstance.xsd"
-dict = {"xmlns:xsi" : uri, "xsi:noNameSpaceSchemaLocation" : loc}
+cmdloc = "CRCLCommandInstance.xsd"
+progloc = "CRCLProgramInstance.xsd"
+statloc = "CRCLStatus.xsd"
+cmddict = {"xmlns:xsi" : uri, "xsi:noNamespaceSchemaLocation" : cmdloc}
+progdict = {"xmlns:xsi" : uri, "xsi:noNamespaceSchemaLocation" : progloc}
+statdict = {"xmlns:xsi" : uri, "xsi:noNamespaceSchemaLocation" : statloc}
 
 # 
 # To Do: add the inverse methods, filling in the class given some XML
@@ -317,7 +321,7 @@ def wrapIt(root, cmd):
     command and it gets the top-level root instance CRCLCommandInstance
     '''
     if root == None:
-        root = ET.Element("CRCLCommandInstance", attrib=dict)
+        root = ET.Element("CRCLCommandInstance", attrib=cmddict)
         wrap = "CRCLCommand"
     else:
         wrap = "MiddleCommand"
@@ -520,7 +524,7 @@ class CRCLProgramType(DataThingType):
         self.MiddleCommand = [ ]
 
     def tree(self, root=None):
-        if root == None: root = ET.Element("CRCLProgram", attrib=dict)
+        if root == None: root = ET.Element("CRCLProgram", attrib=progdict)
         super(CRCLProgramType, self).tree(root)
         InitCanonType(1).tree(root)
         for cmd in self.MiddleCommand:
@@ -546,7 +550,7 @@ def toCommandStateType(s):
 
 class CommandStatusType(DataThingType):
 
-    def __init__(self, CommandID = 0, StatusID = 0, CommandState = CommandStateType.DONE, **kwargs):
+    def __init__(self, CommandID = 1, StatusID = 1, CommandState = CommandStateType.DONE, **kwargs):
         super(CommandStatusType, self).__init__(**kwargs)
         self.CommandID = CommandID
         self.StatusID = StatusID
@@ -729,7 +733,7 @@ class CRCLStatusType(DataThingType):
         self.GripperStatus = GripperStatus
 
     def tree(self, root=None):
-        if root == None: root = ET.Element("CRCLStatus", attrib=dict)
+        if root == None: root = ET.Element("CRCLStatus", attrib=statdict)
         super(CRCLStatusType, self).tree(root)
         self.CommandStatus.tree(root)
         if self.PoseStatus != None: self.PoseStatus.tree(root)
