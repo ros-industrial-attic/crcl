@@ -1,7 +1,7 @@
 Canonical Robot Command Language
 ================================
 
-I. Language Name
+# Language Name
 
 The language is called "Canonical Robot Command Language" (CRCL).
 
