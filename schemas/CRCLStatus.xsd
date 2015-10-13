@@ -108,7 +108,8 @@
           Name (inherited, optional)
           CommandID
           StatusID
-          CommandState.
+          CommandState
+          StateDescription (optional).
 
         The CommandStatusType relates the execution status of the
         currently executing command (or the most recently executed
@@ -117,6 +118,8 @@
             which the status message applies
           StatusID is an ID associated with this particular status
              message.
+          StateDescription is an optional brief description of the state
+          such as "Joint 3 at -171.0 less than limit -170.0" or "Waiting for Operator".
         The combination of StatusID and CommandID must be unique
         within a session.
       </xs:documentation>
@@ -130,6 +133,9 @@
             type="xs:positiveInteger"/>
           <xs:element name="CommandState"
             type="CommandStateEnumType"/>
+          <xs:element name="StateDescription"
+            type="xs:string"
+            minOccurs="0"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
