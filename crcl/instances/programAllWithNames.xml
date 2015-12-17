@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+This is a program file with instances of all CRCL commands in alphabetical
+order (except that InitCanon is first and EndCanon is last). The file
+is syntactically valid (so it is valid in XMLSpy) but violates semantic
+rules given in the in-line documentation of CRCLCommands.xsd, so it
+should not be executed.
+
+All instances of complexType may be given a Name. This file has a Name
+only in the InitCanon command.
+
+-->
+<CRCLProgram
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../xmlSchemas/CRCLProgramInstance.xsd">
+  <Name>CRCLProgram1</Name>
+  <InitCanon>
+    <Name>start</Name>
+    <CommandID>1</CommandID>
+  </InitCanon>
+  <MiddleCommand xsi:type="ActuateJointsType">
+    <Name>MiddleCommand1</Name>
+    <CommandID>2</CommandID>
+    <ActuateJoint>
+      <Name>ActuateJoint1</Name>
+      <JointNumber>1</JointNumber>
+      <JointPosition>3.8</JointPosition>
+      <JointDetails xsi:type="JointSpeedAccelType">
+        <Name>JointDetails1</Name>
+        <JointSpeed>3.7</JointSpeed>
+        <JointAccel>11</JointAccel>
+      </JointDetails>
+    </ActuateJoint>
+    <ActuateJoint>
+      <Name>ActuateJoint2</Name>
+      <JointNumber>3</JointNumber>
+      <JointPosition>3.8</JointPosition>
+      <JointDetails xsi:type="JointForceTorqueType">
+        <Name>JointDetails2</Name>
+        <Setting>7</Setting>
+        <ChangeRate>13.0</ChangeRate>
+      </JointDetails>
+    </ActuateJoint>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="CloseToolChangerType">
+    <Name>MiddleCommand2</Name>
+    <CommandID>3</CommandID>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="ConfigureJointReportsType">
+    <Name>MiddleCommand3</Name>
+    <CommandID>4</CommandID>
+    <ResetAll>true</ResetAll>
+    <ConfigureJointReport>
+      <Name>ConfigureJointReport1</Name>
+      <JointNumber>1</JointNumber>
+      <ReportPosition>true</ReportPosition>
+      <ReportTorqueOrForce>false</ReportTorqueOrForce>
+      <ReportVelocity>false</ReportVelocity>
+    </ConfigureJointReport>
+    <ConfigureJointReport>
+      <Name>ConfigureJointReport2</Name>
+      <JointNumber>3</JointNumber>
+      <ReportPosition>true</ReportPosition>
+      <ReportTorqueOrForce>true</ReportTorqueOrForce>
+      <ReportVelocity>false</ReportVelocity>
+    </ConfigureJointReport>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="DwellType">
+    <Name>MiddleCommand4</Name>
+    <CommandID>5</CommandID>
+    <DwellTime>2.5</DwellTime>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="GetStatusType">
+    <Name>MiddleCommand5</Name>
+    <CommandID>6</CommandID>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="MessageType">
+    <Name>MiddleCommand5.5</Name>
+    <CommandID>7</CommandID>
+    <Message>Hi Mom</Message>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="MoveScrewType">
+    <Name>MiddleCommand7</Name>
+    <CommandID>8</CommandID>
+    <AxisPoint>
+      <Name>AxisPoint1</Name>
+      <X>8.25</X> <Y>1</Y> <Z>0.5</Z>
+    </AxisPoint>
+    <AxialDistanceScrew>6.10</AxialDistanceScrew>
+    <Turn>-3.14</Turn>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="MoveThroughToType">
+    <Name>MiddleCommand8</Name>
+    <CommandID>9</CommandID>
+    <MoveStraight>false</MoveStraight>
+    <Waypoint>
+      <Name>Waypoint1</Name>
+      <Point>
+        <Name>Point1</Name>
+        <X>8.25</X> <Y>1</Y> <Z>1</Z>
+      </Point>
+      <XAxis>
+        <Name>Vector1</Name>
+        <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+      <ZAxis>
+        <Name>Vector2</Name>
+        <I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+    </Waypoint>
+    <Waypoint xsi:type="PoseAndSetType">
+      <Name>Waypoint2</Name>
+      <Point>
+        <Name>Point2</Name>
+        <X>8.25</X> <Y>1</Y> <Z>0.5</Z>
+      </Point>
+      <XAxis>
+        <Name>Vector3</Name>
+        <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+      <ZAxis>
+        <Name>Vector4</Name>
+        <I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+      <Coordinated>true</Coordinated>
+      <TransSpeed xsi:type="TransSpeedRelativeType">
+        <Name>TransSpeed1</Name>
+        <Fraction>0.9</Fraction>
+      </TransSpeed>
+      <TransAccel xsi:type="TransAccelRelativeType">
+        <Name>TransAccel1</Name>
+        <Fraction>0.5</Fraction>
+      </TransAccel>
+      <Tolerance>
+        <Name>Tol1</Name>
+        <XPointTolerance>0.005</XPointTolerance>
+        <YPointTolerance>0.01</YPointTolerance>
+        <ZPointTolerance>0.015</ZPointTolerance>
+        <ZAxisTolerance>1.0</ZAxisTolerance>
+      </Tolerance>
+    </Waypoint>
+    <NumPositions>2</NumPositions>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="MoveToType">
+    <Name>MiddleCommand9</Name>
+    <CommandID>12</CommandID>
+    <MoveStraight>true</MoveStraight>
+    <EndPosition>
+    <Name>EndPosition1</Name>
+      <Point>
+        <Name>Point3</Name>
+        <X>8.25</X> <Y>1</Y> <Z>0.5</Z>
+      </Point>
+      <XAxis>
+        <Name>Vector5</Name>
+        <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+      <ZAxis>
+        <Name>Vector6</Name>
+        <I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+    </EndPosition>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="OpenToolChangerType">
+    <Name>MiddleCommand10</Name>
+    <CommandID>13</CommandID>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="RunProgramType">
+    <Name>MiddleCommand11</Name>
+    <CommandID>14</CommandID>
+    <ProgramText>GH$%kkk457 xxx  65</ProgramText>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetAngleUnitsType">
+    <Name>MiddleCommand12</Name>
+    <CommandID>15</CommandID>
+    <UnitName>degree</UnitName>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetEndEffectorParametersType">
+    <Name>MiddleCommand13</Name>
+    <CommandID>16</CommandID>
+    <ParameterSetting>
+      <Name>PS1</Name>
+      <ParameterName>rhabdaciousness</ParameterName>
+      <ParameterValue>on</ParameterValue>
+    </ParameterSetting>
+    <ParameterSetting>
+      <Name>PS2</Name>
+      <ParameterName>fluoxity</ParameterName>
+      <ParameterValue>33</ParameterValue>
+    </ParameterSetting>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetEndEffectorType">
+    <Name>MiddleCommand14</Name>
+    <CommandID>17</CommandID>
+    <Setting>1.0</Setting>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetEndPoseToleranceType">
+    <Name>MiddleCommand15</Name>
+    <CommandID>18</CommandID>
+    <Tolerance>
+      <Name>Tol0</Name>
+      <XPointTolerance>0.005</XPointTolerance>
+      <YPointTolerance>0.01</YPointTolerance>
+      <ZPointTolerance>0.015</ZPointTolerance>
+      <XAxisTolerance>1.0</XAxisTolerance>
+      <ZAxisTolerance>1.0</ZAxisTolerance>
+    </Tolerance>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetForceUnitsType">
+    <Name>MiddleCommand16</Name>
+    <CommandID>19</CommandID>
+    <UnitName>ounce</UnitName>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetIntermediatePoseToleranceType">
+    <Name>MiddleCommand17</Name>
+    <CommandID>20</CommandID>
+      <Tolerance>
+        <Name>Tol2</Name>
+        <XPointTolerance>0.1</XPointTolerance>
+        <YPointTolerance>0.05</YPointTolerance>
+        <ZPointTolerance>0.06</ZPointTolerance>
+        <XAxisTolerance>1.0</XAxisTolerance>
+        <ZAxisTolerance>1.0</ZAxisTolerance>
+      </Tolerance>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetLengthUnitsType">
+    <Name>MiddleCommand18</Name>
+    <CommandID>21</CommandID>
+    <UnitName>meter</UnitName>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetMotionCoordinationType">
+    <Name>MiddleCommand19</Name>
+    <CommandID>22</CommandID>
+    <Coordinated>true</Coordinated>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetRobotParametersType">
+    <Name>MiddleCommand20</Name>
+    <CommandID>23</CommandID>
+    <ParameterSetting>
+      <Name>PS3</Name>
+      <ParameterName>empathy</ParameterName>
+      <ParameterValue>3.2</ParameterValue>
+    </ParameterSetting>
+    <ParameterSetting>
+      <Name>PS4</Name>
+      <ParameterName>air pressure</ParameterName>
+      <ParameterValue>701</ParameterValue>
+    </ParameterSetting>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetRotAccelType">
+    <Name>MiddleCommand21</Name>
+    <CommandID>24</CommandID>
+    <RotAccel xsi:type="RotAccelAbsoluteType">
+      <Name>RotAccel1</Name>
+      <Setting>4.08</Setting>
+    </RotAccel>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetRotAccelType">
+    <Name>MiddleCommand22</Name>
+    <CommandID>25</CommandID>
+    <RotAccel xsi:type="RotAccelRelativeType">
+      <Name>RotAccel2</Name>
+      <Fraction>0.77</Fraction>
+    </RotAccel>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetRotSpeedType">
+    <Name>MiddleCommand23</Name>
+    <CommandID>26</CommandID>
+    <RotSpeed xsi:type="RotSpeedAbsoluteType">
+      <Name>RotSpeed1</Name>
+      <Setting>6.28</Setting>
+    </RotSpeed>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetRotSpeedType">
+    <Name>MiddleCommand24</Name>
+    <CommandID>27</CommandID>
+    <RotSpeed xsi:type="RotSpeedRelativeType">
+      <Name>RotSpeed2</Name>
+      <Fraction>0.55</Fraction>
+    </RotSpeed>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetTorqueUnitsType">
+    <Name>MiddleCommand25</Name>
+    <CommandID>28</CommandID>
+    <UnitName>newtonMeter</UnitName>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetTransAccelType">
+    <Name>MiddleCommand26</Name>
+    <CommandID>29</CommandID>
+    <TransAccel xsi:type="TransAccelAbsoluteType">
+      <Name>TransAccel2</Name>
+      <Setting>9.80</Setting>
+    </TransAccel>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetTransAccelType">
+    <Name>MiddleCommand27</Name>
+    <CommandID>30</CommandID>
+    <TransAccel xsi:type="TransAccelRelativeType">
+      <Name>TransAccel3</Name>
+      <Fraction>0.75</Fraction>
+    </TransAccel>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetTransSpeedType">
+    <Name>MiddleCommand28</Name>
+    <CommandID>31</CommandID>
+    <TransSpeed xsi:type="TransSpeedAbsoluteType">
+      <Name>TransSpeed2</Name>
+      <Setting>5.0</Setting>
+    </TransSpeed>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="SetTransSpeedType">
+    <Name>MiddleCommand29</Name>
+    <CommandID>32</CommandID>
+    <TransSpeed xsi:type="TransSpeedRelativeType">
+      <Name>TransSpeed3</Name>
+      <Fraction>0.85</Fraction>
+    </TransSpeed>
+  </MiddleCommand>
+  <MiddleCommand xsi:type="StopMotionType">
+    <Name>MiddleCommand30</Name>
+    <CommandID>33</CommandID>
+    <StopCondition>Normal</StopCondition>
+  </MiddleCommand>
+  <EndCanon>
+    <Name>stop</Name>
+    <CommandID>34</CommandID>
+  </EndCanon>
+</CRCLProgram>

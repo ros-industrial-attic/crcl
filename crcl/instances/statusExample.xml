@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CRCLStatus
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../xmlSchemas/CRCLStatus.xsd">
+
+  <CommandStatus>
+    <CommandID>1</CommandID>
+    <StatusID>1</StatusID>
+    <CommandState>Working</CommandState>
+  </CommandStatus>
+  <JointStatuses>
+    <JointStatus>
+      <JointNumber>1</JointNumber>
+      <JointPosition>30.0</JointPosition>
+      <JointTorqueOrForce>3.7</JointTorqueOrForce>
+    </JointStatus>
+    <JointStatus>
+      <JointNumber>3</JointNumber>
+      <JointPosition>90.0</JointPosition>
+      <JointVelocity>0.87</JointVelocity>
+    </JointStatus>
+  </JointStatuses>
+  <Pose>
+    <Point>
+      <X>1.5</X> <Y>1</Y> <Z>1</Z>
+    </Point>
+    <XAxis>
+      <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+    <ZAxis>
+      <I>0</I> <J>0</J> <K>-1</K>
+    </ZAxis>
+  </Pose>
+  <GripperStatus xsi:type="ParallelGripperStatusType">
+    <GripperName>jaws</GripperName>
+    <Separation>0.44</Separation>
+  </GripperStatus>
+</CRCLStatus>
