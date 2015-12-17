@@ -4,7 +4,7 @@
 #define DATAPRIMITIVES_HH
 #include <stdio.h>
 #include <list>
-#include "xml_common/xmlSchemaInstance.hh"
+#include <xml_common/xmlSchemaInstance.hh>
 
 /*********************************************************************/
 
