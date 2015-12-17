@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  elementFormDefault="qualified"
+  attributeFormDefault="unqualified"
+  version="2014Jul2">
+
+  <xs:annotation>
+    <xs:documentation>
+      This ontology models primitive types useful for building
+      information models for automated manufacturing.
+    </xs:documentation>
+    <xs:documentation>
+      In order that models using this file may be translateable into
+      OWL, all complexTypes in this file include the Name element. This
+      is done by putting the Name element in the top-level data type,
+      DataThingType and having all other complexTypes be descended
+      directly or indirectly from DataThingType.
+
+      In order that models using this file are not required to assign
+      a name to each complex data instance, the Name element of
+      DataThingType is optional. If an instance file has instances of
+      complex data without names, it will not be translateable into
+      OWL.
+    </xs:documentation>
+    <xs:documentation>owlPrefix=crcl</xs:documentation>
+  </xs:annotation>
+
+  <xs:simpleType name="AngleUnitEnumType">
+    <xs:annotation>
+      <xs:documentation>
+        AngleUnitEnumType enumerates angle units. This might be used,
+        for example, in a command that sets angle units.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="degree"/>
+      <xs:enumeration value="radian"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="DataThingType"
+    abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        An instance of DataThingType has the following elements:
+          Name (optional)
+          .
+
+        DataThingType is an abstract type from which more specific types
+        of data thing are derived. That includes all complex data
+        types such as Vector, PhysicalLocation, etc.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name"
+        type="xs:ID"
+        minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="ForceUnitEnumType">
+    <xs:annotation>
+      <xs:documentation>
+        ForceUnitEnumType enumerates force units. This might be used,
+        for example, in a command that sets force units.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="newton"/>
+      <xs:enumeration value="pound"/>
+      <xs:enumeration value="ounce"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="FractionType">
+    <xs:annotation>
+      <xs:documentation>
+        FractionType is a number between zero and 1 representing a fraction.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:decimal">
+      <xs:minInclusive value="0.0"/>
+      <xs:maxInclusive value="1.0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="LengthUnitEnumType">
+    <xs:annotation>
+      <xs:documentation>
+        LengthUnitEnumType enumerates length units. This might be used,
+        for example, in a command that sets length units.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="meter"/>
+      <xs:enumeration value="millimeter"/>
+      <xs:enumeration value="inch"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="PhysicalLocationType"
+    abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        PhysicalLocationType is derived from DataThingType.
+        An instance of PhysicalLocationType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, optional)
+          Timestamp (optional).
+ 
+        PhysicalLocationType is an abstract type from which more
+        specific types of physical location are derived. When
+        RefObjectName is present, an instance of PhysicalLocationType
+        says where a coordinate system is relative to its reference
+        object. When RefObjectName is not present, an instance of
+        PhysicalLocationType says where a coordinate system is relative
+        to another known coordinate system.
+
+        Timestamp represents the most recent date and time when the
+        location was updated.
+
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="RefObjectName"
+            type="xs:IDREF"
+            minOccurs="0">
+            <xs:annotation>
+              <xs:appinfo>SolidObjectType</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="Timestamp"
+            type="xs:dateTime"
+            minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PointType">
+    <xs:annotation>
+      <xs:documentation>
+        PointType is derived from DataThingType.
+        An instance of PointType has the following elements:
+          Name (inherited, optional)
+          X
+          Y
+          Z.
+ 
+        X, Y, and Z are the Cartesian coordinates of the Point.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="X"
+            type="xs:decimal"/>
+          <xs:element name="Y"
+            type="xs:decimal"/>
+          <xs:element name="Z"
+            type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PoseLocationInType">
+    <xs:annotation>
+      <xs:documentation>
+        PoseLocationInType is derived from PoseLocationType.
+        An instance of PoseLocationInType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional).
+          Point (inherited)
+          XAxis (inherited)
+          ZAxis  (inherited)
+          PositionStandardDeviation (inherited, optional)
+          OrientationStandardDeviation (inherited, optional).
+ 
+        A PoseLocationInType indicates that the object is inside the
+        RefObject. The notion of 'inside' is vague and might be made
+        more precise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PoseLocationType"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PoseLocationOnType">
+    <xs:annotation>
+      <xs:documentation>
+        PoseLocationOnType is derived from PoseLocationType.
+        An instance of PoseLocationOnType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional).
+          Point (inherited)
+          XAxis (inherited)
+          ZAxis  (inherited)
+          PositionStandardDeviation (inherited, optional)
+          OrientationStandardDeviation (inherited, optional).
+ 
+        A PoseLocationOnType indicates that the Object is on top of
+        the RefObject. The notion of 'on top of' is vague and might be
+        made more precise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PoseLocationType"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PoseLocationType"
+    abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        PoseLocationType is derived from PhysicalLocationType.
+        An instance of PoseLocationType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional).
+          Point
+          XAxis
+          ZAxis 
+          PositionStandardDeviation (optional)
+          OrientationStandardDeviation (optional).
+ 
+        PoseLocationType is an abstract type from which more specific types
+        of pose location are derived. The Point locates the origin of a
+        coordinate system. The XAxis and ZAxis give the orientation of the
+        coordinate system. The data for the Point, the ZAxis and the XAxis
+        are expressed relative to the coordinate system of the reference
+        object, or relative to another coordinate system if there is no
+        reference object.
+ 
+        The PositionStandardDeviation is based on a normal distribution of
+        actual position about its given value. Thus, for example, the
+        actual position is expected to be within the given
+        PositionStandardDeviation amount 68% of the time and within twice
+        the given amount 95% of the time. The PositionStandardDeviation is
+        measured in the length units being used.
+ 
+        The OrientationStandardDeviation is based on a normal distribution
+        of orientation about its given value. The error is to be measured
+        as the angle of rotation about a single axis needed to rotate a
+        solid object from its stated orientation to its actual orientation.
+        The OrientationStandardDeviation is measured in the angle units
+        being used.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PhysicalLocationType">
+        <xs:sequence>
+          <xs:element name="Point"
+            type="PointType"/>
+          <xs:element name="XAxis"
+            type="VectorType"/>
+          <xs:element name="ZAxis"
+            type="VectorType"/>
+          <xs:element name="PositionStandardDeviation"
+            type="PositiveDecimalType"
+            minOccurs="0"/>
+          <xs:element name="OrientationStandardDeviation"
+            type="PositiveDecimalType"
+            minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="PoseOnlyLocationType">
+    <xs:annotation>
+      <xs:documentation>
+        PoseOnlyLocationType is derived from PoseLocationType.
+        An instance of PoseOnlyLocationType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional).
+          Point (inherited)
+          XAxis (inherited)
+          ZAxis  (inherited)
+          PositionStandardDeviation (inherited, optional)
+          OrientationStandardDeviation (inherited, optional).
+ 
+        An object located by a PoseOnlyLocationType may or may not be
+        inside or on top of the reference object of the
+        PoseOnlyLocationType.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PoseLocationType"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="PositiveDecimalType">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="RegionOfInterestType">
+    <xs:annotation>
+      <xs:documentation>
+       RegionOfInterestType is derived from DataThingType.
+        An instance of RegionOfInterestType has the following elements:
+          Name (inherited, optional)
+          UpperLeft Point
+          LowerRight Point
+          RefObjectName - The object that the points are in reference to. Any object of SOlidObjectType.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="RefObjectName" type="xs:IDREF">
+            <xs:annotation>
+              <xs:appinfo>SolidObjectType</xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="UpperLeft" type="PointType"/>
+          <xs:element name="LowerRight" type="PointType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RelativeLocationInType">
+    <xs:annotation>
+      <xs:documentation>
+        RelativeLocationInType is derived from RelativeLocationType.
+        An instance of RelativeLocationInType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional)
+          Description (inherited).
+ 
+        A RelativeLocationInType indicates that the SolidObjectType that
+        has the RelativeLocationType is in the RefObject. The notion of
+        'in' is vague and might be made more precise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="RelativeLocationType"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RelativeLocationOnType">
+    <xs:annotation>
+      <xs:documentation>
+        RelativeLocationOnType is derived from RelativeLocationType.
+        An instance of RelativeLocationOnType has the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional)
+          Description (inherited).
+ 
+        A RelativeLocationOnType indicates that the SolidObjectType that
+        has the RelativeLocationType is on top of the the RefObject. The
+        notion of 'on top of' is vague and might be made more precise.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="RelativeLocationType"/>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RelativeLocationType"
+    abstract="true">
+    <xs:annotation>
+      <xs:documentation>
+        RelativeLocationType is derived from PhysicalLocationType.
+        An instance of RelativeLocationType has a the following elements:
+          Name (inherited, optional)
+          RefObjectName (IDREF, inherited, optional)
+          Timestamp (inherited, optional)
+          Description.
+ 
+        RelativeLocationType is an abstract type from which more specific
+        types of relative location are derived. A RelativeLocationType
+        indicates that the SolidObjectType that has the
+        RelativeLocationType is on or in the RefObject. The Description may
+        be used to describe the relative positions of the object and its
+        reference object.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="PhysicalLocationType">
+        <xs:sequence>
+          <xs:element name="Description"
+            type="xs:string"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:simpleType name="TorqueUnitEnumType">
+    <xs:annotation>
+      <xs:documentation>
+        TorqueUnitEnumType enumerates torque units. This might be used,
+        for example in a command that sets torque units.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:NMTOKEN">
+      <xs:enumeration value="newtonMeter"/>
+      <xs:enumeration value="footPound"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="TwistType">
+    <xs:annotation>
+      <xs:documentation>
+        TwistType is derived from DataThingType.
+        An instance of TwistType has the following elements:
+          Name (inherited, optional)
+          LinearVelocity: VectorType
+          AngularVelocity: VectorType
+
+        A TwistType object represents the velocity of a
+        rigid object in SE(3).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="LinearVelocity"
+            type="VectorType"/>
+          <xs:element name="AngularVelocity"
+            type="VectorType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="VectorType">
+    <xs:annotation>
+      <xs:documentation>
+        VectorType is derived from DataThingType.
+        An instance of VectorType has the following elements:
+          Name (inherited, optional)
+          I
+          J
+          K.
+ 
+        I, J, and K represent the usual i, j, and k components of a 3D
+        vector.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="I"
+            type="xs:decimal"/>
+          <xs:element name="J"
+            type="xs:decimal"/>
+          <xs:element name="K"
+            type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="WrenchType">
+    <xs:annotation>
+      <xs:documentation>
+        WrenchType is derived from DataThingType.
+        An instance of WrenchType has the following elements:
+          Name (inherited, optional)
+          Force: VectorType
+          Moment: VectorType
+
+        A WrenchType object represents generalized forces and torques on a
+        rigid object in SE(3).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="Force"
+            type="VectorType"/>
+          <xs:element name="Moment"
+            type="VectorType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+</xs:schema>
