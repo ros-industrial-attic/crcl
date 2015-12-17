@@ -9092,7 +9092,7 @@ void generator::printCppCodeStart() /*  NO ARGUMENTS  */
   fprintf(ccFile, "#include <stdlib.h>            // for exit\n");
   fprintf(ccFile, "#include <list>\n");
   fprintf(ccFile, "#include <boost/regex.hpp>\n");
-  fprintf(ccFile, "#include \"%sxmlSchemaInstance.hh\"\n", includePrefix);
+  fprintf(ccFile, "#include <%sxmlSchemaInstance.hh>\n", includePrefix);
   fprintf(ccFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
 
   fprintf(ccFile, "\n");
@@ -10967,7 +10967,7 @@ void generator::printCppHeaderStart() /* NO ARGUMENTS */
 
   fprintf(hhFile, "#include <stdio.h>\n");
   fprintf(hhFile, "#include <list>\n");
-  fprintf(hhFile, "#include \"%sxmlSchemaInstance.hh\"\n", includePrefix);
+  fprintf(hhFile, "#include <%sxmlSchemaInstance.hh>\n", includePrefix);
   for (iter = includedSchemas->begin(); iter != includedSchemas->end(); iter++)
     {
       fprintf(hhFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, *iter);

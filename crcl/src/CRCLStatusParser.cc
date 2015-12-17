@@ -1,7 +1,7 @@
 #include <stdio.h>   // fprintf
 #include <string.h>  // strlen
 #include <stdlib.h>  // exit
-#include "crcl/CRCLStatusClasses.hh"
+#include "CRCLStatusClasses.hh"
 
 extern CRCLStatusFile * CRCLStatusTree;
 extern FILE * yyin;

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CRCLCommandInstance
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:noNamespaceSchemaLocation="../xmlSchemas/CRCLCommandInstance.xsd">
+  <Name>CRCLCommandInstance1</Name>
+  <CRCLCommand xsi:type="MoveThroughToType">
+    <Name>Command1</Name>
+    <CommandID>2</CommandID>
+    <MoveStraight>false</MoveStraight>
+    <Waypoint>
+      <Name>Waypoint1</Name>
+      <Point>
+        <Name>Point1</Name>
+        <X>2.5</X> <Y>1</Y> <Z>1</Z>
+      </Point>
+      <XAxis>
+        <Name>Vec1</Name>
+        <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+      <ZAxis>
+        <Name>Vec2</Name>
+        <I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+    </Waypoint>
+    <Waypoint>
+      <Name>Waypoint2</Name>
+      <Point>
+        <Name>Point2</Name>
+        <X>0.5</X> <Y>0</Y> <Z>2</Z>
+      </Point>
+      <XAxis>
+        <Name>Vec3</Name>
+        <I>1</I> <J>0</J> <K>0</K>
+      </XAxis>
+      <ZAxis>
+        <Name>Vec4</Name>
+        <I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+    </Waypoint>
+    <NumPositions>2</NumPositions>
+  </CRCLCommand>
+</CRCLCommandInstance>
