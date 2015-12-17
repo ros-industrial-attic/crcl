@@ -1,0 +1,5 @@
+*.~*~
+crcl/schemas/*.lex
+crcl/schemas/*.y
+crcl/schemas/*.cc
+crcl/schemas/*.hh
