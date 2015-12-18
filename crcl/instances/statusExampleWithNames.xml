@@ -7,7 +7,7 @@
     <Name>CommandStatus1</Name>
     <CommandID>1</CommandID>
     <StatusID>1</StatusID>
-    <CommandState>Working</CommandState>
+    <CommandState>CRCL_Working</CommandState>
   </CommandStatus>
   <JointStatuses>
     <Name>JointStatuses1</Name>
@@ -24,21 +24,23 @@
       <JointVelocity>0.87</JointVelocity>
     </JointStatus>
   </JointStatuses>
-  <Pose>
-    <Name>Pose1</Name>
-    <Point>
-      <Name>Point1</Name>
-      <X>1.5</X> <Y>1</Y> <Z>1</Z>
-    </Point>
-    <XAxis>
-      <Name>XAxis1</Name>
-      <I>1</I> <J>0</J> <K>0</K>
+  <PoseStatus>
+    <Pose>
+      <Name>Pose1</Name>
+      <Point>
+	<Name>Point1</Name>
+	<X>1.5</X> <Y>1</Y> <Z>1</Z>
+      </Point>
+      <XAxis>
+	<Name>XAxis1</Name>
+	<I>1</I> <J>0</J> <K>0</K>
       </XAxis>
-    <ZAxis>
-      <Name>ZAxis1</Name>
-      <I>0</I> <J>0</J> <K>-1</K>
-    </ZAxis>
-  </Pose>
+      <ZAxis>
+	<Name>ZAxis1</Name>
+	<I>0</I> <J>0</J> <K>-1</K>
+      </ZAxis>
+    </Pose>
+  </PoseStatus>
   <GripperStatus xsi:type="ParallelGripperStatusType">
     <Name>GripperStatus1</Name>
     <GripperName>jaws</GripperName>
