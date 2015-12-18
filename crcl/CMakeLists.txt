@@ -11,11 +11,11 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   )
 
-find_package(xml_common REQUIRED COMPONENTS xmlInstanceParserGenerator)
+find_package(xml_common REQUIRED)
 
 catkin_package(
   CATKIN_DEPENDS roscpp
-)
+  )
 
 # 
 # This makes the local project's include and lib directories available to
@@ -24,13 +24,13 @@ catkin_package(
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES crcl
-)
+  )
 
 include_directories(
   include
   src
   ${xml_common_INCLUDE_DIRS}
-)
+  )
 
 add_library(crcl
   src/CRCLCommandsClasses.cc
@@ -44,12 +44,12 @@ add_executable(CRCLCommandInstanceParser
   src/CRCLCommandInstanceLex.cc
   src/CRCLCommandInstanceYACC.cc
   include/crcl/CRCLCommandInstanceYACC.hh
-)
+  )
 
 target_link_libraries(CRCLCommandInstanceParser
   crcl
   xml_instance
-)
+  )
 
 add_executable(CRCLProgramInstanceParser
   src/CRCLProgramInstanceParser.cc
@@ -57,24 +57,63 @@ add_executable(CRCLProgramInstanceParser
   src/CRCLProgramInstanceLex.cc
   src/CRCLProgramInstanceYACC.cc
   include/crcl/CRCLProgramInstanceYACC.hh
-)
+  )
 
 target_link_libraries(CRCLProgramInstanceParser
   crcl
   xml_instance
-)
+  )
 
 add_executable(CRCLStatusParser
   src/CRCLStatusParser.cc
   src/CRCLStatusLex.cc
   src/CRCLStatusYACC.cc
   include/crcl/CRCLStatusYACC.hh
-)
+  )
 
 target_link_libraries(CRCLStatusParser
   crcl
   xml_instance
-)
+  )
+
+# 
+# these commands create the source code from the schema, if the schema is newer
+#
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/CRCLCommandInstanceClasses.cc ${PROJECT_SOURCE_DIR}/src/CRCLCommandInstanceParser.cc ${PROJECT_SOURCE_DIR}/src/CRCLCommandInstance.lex ${PROJECT_SOURCE_DIR}/src/CRCLCommandInstance.y ${PROJECT_SOURCE_DIR}/include/crcl/CRCLCommandInstanceClasses.hh
+  DEPENDS ${PROJECT_SOURCE_DIR}/schemas/CRCLCommandInstance.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && rosrun xml_common xmlInstanceParserGenerator -i xml_common/ -a crcl/ -x CRCLCommandInstance.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.y *.lex *.cc ${PROJECT_SOURCE_DIR}/src || true
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.hh ${PROJECT_SOURCE_DIR}/include/crcl || true
+  )
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/CRCLProgramInstanceClasses.cc ${PROJECT_SOURCE_DIR}/src/CRCLProgramInstanceParser.cc ${PROJECT_SOURCE_DIR}/src/CRCLProgramInstance.lex ${PROJECT_SOURCE_DIR}/src/CRCLProgramInstance.y ${PROJECT_SOURCE_DIR}/include/crcl/CRCLProgramInstanceClasses.hh
+  DEPENDS ${PROJECT_SOURCE_DIR}/schemas/CRCLProgramInstance.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && rosrun xml_common xmlInstanceParserGenerator -i xml_common/ -a crcl/ -x CRCLProgramInstance.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.y *.lex *.cc ${PROJECT_SOURCE_DIR}/src || true
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.hh ${PROJECT_SOURCE_DIR}/include/crcl || true
+  )
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/CRCLStatusClasses.cc ${PROJECT_SOURCE_DIR}/src/CRCLStatusParser.cc ${PROJECT_SOURCE_DIR}/src/CRCLStatus.lex ${PROJECT_SOURCE_DIR}/src/CRCLStatus.y ${PROJECT_SOURCE_DIR}/include/crcl/CRCLStatusClasses.hh
+  DEPENDS ${PROJECT_SOURCE_DIR}/schemas/CRCLStatus.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && rosrun xml_common xmlInstanceParserGenerator -i xml_common/ -a crcl/ -x CRCLStatus.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.y *.lex *.cc ${PROJECT_SOURCE_DIR}/src || true
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.hh ${PROJECT_SOURCE_DIR}/include/crcl || true
+  )
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/CRCLCommandsClasses.cc ${PROJECT_SOURCE_DIR}/include/crcl/CRCLCommandsClasses.hh
+  DEPENDS ${PROJECT_SOURCE_DIR}/schemas/CRCLCommands.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && rosrun xml_common xmlInstanceParserGenerator -i xml_common/ -a crcl/ -x CRCLCommands.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.cc ${PROJECT_SOURCE_DIR}/src || true
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.hh ${PROJECT_SOURCE_DIR}/include/crcl || true
+  )
+
+add_custom_command(OUTPUT ${PROJECT_SOURCE_DIR}/src/CRCLDataPrimitivesClasses.cc ${PROJECT_SOURCE_DIR}/include/crcl/CRCLDataPrimitivesClasses.hh
+  DEPENDS ${PROJECT_SOURCE_DIR}/schemas/CRCLDataPrimitives.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && rosrun xml_common xmlInstanceParserGenerator -i xml_common/ -a crcl/ -x CRCLDataPrimitives.xsd
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.cc ${PROJECT_SOURCE_DIR}/src || true
+  COMMAND cd ${PROJECT_SOURCE_DIR}/schemas && mv -f *.hh ${PROJECT_SOURCE_DIR}/include/crcl || true
+  )
 
 find_package(BISON)
 find_package(FLEX)

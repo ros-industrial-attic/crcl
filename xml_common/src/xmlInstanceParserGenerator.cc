@@ -11512,7 +11512,7 @@ void generator::printParser() /* NO ARGUMENTS */
   fprintf(parserFile, "#include <stdio.h>   // fprintf\n");
   fprintf(parserFile, "#include <string.h>  // strlen\n");
   fprintf(parserFile, "#include <stdlib.h>  // exit\n");
-  fprintf(parserFile, "#include \"%sClasses.hh\"\n", baseNameNoPath);
+  fprintf(parserFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
   if (stringInput)
     fprintf(parserFile, "#define MAX_SIZE 10000000\n");
   fprintf(parserFile, "\n");
