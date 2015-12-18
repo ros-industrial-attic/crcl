@@ -36,11 +36,12 @@ add_library(crcl
   src/CRCLCommandsClasses.cc
   src/CRCLStatusClasses.cc
   src/DataPrimitivesClasses.cc
+  src/CRCLProgramInstanceClasses.cc
+  src/CRCLCommandInstanceClasses.cc
   )
 
 add_executable(CRCLCommandInstanceParser
   src/CRCLCommandInstanceParser.cc
-  src/CRCLCommandInstanceClasses.cc
   src/CRCLCommandInstanceLex.cc
   src/CRCLCommandInstanceYACC.cc
   include/crcl/CRCLCommandInstanceYACC.hh
@@ -53,7 +54,6 @@ target_link_libraries(CRCLCommandInstanceParser
 
 add_executable(CRCLProgramInstanceParser
   src/CRCLProgramInstanceParser.cc
-  src/CRCLProgramInstanceClasses.cc
   src/CRCLProgramInstanceLex.cc
   src/CRCLProgramInstanceYACC.cc
   include/crcl/CRCLProgramInstanceYACC.hh
@@ -72,6 +72,24 @@ add_executable(CRCLStatusParser
   )
 
 target_link_libraries(CRCLStatusParser
+  crcl
+  xml_instance
+  )
+
+add_executable(makeCommandEndCanon
+  src/makeCommandEndCanon.cc
+  )
+
+target_link_libraries(makeCommandEndCanon
+  crcl
+  xml_instance
+  )
+
+add_executable(makeStatusExample
+  src/makeStatusExample.cc
+  )
+
+target_link_libraries(makeStatusExample
   crcl
   xml_instance
   )

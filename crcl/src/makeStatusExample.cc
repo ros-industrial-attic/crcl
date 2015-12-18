@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <string.h>
 #include "crcl/CRCLStatusClasses.hh"
 
@@ -10,7 +11,7 @@ int main(int argc, char * argv[])
   CommandStatusType * CommandStatusIn;
   JointStatusesType * JointStatusesIn;
   JointStatusType * JointStatus;
-  PoseType * PoseIn;
+  PoseStatusType * PoseIn;
   ParallelGripperStatusType * GripperStatusIn;
 #ifdef STRINGOUT
   char statusMessage[10000];
@@ -23,9 +24,9 @@ int main(int argc, char * argv[])
   headerIn = new XmlHeaderForCRCLStatus;
   CommandStatusIn = new CommandStatusType;
   JointStatusesIn = new JointStatusesType(0, new std::list<JointStatusType *>);
-  PoseIn = new PoseType;
+  PoseIn = new PoseStatusType;
   GripperStatusIn =
-    new ParallelGripperStatusType(0, new XmlID(strdup("jaws")),
+    new ParallelGripperStatusType(0, new XmlNMTOKEN(strdup("jaws")),
 				  new XmlDecimal("0.44"));
   GripperStatusIn->printTypp = true;
   CRCLStatusIn = new CRCLStatusType(0, CommandStatusIn, JointStatusesIn,
@@ -34,10 +35,11 @@ int main(int argc, char * argv[])
   headerIn->location =
     new SchemaLocation(strdup("xsi"),
 		       strdup("../xmlSchemas/CRCLStatus.xsd"), false);
+
   CommandStatusIn->Name = 0;
-  CommandStatusIn->CommandID =  new XmlPositiveInteger("1");
+  CommandStatusIn->CommandID =  new XmlNonNegativeInteger("1");
   CommandStatusIn->StatusID = new XmlPositiveInteger("1");
-  CommandStatusIn->CommandState = new CommandStateEnumType(strdup("Working"));
+  CommandStatusIn->CommandState = new CommandStateEnumType(strdup("CRCL_Working"));
   JointStatus = new JointStatusType(0, new XmlPositiveInteger("1"),
 				    new XmlDecimal("30.0"),
 				    new XmlDecimal("3.7"), 0);
@@ -46,18 +48,24 @@ int main(int argc, char * argv[])
 				    new XmlDecimal("90.0"), 0,
 				    new XmlDecimal("0.87"));
   JointStatusesIn->JointStatus->push_back(JointStatus);
+
   PoseIn->Name = 0;
-  PoseIn->Point = new PointType(0, new XmlDecimal("1.5"),
+
+  PoseIn->Pose = new PoseOnlyLocationType();
+
+  PoseIn->Pose->Point = new PointType(0, new XmlDecimal("1.5"),
 				new XmlDecimal("1"), new XmlDecimal("1"));
-  PoseIn->XAxis = new VectorType(0, new XmlDecimal("1"),
+
+  PoseIn->Pose->XAxis = new VectorType(0, new XmlDecimal("1"),
 				new XmlDecimal("0"), new XmlDecimal("0"));
-  PoseIn->ZAxis = new VectorType(0, new XmlDecimal("0"),
+  PoseIn->Pose->ZAxis = new VectorType(0, new XmlDecimal("0"),
 				new XmlDecimal("0"), new XmlDecimal("-1"));
+
 #ifdef STRINGOUT
   k = 0;
   K = &k;
   CRCLStatusFileIn->printSelf(statusMessage, K);
-  printf(statusMessage);
+  printf("%s", statusMessage);
 #else
   outFile = fopen("CRCLStatusFile", "w");
   CRCLStatusFileIn->printSelf(outFile);
