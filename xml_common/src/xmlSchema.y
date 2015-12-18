@@ -62,7 +62,9 @@ an annotation. As a result:
 #include "xmlSchemaYACC.hh"    // for token values
 
 #define YYERROR_VERBOSE
+#ifndef YYDEBUG
 #define YYDEBUG 1
+#endif
 #define ERRSIZE 100
 
 /********************************************************************/
