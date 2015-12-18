@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   )
 
-find_package(xml_common)
+find_package(xml_common REQUIRED COMPONENTS xmlInstanceParserGenerator)
 
 catkin_package(
   CATKIN_DEPENDS roscpp
