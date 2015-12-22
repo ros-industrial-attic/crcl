@@ -14,7 +14,7 @@ Tools, libraries and example code to aid users of dealing directly with  CRCL in
 Testing
 -------
 Do this:
-'''
+```
 #!/bin/bash
 
 cd /tmp
@@ -36,4 +36,4 @@ source devel/setup.bash
 catkin_make
 
 exit 0
-'''
+```
