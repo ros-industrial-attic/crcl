@@ -10,3 +10,30 @@ Tools, libraries and example code to aid users of dealing directly with  CRCL in
     * Java : https://github.com/wshackle/crcl4java
     * C# : https://github.com/wshackle/crcl4csharp
     * Python : tools/python subdirectory
+
+Testing
+-------
+Do this:
+'''
+#!/bin/bash
+
+cd /tmp
+rm -rf /tmp/crcl /tmp/test_ws
+git clone git@github.com:frederickproctor/crcl
+
+mkdir -p test_ws/src
+cd test_ws/src
+catkin_init_workspace
+ln -s /tmp/crcl crcl
+cd ..
+
+# need to make at least one package to get the devel/setup.bash
+catkin_make xml_common
+# now we can source this to get xml_common in our package path
+source devel/setup.bash
+
+# now make the rest
+catkin_make
+
+exit 0
+'''
