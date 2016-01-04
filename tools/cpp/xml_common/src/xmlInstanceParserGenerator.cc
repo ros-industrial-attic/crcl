@@ -7354,6 +7354,69 @@ void generator::printCppCodeComplexExtend( /* ARGUMENTS                     */
 
 /********************************************************************/
 
+#define TOMFIX 1
+
+#ifdef TOMFIX
+
+/* generator::printCppCodeDeleteElement
+
+Returned Value: none
+
+Called By: printCppCodeSequenceDeletes
+
+This prints the code that deletes an element. If the element is not 0
+and is a list, the elements of the list are deleted, and then the list
+is deleted. Otherwise, only the element is deleted. For example:
+
+A. for a list need to test for 0
+  if (Nickname)
+    {
+      std::list<XmlString *>::iterator iter;
+      for (iter = Nickname->begin(); iter != Nickname->end(); iter++)
+        delete *iter;
+      delete Nickname;
+    }
+
+B. for not a list do not need to test for 0
+  delete Nickname;
+
+*/
+
+void generator::printCppCodeDeleteElement( /* ARGUMENTS          */
+ XmlElementLocal * element)                /* element to delete  */
+{
+  static char typeName[NAMESIZE];
+  bool isBasic;
+
+  if (element->newTyp == 0)
+    {
+      fprintf(stderr, "element %s must have a type\n", element->name);
+      exit(1);
+    }
+  isBasic = (element->typPrefix &&
+         (strcmp(element->typPrefix, XmlCppBase::wg3Prefix) == 0));
+  if (element->needList)
+    {  // zero or many elements are allowed
+      if (isBasic)
+    findCppTypeName(element->newTyp, typeName);
+      else
+    strncpy(typeName, element->newTyp, NAMESIZE);
+      fprintf(ccFile, "  if (%s)\n", element->newName);
+      fprintf(ccFile, "    {\n");
+      fprintf(ccFile, "      std::list<%s *>::iterator iter;\n", typeName);
+      fprintf(ccFile, "      for (iter = %s->begin();\n", element->newName);
+      fprintf(ccFile, "           iter != %s->end(); iter++)\n",
+          element->newName);
+      fprintf(ccFile, "        delete *iter;\n");
+      fprintf(ccFile, "      delete %s;\n", element->newName);
+      fprintf(ccFile, "    }\n");
+    }
+  else
+    fprintf(ccFile, "  delete %s;\n", element->newName);
+}
+
+#else
+
 /* generator::printCppCodeDeleteElement
 
 Returned Value: none
@@ -7402,6 +7465,8 @@ void generator::printCppCodeDeleteElement( /* ARGUMENTS          */
     }
   fprintf(ccFile, "  delete %s;\n", element->newName);
 }
+
+#endif
 
 /********************************************************************/
 

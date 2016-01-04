@@ -390,13 +390,14 @@ JointStatusesType::JointStatusesType(
 
 JointStatusesType::~JointStatusesType()
 {
-  {
-    std::list<JointStatusType *>::iterator iter;
-    for (iter = JointStatus->begin();
-         iter != JointStatus->end(); iter++)
-      delete *iter;
-  }
-  delete JointStatus;
+  if (JointStatus)
+    {
+      std::list<JointStatusType *>::iterator iter;
+      for (iter = JointStatus->begin();
+           iter != JointStatus->end(); iter++)
+        delete *iter;
+      delete JointStatus;
+    }
 }
 
 void JointStatusesType::PRINTSELFDECL

@@ -101,13 +101,14 @@ ActuateJointsType::ActuateJointsType(
 
 ActuateJointsType::~ActuateJointsType()
 {
-  {
-    std::list<ActuateJointType *>::iterator iter;
-    for (iter = ActuateJoint->begin();
-         iter != ActuateJoint->end(); iter++)
-      delete *iter;
-  }
-  delete ActuateJoint;
+  if (ActuateJoint)
+    {
+      std::list<ActuateJointType *>::iterator iter;
+      for (iter = ActuateJoint->begin();
+           iter != ActuateJoint->end(); iter++)
+        delete *iter;
+      delete ActuateJoint;
+    }
 }
 
 void ActuateJointsType::PRINTSELFDECL
@@ -330,13 +331,14 @@ ConfigureJointReportsType::ConfigureJointReportsType(
 ConfigureJointReportsType::~ConfigureJointReportsType()
 {
   delete ResetAll;
-  {
-    std::list<ConfigureJointReportType *>::iterator iter;
-    for (iter = ConfigureJointReport->begin();
-         iter != ConfigureJointReport->end(); iter++)
-      delete *iter;
-  }
-  delete ConfigureJointReport;
+  if (ConfigureJointReport)
+    {
+      std::list<ConfigureJointReportType *>::iterator iter;
+      for (iter = ConfigureJointReport->begin();
+           iter != ConfigureJointReport->end(); iter++)
+        delete *iter;
+      delete ConfigureJointReport;
+    }
 }
 
 void ConfigureJointReportsType::PRINTSELFDECL
@@ -930,13 +932,14 @@ MoveThroughToType::MoveThroughToType(
 MoveThroughToType::~MoveThroughToType()
 {
   delete MoveStraight;
-  {
-    std::list<PoseOnlyLocationType *>::iterator iter;
-    for (iter = Waypoint->begin();
-         iter != Waypoint->end(); iter++)
-      delete *iter;
-  }
-  delete Waypoint;
+  if (Waypoint)
+    {
+      std::list<PoseOnlyLocationType *>::iterator iter;
+      for (iter = Waypoint->begin();
+           iter != Waypoint->end(); iter++)
+        delete *iter;
+      delete Waypoint;
+    }
   delete NumPositions;
 }
 
@@ -1785,13 +1788,14 @@ SetEndEffectorParametersType::SetEndEffectorParametersType(
 
 SetEndEffectorParametersType::~SetEndEffectorParametersType()
 {
-  {
-    std::list<ParameterSettingType *>::iterator iter;
-    for (iter = ParameterSetting->begin();
-         iter != ParameterSetting->end(); iter++)
-      delete *iter;
-  }
-  delete ParameterSetting;
+  if (ParameterSetting)
+    {
+      std::list<ParameterSettingType *>::iterator iter;
+      for (iter = ParameterSetting->begin();
+           iter != ParameterSetting->end(); iter++)
+        delete *iter;
+      delete ParameterSetting;
+    }
 }
 
 void SetEndEffectorParametersType::PRINTSELFDECL
@@ -2171,13 +2175,14 @@ SetRobotParametersType::SetRobotParametersType(
 
 SetRobotParametersType::~SetRobotParametersType()
 {
-  {
-    std::list<ParameterSettingType *>::iterator iter;
-    for (iter = ParameterSetting->begin();
-         iter != ParameterSetting->end(); iter++)
-      delete *iter;
-  }
-  delete ParameterSetting;
+  if (ParameterSetting)
+    {
+      std::list<ParameterSettingType *>::iterator iter;
+      for (iter = ParameterSetting->begin();
+           iter != ParameterSetting->end(); iter++)
+        delete *iter;
+      delete ParameterSetting;
+    }
 }
 
 void SetRobotParametersType::PRINTSELFDECL

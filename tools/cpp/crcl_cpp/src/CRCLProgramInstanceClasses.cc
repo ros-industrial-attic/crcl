@@ -81,13 +81,14 @@ CRCLProgramType::CRCLProgramType(
 CRCLProgramType::~CRCLProgramType()
 {
   delete InitCanon;
-  {
-    std::list<MiddleCommandType *>::iterator iter;
-    for (iter = MiddleCommand->begin();
-         iter != MiddleCommand->end(); iter++)
-      delete *iter;
-  }
-  delete MiddleCommand;
+  if (MiddleCommand)
+    {
+      std::list<MiddleCommandType *>::iterator iter;
+      for (iter = MiddleCommand->begin();
+           iter != MiddleCommand->end(); iter++)
+        delete *iter;
+      delete MiddleCommand;
+    }
   delete EndCanon;
 }
 
