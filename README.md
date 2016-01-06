@@ -28,8 +28,8 @@ ln -s /tmp/crcl crcl
 cd ..
 
 # need to make at least one package to get the devel/setup.bash
-catkin_make xml_common
-# now we can source this to get xml_common in our package path
+catkin_make xml_parser_generator
+# now we can source this to get xml_parser_generator in our package path
 source devel/setup.bash
 
 # now make the rest

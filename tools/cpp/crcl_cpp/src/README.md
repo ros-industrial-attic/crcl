@@ -7,7 +7,7 @@ makeCommandEndCanonNoLeak.cc
 makeStatusExample.cc
 ```
 
-These files are generated from the XML generator in the `xml_common` package, using the CRCL schemas:
+These files are generated from the XML generator in the `xml_parser_generator` package, using the CRCL schemas:
 
 ```
 CRCLCommandInstance.lex

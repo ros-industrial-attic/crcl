@@ -58,7 +58,7 @@ an annotation. As a result:
 #include <stdio.h>             // for stderr
 #include <string.h>            // for strcat
 #include <stdlib.h>            // for malloc, free
-#include "xml_common/xmlSchemaClasses.hh" // for xml classes
+#include "xml_parser_generator/xmlSchemaClasses.hh" // for xml classes
 #include "xmlSchemaYACC.hh"    // for token values
 
 #define YYERROR_VERBOSE

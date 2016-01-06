@@ -5,7 +5,7 @@
 #include <stdlib.h>            // for exit
 #include <list>
 #include <boost/regex.hpp>
-#include <xml_common/xmlSchemaInstance.hh>
+#include <xml_parser_generator/xmlSchemaInstance.hh>
 #include "crcl_cpp/DataPrimitivesClasses.hh"
 
 #define INDENT 2

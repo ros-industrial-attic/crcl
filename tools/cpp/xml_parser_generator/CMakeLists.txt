@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
-project(xml_common)
+project(xml_parser_generator)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -16,14 +16,14 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   CATKIN_DEPENDS roscpp
   INCLUDE_DIRS include
-  LIBRARIES xml_common xml_instance
+  LIBRARIES xml_parser_generator xml_instance
 )
 
 include_directories(
   include
 )
 
-add_library(xml_common 
+add_library(xml_parser_generator 
   src/patternLex.cc
   src/patternYACC.cc
   src/xmlSchemaClasses.cc
@@ -40,7 +40,7 @@ add_executable(xmlSchemaParser
   )
 
 target_link_libraries(xmlSchemaParser
-  xml_common
+  xml_parser_generator
 )
 
 add_executable(xmlInstanceParserGenerator
@@ -48,7 +48,7 @@ add_executable(xmlInstanceParserGenerator
   )
 
 target_link_libraries(xmlInstanceParserGenerator
-  xml_common
+  xml_parser_generator
 )
 
 find_package(BISON)
@@ -64,7 +64,7 @@ IF(FLEX_FOUND)
   FLEX_TARGET(Schema ${PROJECT_SOURCE_DIR}/src/xmlSchema.lex ${PROJECT_SOURCE_DIR}/src/xmlSchemaLex.cc COMPILE_FLAGS "-L")
 ENDIF()
 
-install(TARGETS xml_common xml_instance
+install(TARGETS xml_parser_generator xml_instance
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   )
 

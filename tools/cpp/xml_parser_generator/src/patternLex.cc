@@ -1,5 +1,5 @@
 
-#line 3 "/home/isd/proctor/test_ws/src/crcl/tools/cpp/xml_common/src/patternLex.cc"
+#line 3 "/home/isd/proctor/test_ws/src/crcl/tools/cpp/xml_parser_generator/src/patternLex.cc"
 
 #define  YY_INT_ALIGNED short int
 

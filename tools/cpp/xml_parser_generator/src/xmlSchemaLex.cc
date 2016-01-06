@@ -1,5 +1,5 @@
 
-#line 3 "/home/isd/proctor/test_ws/src/crcl/tools/cpp/xml_common/src/xmlSchemaLex.cc"
+#line 3 "/home/isd/proctor/test_ws/src/crcl/tools/cpp/xml_parser_generator/src/xmlSchemaLex.cc"
 
 #define  YY_INT_ALIGNED short int
 
@@ -954,7 +954,7 @@ PATENUMVALUE state is entered if "value" is read and inPatEnum is 1.
 */
 
 #include <string.h>            // for strdup
-#include "xml_common/xmlSchemaClasses.hh" // for classes referenced in xmlSchemaYACC.hh
+#include "xml_parser_generator/xmlSchemaClasses.hh" // for classes referenced in xmlSchemaYACC.hh
 #include "xmlSchemaYACC.hh"    // for tokens, yylval, etc.
 
 #define ECHO_IT 1

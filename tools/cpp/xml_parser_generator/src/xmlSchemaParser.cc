@@ -25,7 +25,7 @@ The default is to reprint documentation as is.
 #include <stdio.h>   // fprintf
 #include <string.h>  // strlen
 #include <stdlib.h>  // exit
-#include "xml_common/xmlSchemaClasses.hh"
+#include "xml_parser_generator/xmlSchemaClasses.hh"
 
 extern XmlSchemaFile * xmlSchemaFile;
 extern FILE * yyin;

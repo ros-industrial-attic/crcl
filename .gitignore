@@ -15,12 +15,12 @@ crcl/cmake_install.cmake
 crcl/devel/
 crcl/gtest/
 
-xml_common/CMakeCache.txt
-xml_common/CMakeFiles/
-xml_common/CTestTestfile.cmake
-xml_common/Makefile
-xml_common/catkin/
-xml_common/catkin_generated/
-xml_common/cmake_install.cmake
-xml_common/devel/
-xml_common/gtest/
+xml_parser_generator/CMakeCache.txt
+xml_parser_generator/CMakeFiles/
+xml_parser_generator/CTestTestfile.cmake
+xml_parser_generator/Makefile
+xml_parser_generator/catkin/
+xml_parser_generator/catkin_generated/
+xml_parser_generator/cmake_install.cmake
+xml_parser_generator/devel/
+xml_parser_generator/gtest/

@@ -4,7 +4,7 @@
 #define CRCLCOMMANDINSTANCE_HH
 #include <stdio.h>
 #include <list>
-#include <xml_common/xmlSchemaInstance.hh>
+#include <xml_parser_generator/xmlSchemaInstance.hh>
 #include "crcl_cpp/CRCLCommandsClasses.hh"
 
 /*********************************************************************/

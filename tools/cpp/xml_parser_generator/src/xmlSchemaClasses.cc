@@ -1,4 +1,4 @@
-#include "xml_common/xmlSchemaClasses.hh"
+#include "xml_parser_generator/xmlSchemaClasses.hh"
 #include <stdio.h>             // for printf, etc.
 #include <string.h>            // for strdup
 #include <ctype.h>             // isalpha, isalnum

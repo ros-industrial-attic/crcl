@@ -1,4 +1,4 @@
-These files in this `include/xml_common` directory are hand edited: 
+These files in this `include/xml_parser_generator` directory are hand edited: 
 
 ```
 xmlInstanceParserGenerator.hh

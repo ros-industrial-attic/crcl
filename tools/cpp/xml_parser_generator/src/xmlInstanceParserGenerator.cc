@@ -1065,8 +1065,8 @@ the all the lists were complete.
 #include <list>      // list
 #include <map>       // map
 #include <string>    // string
-#include "xml_common/xmlSchemaClasses.hh"
-#include "xml_common/xmlInstanceParserGenerator.hh"
+#include "xml_parser_generator/xmlSchemaClasses.hh"
+#include "xml_parser_generator/xmlInstanceParserGenerator.hh"
 #define XMLSCHEMAINSTANCEBASE "XmlSchemaInstanceBase"
 
 static char *includePrefix = NULL;
@@ -13255,7 +13255,7 @@ void generator::usageMessage( /* ARGUMENTS                            */
   fprintf(stderr, "Example 2: %s -s -x plan.xsd\n", command);
   fprintf(stderr, "Example 3: %s -p yypl -x plan.xsd\n", command);
   fprintf(stderr, "Example 4: %s -x plan.xsd -h planClasses.hh\n", command);
-  fprintf(stderr, "Example 5: %s -i xml_common/ -a crcl/ -x plan.xsd\n", command);
+  fprintf(stderr, "Example 5: %s -i xml_parser_generator/ -a crcl/ -x plan.xsd\n", command);
   exit(1);
 }
 

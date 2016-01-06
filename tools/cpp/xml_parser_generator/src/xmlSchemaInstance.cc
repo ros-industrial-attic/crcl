@@ -3,7 +3,7 @@
 #include <stdio.h>              // for fprintf, etc.
 #include <stdlib.h>             // for exit
 #include <string.h>             // for strcmp
-#include "xml_common/xmlSchemaInstance.hh"
+#include "xml_parser_generator/xmlSchemaInstance.hh"
 
 /* 
 

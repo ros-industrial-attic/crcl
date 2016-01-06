@@ -1,4 +1,4 @@
-These files in this `xml_common/src` directory are hand edited: 
+These files in this `xml_parser_generator/src` directory are hand edited: 
 
 ```
 pattern.lex
