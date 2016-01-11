@@ -16,74 +16,67 @@
       execution system.
 
       CRCL is intended for use with devices typically described as
-      industrial robots and for other positionable automated devices
-      such as automated guided vehicles (AGVs). An AGV with a robotic
-      arm attached may be regarded as a single robot responding to a
-      single stream of CRCL commands or as two robots responding to
-      two separate streams of CRCL commands.
+      industrial robots and for other positionable automated devices such
+      as automated guided vehicles (AGVs). An AGV with a robotic arm
+      attached may be regarded as a single robot responding to a single
+      stream of CRCL commands or as two robots responding to two separate
+      streams of CRCL commands.
 
-      Although CRCL is not a programming language, the commands are in
-      the context of a session consisting of getting ready for
-      activity, performing activities, and becoming quiescent.
-      CRCL commands may be collected in files for testing purposes,
-      but executing such files (by giving the commands in the order
-      they occur in the file) should not be the normal operating
-      mode of a robot.
+      Although CRCL is not a programming language, the commands are in the
+      context of a session consisting of getting ready for activity,
+      performing activities, and becoming quiescent. CRCL commands may be
+      collected in files for testing purposes, but executing such files (by
+      giving the commands in the order they occur in the file) should not
+      be the normal operating mode of a robot.
 
-      The robot model on which the CRCL commands are based has a
-      controlled point and orientation. The speed, and acceleration
-      that are the subject of CRCL commands apply to the controlled
-      point. The positions (Poses) that are the subject of CRCL
-      commands apply to the controlled point and orientation. The
-      coordinate system for Poses in CRCL commands is the coordinate
-      system of the workstation in which the robot is working, and
-      the units are the current angle and length units of the plan.
+      The robot model on which the CRCL commands are based has a controlled
+      point and orientation. The speed, and acceleration that are the
+      subject of CRCL commands apply to the controlled point. The positions
+      (Poses) that are the subject of CRCL commands apply to the controlled
+      point and orientation. The coordinate system for Poses in CRCL
+      commands is the coordinate system of the workstation in which the
+      robot is working.
 
-      For a robot designed to use a single end effector, when the
-      robot has an end effector such as a gripper attached, the
-      controlled point is a point designated by the robot system
-      designer that is fixed in the coordinate system of the end
-      effector. For most purposes, that point should be near the place
-      on the end effector where the end effector performs its function
-      (between the jaws of a gripper, for example). The location of
-      the coordinate system of the end effector with respect to the
-      mechanical components of the end effector must be set by the
-      robot system designer. CRCL commands are used to specify
-      orientation by describing where the Z and X axes of the end
-      effector coordinate system should point.
+      For a robot designed to use a single end effector, when the robot has
+      an end effector such as a gripper attached, the controlled point is a
+      point designated by the robot system designer that is fixed in the
+      coordinate system of the end effector. For most purposes, that point
+      should be near the place on the end effector where the end effector
+      performs its function (between the jaws of a gripper, for example).
+      The location of the coordinate system of the end effector with
+      respect to the mechanical components of the end effector must be set
+      by the robot system designer. CRCL commands are used to specify
+      orientation by describing where the Z and X axes of the end effector
+      coordinate system should point.
 
-      Also for a robot designed to use a single end effector, when no
-      end effector is attached, the controlled point is a point
-      designated by the robot system designer that is fixed in the
-      coordinate system of the robot component (call it LastLink) to
-      which an end effector may be attached. The location of the
-      coordinate system of LastLink with respect to the mechanical
-      components of LastLink must be set by the robot system designer.
-      CRCL commands may be used to specify orientation of LastLink by
-      describing where the Z and X axes of the LastLink coordinate
-      system should point.
+      Also for a robot designed to use a single end effector, when no end
+      effector is attached, the controlled point is a point designated by
+      the robot system designer that is fixed in the coordinate system of
+      the robot component (call it LastLink) to which an end effector may
+      be attached. The location of the coordinate system of LastLink with
+      respect to the mechanical components of LastLink must be set by the
+      robot system designer. CRCL commands may be used to specify
+      orientation of LastLink by describing where the Z and X axes of the
+      LastLink coordinate system should point.
 
-      Attaching or detaching an end effector changes the controlled
-      point.
+      Attaching or detaching an end effector changes the controlled point.
 
-      Where command arguments are in terms of units, the units are as
-      set by the most recent SetXXXUnits command. If no SetXXXUnits
-      command for a given unit type has been executed since the last
-      InitCanonType command was executed, the following default units
-      apply:
+      Where command arguments are in terms of units, the units are as set
+      by the most recent SetXXXUnits command. If no SetXXXUnits command for
+      a given unit type has been executed since the last InitCanonType
+      command was executed, the following default units apply:
         length -- meter
         angle  -- radian
         force  -- newton
         torque -- newtonMeter
 
-      For an AGV without an end effector, the controlled point is a
-      point designated by the robot system designer that is fixed in
-      the coordinate system of the AGV. The location of the coordinate
-      system of the AGV with respect to the mechanical components of
-      the AGV must be set by the robot system designer. CRCL commands
-      may be used to specify orientation of the AGV by describing
-      where the Z and X axes of the AGV coordinate system should
-      point.
+      For an AGV without an end effector, the controlled point is a point
+      designated by the robot system designer that is fixed in the
+      coordinate system of the AGV. The location of the coordinate system
+      of the AGV with respect to the mechanical components of the AGV must
+      be set by the robot system designer. CRCL commands may be used to
+      specify orientation of the AGV by describing where the Z and X axes
+      of the AGV coordinate system should point.
 
       If any joint setting or joint status reporting is done, it is assumed
       that the system sending canonical commands and the system executing
@@ -92,18 +85,17 @@
       also have the same understanding of where the zero point is and which
       direction is positive for each joint.
 
-      In order that this file may be translateable into OWL, all
+      In order that this file may be translatable into OWL, all
       complexTypes in this file include the (optional) Name element,
-      inherited from DataThingType. If an instance file has instances
-      of complex data without names, it will not be translateable into
-      OWL.
+      inherited from DataThingType. If an instance file has instances of
+      complex data without names, it will not be translatable into OWL.
 
-      This file uses the term "single axis rotation" (and similar terms
-      such as "single axis rotational speed"). When referring to motion
-      from one pose to another. It is always possible to find a single
-      axis and an amount of rotation around that axis that moves from
-      one orientation to another. That rotation is what is meant by
-      "single axis rotation".
+      This file uses the term 'single axis rotation' (and similar terms
+      such as 'single axis rotational speed'). When referring to motion
+      from one pose to another. It is always possible to find a single axis
+      and an amount of rotation around that axis that moves from one
+      orientation to another. That rotation is what is meant by 'single
+      axis rotation'.
 
       A few abbreviations are used in names. They are
         Accel = Acceleration
@@ -146,12 +138,13 @@
         An instance of ActuateJointType has the following elements:
           Name (inherited, optional)
           JointNumber
-          Actuate.
+          JointPosition
+          JointDetails.
 
         JointPosition is the target position for the joint. JointDetails
-        provides either the speed and acceleration to use in getting to the
-        position or the force and rate of change of force to use in getting
-        to the position.
+        provides either (1) the speed and acceleration to use in getting to
+        the position or (2) the force or torque and rate of change of force
+        or torque to use in getting to the position.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -174,8 +167,7 @@
         CloseToolChangerType is derived from MiddleCommandType. 
         An instance of CloseToolChangerType has the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
         After an instance of CloseToolChangerType is executed, it is
         understood that if the tool changer was in position to acquire an
@@ -274,13 +266,12 @@
     abstract="true">
     <xs:annotation>
       <xs:documentation>
-        CRCLCommandType is derived from DataThingType.
+        The abstract CRCLCommandType is derived from DataThingType.
         An instance of CRCLCommandType has the following elements:
           Name (inherited, optional)
-          CommandID
-          .
+          CommandID.
 
-         CRCLCommandType is an abstract type from which all other
+        CRCLCommandType is an abstract type from which all other
         CRCL commands are derived.
       </xs:documentation>
     </xs:annotation>
@@ -323,8 +314,7 @@
         EndCanonType is derived from CRCLCommandType.
         An instance of EndCanonType has the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
         An instance of EndCanonType is used to indicate that the robot
         should not execute any further CRCL commands other than an
@@ -344,8 +334,7 @@
         GetStatusType is derived from MiddleCommandType.
         An instance of GetStatusType has the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
         An instance of GetStatusType is used to indicate that the robot
         should report status immediately. The joint status portion of
@@ -364,17 +353,15 @@
         InitCanonType is derived from CRCLCommandType.
         An instance of InitCanonType has the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
-        An instance of InitCanonType is used to indicate that the
-        robot should be prepared to execute further canonical robot
-        commands. When a robot is ready to execute commands, the first
-        CRCL command it should be sent is an instance of
-        InitCanonType. Any CRCL commands received before an instance
-        of InitCanonType must not be executed. Other robot-specific
-        actions may be taken in preparation for executing CRCL
-        commands.
+        An instance of InitCanonType is used to indicate that the robot
+        should be prepared to execute further canonical robot commands.
+        When a robot is ready to execute commands, the first CRCL command
+        it should be sent is an instance of InitCanonType. Any CRCL
+        commands received before an instance of InitCanonType must not be
+        executed. Other robot-specific actions may be taken in preparation
+        for executing CRCL commands.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -386,12 +373,12 @@
     abstract="true">
     <xs:annotation>
       <xs:documentation>
-        JointDetailsType is derived from DataThingType.
+        The abstract JointDetailsType is derived from DataThingType.
         An instance of JointDetailsType has the following elements:
           Name (inherited, optional)
           .
 
-        JointDetailsType is the parent type of:
+        JointDetailsType is an abstract type used as the parent type of:
           JointSpeedAccelType
           JointForceTorqueType
       </xs:documentation>
@@ -404,6 +391,12 @@
   <xs:complexType name="JointForceTorqueType">
     <xs:annotation>
       <xs:documentation>
+        JointForceTorqueType is derived from JointDetailsType.
+        An instance of JointForceTorqueType has the following elements:
+          Name (inherited, optional)
+          Setting (optional)
+          ChangeRate (optional).
+
         JointForceTorqueType specifies the force or torque and the rate of
         change of force or torque for a joint. For a translational joint,
         Setting is in current force units, and ChangeRate is in current
@@ -429,6 +422,12 @@
   <xs:complexType name="JointSpeedAccelType">
     <xs:annotation>
       <xs:documentation>
+        JointSpeedAccelType is derived from JointDetailsType.
+        An instance of JointSpeedAccelType has the following elements:
+          Name (inherited, optional)
+          JointSpeed (optional)
+          JointAccel (optional).
+
         JointSpeedAccelType specifies the speed and acceleration for a
         joint. For a rotational joint, the speed units are the current
         angle units per second, and the acceleration units are the current
@@ -479,11 +478,10 @@
     abstract="true">
     <xs:annotation>
       <xs:documentation>
-        MiddleCommandType is derived from CRCLCommandType.
+        The abstract MiddleCommandType is derived from CRCLCommandType.
         MiddleCommandType has  the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
         MiddleCommandType is the abstract parent type of specific CRCL
         command types. Only derived types of MiddleCommandType may be
@@ -513,35 +511,34 @@
 
         The command is executed as follows.
 
-        First, if the StartPosition exists, the controlled point and
-        axis are moved to the StartPosition along any convenient
-        trajectory.
+        First, if the StartPosition exists, the controlled point and axis
+        are moved to the StartPosition along any convenient trajectory.
 
         Second, if the AxialDistanceFree exists and is not zero, the
         controlled point is moved along the axis by the given
         AxialDistanceFree.
 
         Third and finally, a screwing motion is made. If there is no
-        AxisPoint (or if an AxisPoint is given that is at the
-        controlled point), the gripper rotates around its axis through
-        the angle given by Turn at a constant rate while
-        simultaneously translating along the axis at a constant rate (the
-        currenly set speed) through the AxialDistanceScrew so that the
-        rotation and translation finish at the same time. If there is
-        an AxisPoint and it differs from the location of the
-        controlled point, the controlled point simultanously (1) rotates
-        as above, (2) revolves around an axis through the AxisPoint
-        parallel to the controlled axis, and (3) translates as above.
-        That makes a helical motion of the controlled point. The
-        motion along the helix is done at the currently set speed.
+        AxisPoint (or if an AxisPoint is given that is at the controlled
+        point), the gripper rotates around its axis through the angle given
+        by Turn at a constant rate while simultaneously translating along
+        the axis at a constant rate (the currently set speed) through the
+        AxialDistanceScrew so that the rotation and translation finish at
+        the same time. If there is an AxisPoint and it differs from the
+        location of the controlled point, the controlled point
+        simultaneously (1) rotates as above, (2) revolves around an axis
+        through the AxisPoint parallel to the controlled axis, and (3)
+        translates as above. That makes a helical motion of the controlled
+        point. The motion along the helix is done at the currently set
+        speed.
 
-        A positive value of AxialDistanceFree or AxialDistanceScrew
-        means to move away from the end effector. A negative value
-        means to move toward the end effector.
+        A positive value of AxialDistanceFree or AxialDistanceScrew means
+        to move away from the end effector. A negative value means to move
+        toward the end effector.
 
-        A positive value of Turn means to rotate (and possibly revolve)
-        in a counterclockwise sense as viewed from the positive Z
-        axis of the gripper (the region extending away from the gripper).
+        A positive value of Turn means to rotate (and possibly revolve) in
+        a counterclockwise sense as viewed from the positive Z axis of the
+        gripper (the region extending away from the gripper).
 
         The robot must reach the EndPosition within the tolerance
         established (1) by the tolerance given for the pose in the
@@ -550,15 +547,15 @@
         SetEndPoseToleranceType. The speed and acceleration to use are set
         either in the EndPosition or by previously executed CRCL commands.
 
-        The type of EndPosition may be either PoseOnlyLocationType
-        or PoseAndSetType, which is derived from PoseOnlyLocationType.
+        In an instance file, the type of StartPosition may be either
+        PoseType or PoseAndSetType, which is derived from PoseType.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
       <xs:extension base="MiddleCommandType">
         <xs:sequence>
           <xs:element name="StartPosition"
-            type="PoseOnlyLocationType"
+            type="PoseType"
             minOccurs="0"/>
           <xs:element name="AxisPoint"
             type="PointType"
@@ -603,8 +600,8 @@
         convenient trajectory between Waypoints. In either case, there are
         no restrictions on the values of XAxis and ZAxis between waypoints.
 
-        The type of each Waypoint may be either PoseOnlyLocationType
-        or PoseAndSetType, which is derived from PoseOnlyLocationType.
+        The type of each Waypoint may be either PoseType or
+        PoseAndSetType, which is derived from PoseType.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -613,7 +610,7 @@
           <xs:element name="MoveStraight"
             type="xs:boolean"/>
           <xs:element name="Waypoint"
-            type="PoseOnlyLocationType"
+            type="PoseType"
             minOccurs="2"
             maxOccurs="unbounded"/>
           <xs:element name="NumPositions"
@@ -645,8 +642,8 @@
         SetEndPoseToleranceType. The speed and acceleration to use are set
         either in the EndPosition or by previously executed CRCL commands.
 
-        The type of EndPosition may be either PoseOnlyLocationType
-        or PoseAndSetType, which is derived from PoseOnlyLocationType.
+        The type of EndPosition may be either PoseType or
+        PoseAndSetType, which is derived from PoseType.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -655,7 +652,7 @@
           <xs:element name="MoveStraight"
             type="xs:boolean"/>
           <xs:element name="EndPosition"
-            type="PoseOnlyLocationType"/>
+            type="PoseType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -667,8 +664,7 @@
         OpenToolChangerType is derived from MiddleCommandType. 
         An instance of OpenToolChangerType has the following elements:
           Name (inherited, optional)
-          CommandID (inherited)
-          .
+          CommandID (inherited).
 
         After an instance of OpenToolChangerType is executed, it is
         understood that if a gripper was mounted on the robot, the
@@ -711,16 +707,12 @@
   <xs:complexType name="PoseAndSetType">
     <xs:annotation>
       <xs:documentation>
-        PoseAndSetType is derived from PoseOnlyLocationType. 
+        PoseAndSetType is derived from PoseType. 
         An instance of PoseAndSetType has the following elements:
           Name (inherited, optional)
-          RefObjectName (IDREF, inherited)
-          Timestamp (inherited, optional)
           Point (inherited)
           XAxis (inherited)
           ZAxis  (inherited)
-          PositionStandardDeviation (inherited, optional)
-          OrientationStandardDeviation (inherited, optional)
           Coordinated
           TransSpeed (optional)
           RotSpeed (optional)
@@ -744,7 +736,7 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
-      <xs:extension base="PoseOnlyLocationType">
+      <xs:extension base="PoseType">
         <xs:sequence>
           <xs:element name="Coordinated"
             type="xs:boolean"/>
@@ -781,13 +773,12 @@
           ZAxisTolerance (optional).
 
         The XPointTolerance is the distance along the XAxis in current
-        length units within which the controlled point must come from
-        the X value of the point given in the pose with which the pose
-        tolerance is associated. The YPointTolerance and
-        ZPointTolerance are similar. The XAxisTolerance is the angle in
-        current angle units within which the XAxis must come from the
-        given XAxis. The ZAxisTolerance is similar. All five
-        tolerances must be satisfied at the same instant.
+        length units within which the controlled point must come from the X
+        value of the point given in the pose with which the pose tolerance
+        is associated. The YPointTolerance and ZPointTolerance are similar.
+        The XAxisTolerance is the angle in current angle units within which
+        the XAxis must come from the given XAxis. The ZAxisTolerance is
+        similar. All five tolerances must be satisfied at the same instant.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -817,8 +808,7 @@
     <xs:annotation>
       <xs:documentation>
         RotAccelAbsoluteType is derived from RotAccelType.
-        An instance of RotAccelAbsoluteType has the following
-        elements:
+        An instance of RotAccelAbsoluteType has the following elements:
           Name (inherited, optional)
           Setting.
 
@@ -869,7 +859,7 @@
           Name (inherited, optional)
           .
 
-        RotAccelType is used as the parent type of: 
+        RotAccelType is an abstract type used as the parent type of:
           RotAccelAbsoluteType
           RotAccelRelativeType.
       </xs:documentation>
@@ -934,7 +924,7 @@
           Name (inherited, optional)
           .
 
-        RotSpeedType is used as the parent type of: 
+        RotSpeedType is an abstract type used as the parent type of: 
           RotSpeedAbsoluteType
           RotSpeedRelativeType.
       </xs:documentation>
@@ -954,10 +944,9 @@
           CommandID (inherited)
           ProgramText.
 
-        The RunProgramType is used to instruct the low level controller
-        to run a program written in a non-CRCL language that controller
-        understands. The ProgramText element gives the text of the
-        program.
+        The RunProgramType is used to instruct the low level controller to
+        run a program written in a non-CRCL language that controller
+        understands. The ProgramText element gives the text of the program.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1006,9 +995,9 @@
 
         SetEndEffectorParametersType is for setting parameters of end
         effectors that have parameters. The meaning of the parameter
-        settings is not part of the CRCL. It is expected that this
-        command will be used only to send parameter values that can
-        be used by the end effector currently in use.
+        settings is not part of CRCL. It is expected that this command will
+        be used only to send parameter values that can be used by the end
+        effector currently in use.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1032,20 +1021,19 @@
           CommandID (inherited)
           Setting.
 
-        SetEndEffectorType is for setting the effectivity of end
-        effectors.  If an end effector has multiple control modes, the
-        control mode must be set using a SetEndEffectorParameters
-        command, so that the meaning of SetEndEffector commands is
-        unambiguous.
+        SetEndEffectorType is for setting the effectivity of end effectors.
+        If an end effector has multiple control modes, the control mode
+        must be set using a SetEndEffectorParameters command, so that the
+        meaning of SetEndEffector commands is unambiguous.
 
-        For end effectors that have a continuously variable setting,
-        the Setting means a fraction of maximum openness, force, torque,
-        power, etc.
+        For end effectors that have a continuously variable setting, the
+        Setting means a fraction of maximum openness, force, torque, power,
+        etc.
 
-        For end effectors that have only two choices (powered or
-        unpowered, open or closed, on or off), a positive Setting
-        value means powered, open, or on, while a zero Setting value
-        means unpowered, closed, or off.
+        For end effectors that have only two choices (powered or unpowered,
+        open or closed, on or off), a positive Setting value means powered,
+        open, or on, while a zero Setting value means unpowered, closed, or
+        off.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1061,7 +1049,7 @@
   <xs:complexType name="SetEndPoseToleranceType">
     <xs:annotation>
       <xs:documentation>
-        SetEndPseToleranceType is derived from MiddleCommandType.
+        SetEndPoseToleranceType is derived from MiddleCommandType.
         An instance of SetEndPoseToleranceType has the following
         elements:
           Name (inherited, optional)
@@ -1109,15 +1097,15 @@
   <xs:complexType name="SetIntermediatePoseToleranceType">
     <xs:annotation>
       <xs:documentation>
-      SetIntermediatePoseToleranceType is derived from MiddleCommandType.
-        An instance of SetIntermediatePoseToleranceType has the
-        following elements:
+        SetIntermediatePoseToleranceType is derived from MiddleCommandType.
+        An instance of SetIntermediatePoseToleranceType has the following
+        elements:
           Name (inherited, optional)
           CommandID (inherited)
           Tolerance.
 
-      The Tolerance element indicates to the robot the precision with
-      which it must reach each intermediate waypoint.
+        The Tolerance element indicates to the robot the precision with
+        which it must reach each intermediate waypoint.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1193,7 +1181,7 @@
 
         SetRobotParametersType is for setting robot parameters that
         cannot be set by any other CRCL command. The meaning of the
-        parameter settings is not part of the CRCL.
+        parameter settings is not part of CRCL.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1217,6 +1205,8 @@
           CommandID (inherited)
           RotAccel.
 
+        RotAccel specifies the rotational acceleration that should
+        be used.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1239,6 +1229,7 @@
           CommandID (inherited)
           RotSpeed.
 
+        RotSpeed specifies the rotational speed that should be used.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1260,7 +1251,7 @@
           CommandID (inherited)
           UnitName.
 
-        UnitName is a string that can be only the literals 'newtonMeter',
+        UnitName is a string that can be only the literals 'newtonMeter'
         or 'footPound'. This tells the robot that all further commands
         giving torque values will implicitly use the named unit.
       </xs:documentation>
@@ -1285,6 +1276,8 @@
           CommandID (inherited)
           TransAccel.
 
+        TransAccel specifies the translational acceleration that should
+        be used.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1307,6 +1300,7 @@
           CommandID (inherited)
           TransSpeed.
 
+        TransSpeed specifies the translational speed that should be used.
       </xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -1424,12 +1418,11 @@
     <xs:annotation>
       <xs:documentation>
         The abstract TransAccelType is derived from DataThingType.
-        An instance of TransAccelType has the following
-        elements:
+        An instance of TransAccelType has the following elements:
           Name (inherited, optional)
           .
 
-        TransAccelType is used as the parent type of: 
+        TransAccelType is an abstract type used as the parent type of: 
           TransAccelAbsoluteType
           TransAccelRelativeType.
       </xs:documentation>
@@ -1494,7 +1487,7 @@
           Name (inherited, optional)
           .
 
-        TransSpeedType is used as the parent type of: 
+        TransSpeedType is an abstract type used as the parent type of: 
           TransSpeedAbsoluteType
           TransSpeedRelativeType.
       </xs:documentation>

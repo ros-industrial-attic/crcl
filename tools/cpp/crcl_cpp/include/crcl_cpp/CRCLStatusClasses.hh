@@ -190,13 +190,13 @@ public:
   PoseStatusType();
   PoseStatusType(
     XmlID * NameIn,
-    PoseOnlyLocationType * PoseIn,
+    PoseType * PoseIn,
     TwistType * TwistIn,
     WrenchType * WrenchIn);
   ~PoseStatusType();
   void PRINTSELFDECL;
 
-  PoseOnlyLocationType * Pose;
+  PoseType * Pose;
   TwistType * Twist;
   WrenchType * Wrench;
 

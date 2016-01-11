@@ -14,7 +14,11 @@ This ignores white space outside of meaningful strings of characters.
 #define YY_NO_UNISTD_H
 #endif
 #include <string.h>          // for strdup
+#ifdef OWL
+#include "owlCRCLStatusClasses.hh"
+#else
 #include "crcl_cpp/CRCLStatusClasses.hh"
+#endif
 #include "crcl_cpp/CRCLStatusYACC.hh"    // for tokens, yylval, etc.
 
 #ifndef NO_ECHO
@@ -81,8 +85,6 @@ W [ \t\n\r]*
 "<"{W}"CommandState"          {ECH; return COMMANDSTATESTART;}
 "</"{W}"CommandStatus"{W}">"  {ECH; return COMMANDSTATUSEND;}
 "<"{W}"CommandStatus"         {ECH; return COMMANDSTATUSSTART;}
-"</"{W}"Description"{W}">"    {ECH; return DESCRIPTIONEND;}
-"<"{W}"Description"           {ECH; return DESCRIPTIONSTART;}
 "</"{W}"Finger1Force"{W}">"   {ECH; return FINGER1FORCEEND;}
 "<"{W}"Finger1Force"          {ECH; return FINGER1FORCESTART;}
 "</"{W}"Finger1Position"{W}">" {ECH; return FINGER1POSITIONEND;}
@@ -123,34 +125,22 @@ W [ \t\n\r]*
 "<"{W}"K"                     {ECH; return KSTART;}
 "</"{W}"LinearVelocity"{W}">" {ECH; return LINEARVELOCITYEND;}
 "<"{W}"LinearVelocity"        {ECH; return LINEARVELOCITYSTART;}
-"</"{W}"LowerRight"{W}">"     {ECH; return LOWERRIGHTEND;}
-"<"{W}"LowerRight"            {ECH; return LOWERRIGHTSTART;}
 "</"{W}"Moment"{W}">"         {ECH; return MOMENTEND;}
 "<"{W}"Moment"                {ECH; return MOMENTSTART;}
 "</"{W}"Name"{W}">"           {ECH; return NAMEEND;}
 "<"{W}"Name"                  {ECH; return NAMESTART;}
-"</"{W}"OrientationStandardDeviation"{W}">" {ECH; return ORIENTATIONSTANDARDDEVIATIONEND;}
-"<"{W}"OrientationStandardDeviation" {ECH; return ORIENTATIONSTANDARDDEVIATIONSTART;}
 "</"{W}"Point"{W}">"          {ECH; return POINTEND;}
 "<"{W}"Point"                 {ECH; return POINTSTART;}
 "</"{W}"PoseStatus"{W}">"     {ECH; return POSESTATUSEND;}
 "<"{W}"PoseStatus"            {ECH; return POSESTATUSSTART;}
 "</"{W}"Pose"{W}">"           {ECH; return POSEEND;}
 "<"{W}"Pose"                  {ECH; return POSESTART;}
-"</"{W}"PositionStandardDeviation"{W}">" {ECH; return POSITIONSTANDARDDEVIATIONEND;}
-"<"{W}"PositionStandardDeviation" {ECH; return POSITIONSTANDARDDEVIATIONSTART;}
-"</"{W}"RefObjectName"{W}">"  {ECH; return REFOBJECTNAMEEND;}
-"<"{W}"RefObjectName"         {ECH; return REFOBJECTNAMESTART;}
 "</"{W}"Separation"{W}">"     {ECH; return SEPARATIONEND;}
 "<"{W}"Separation"            {ECH; return SEPARATIONSTART;}
 "</"{W}"StatusID"{W}">"       {ECH; return STATUSIDEND;}
 "<"{W}"StatusID"              {ECH; return STATUSIDSTART;}
-"</"{W}"Timestamp"{W}">"      {ECH; return TIMESTAMPEND;}
-"<"{W}"Timestamp"             {ECH; return TIMESTAMPSTART;}
 "</"{W}"Twist"{W}">"          {ECH; return TWISTEND;}
 "<"{W}"Twist"                 {ECH; return TWISTSTART;}
-"</"{W}"UpperLeft"{W}">"      {ECH; return UPPERLEFTEND;}
-"<"{W}"UpperLeft"             {ECH; return UPPERLEFTSTART;}
 "</"{W}"Wrench"{W}">"         {ECH; return WRENCHEND;}
 "<"{W}"Wrench"                {ECH; return WRENCHSTART;}
 "</"{W}"XAxis"{W}">"          {ECH; return XAXISEND;}

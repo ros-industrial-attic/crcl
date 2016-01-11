@@ -206,67 +206,6 @@ void LengthUnitEnumType::PRINTSELFDECL
 
 /*********************************************************************/
 
-/* class PhysicalLocationType
-
-*/
-
-PhysicalLocationType::PhysicalLocationType() :
-  DataThingType()
-{
-  RefObjectName = 0;
-  Timestamp = 0;
-}
-
-PhysicalLocationType::PhysicalLocationType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn) :
-  DataThingType(
-    NameIn)
-{
-  RefObjectName = RefObjectNameIn;
-  Timestamp = TimestampIn;
-  printTypp = false;
-}
-
-PhysicalLocationType::~PhysicalLocationType()
-{
-  delete RefObjectName;
-  delete Timestamp;
-}
-
-void PhysicalLocationType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"PhysicalLocationType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
 /* class PointType
 
 */
@@ -330,239 +269,43 @@ void PointType::PRINTSELFDECL
 
 /*********************************************************************/
 
-/* class PoseLocationInType
+/* class PoseType
 
 */
 
-PoseLocationInType::PoseLocationInType() :
-  PoseLocationType() {}
-
-PoseLocationInType::PoseLocationInType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- PointType * PointIn,
- VectorType * XAxisIn,
- VectorType * ZAxisIn,
- PositiveDecimalType * PositionStandardDeviationIn,
- PositiveDecimalType * OrientationStandardDeviationIn) :
-  PoseLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn,
-    PointIn,
-    XAxisIn,
-    ZAxisIn,
-    PositionStandardDeviationIn,
-    OrientationStandardDeviationIn)
-{
-  printTypp = false;
-}
-
-PoseLocationInType::~PoseLocationInType() {}
-
-void PoseLocationInType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"PoseLocationInType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Point");
-  Point->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</Point>\n");
-  SPACESZERO;
-  XFPRINTF "<XAxis");
-  XAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</XAxis>\n");
-  SPACESZERO;
-  XFPRINTF "<ZAxis");
-  ZAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</ZAxis>\n");
-  if (PositionStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<PositionStandardDeviation>");
-      PositionStandardDeviation->PRINTSELF;
-      XFPRINTF "</PositionStandardDeviation>\n");
-    }
-  if (OrientationStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<OrientationStandardDeviation>");
-      OrientationStandardDeviation->PRINTSELF;
-      XFPRINTF "</OrientationStandardDeviation>\n");
-    }
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class PoseLocationOnType
-
-*/
-
-PoseLocationOnType::PoseLocationOnType() :
-  PoseLocationType() {}
-
-PoseLocationOnType::PoseLocationOnType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- PointType * PointIn,
- VectorType * XAxisIn,
- VectorType * ZAxisIn,
- PositiveDecimalType * PositionStandardDeviationIn,
- PositiveDecimalType * OrientationStandardDeviationIn) :
-  PoseLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn,
-    PointIn,
-    XAxisIn,
-    ZAxisIn,
-    PositionStandardDeviationIn,
-    OrientationStandardDeviationIn)
-{
-  printTypp = false;
-}
-
-PoseLocationOnType::~PoseLocationOnType() {}
-
-void PoseLocationOnType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"PoseLocationOnType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Point");
-  Point->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</Point>\n");
-  SPACESZERO;
-  XFPRINTF "<XAxis");
-  XAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</XAxis>\n");
-  SPACESZERO;
-  XFPRINTF "<ZAxis");
-  ZAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</ZAxis>\n");
-  if (PositionStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<PositionStandardDeviation>");
-      PositionStandardDeviation->PRINTSELF;
-      XFPRINTF "</PositionStandardDeviation>\n");
-    }
-  if (OrientationStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<OrientationStandardDeviation>");
-      OrientationStandardDeviation->PRINTSELF;
-      XFPRINTF "</OrientationStandardDeviation>\n");
-    }
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class PoseLocationType
-
-*/
-
-PoseLocationType::PoseLocationType() :
-  PhysicalLocationType()
+PoseType::PoseType() :
+  DataThingType()
 {
   Point = 0;
   XAxis = 0;
   ZAxis = 0;
-  PositionStandardDeviation = 0;
-  OrientationStandardDeviation = 0;
 }
 
-PoseLocationType::PoseLocationType(
+PoseType::PoseType(
  XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
  PointType * PointIn,
  VectorType * XAxisIn,
- VectorType * ZAxisIn,
- PositiveDecimalType * PositionStandardDeviationIn,
- PositiveDecimalType * OrientationStandardDeviationIn) :
-  PhysicalLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn)
+ VectorType * ZAxisIn) :
+  DataThingType(
+    NameIn)
 {
   Point = PointIn;
   XAxis = XAxisIn;
   ZAxis = ZAxisIn;
-  PositionStandardDeviation = PositionStandardDeviationIn;
-  OrientationStandardDeviation = OrientationStandardDeviationIn;
   printTypp = false;
 }
 
-PoseLocationType::~PoseLocationType()
+PoseType::~PoseType()
 {
   delete Point;
   delete XAxis;
   delete ZAxis;
-  delete PositionStandardDeviation;
-  delete OrientationStandardDeviation;
 }
 
-void PoseLocationType::PRINTSELFDECL
+void PoseType::PRINTSELFDECL
 {
   if (printTypp)
-    XFPRINTF " xsi:type=\"PoseLocationType\"");
+    XFPRINTF " xsi:type=\"PoseType\"");
   XFPRINTF ">\n");
   SPACESPLUS;
   if (Name)
@@ -571,20 +314,6 @@ void PoseLocationType::PRINTSELFDECL
       XFPRINTF "<Name>");
       Name->PRINTSELF;
       XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
     }
   SPACESZERO;
   XFPRINTF "<Point");
@@ -601,112 +330,6 @@ void PoseLocationType::PRINTSELFDECL
   ZAxis->PRINTSELF;
   SPACESZERO;
   XFPRINTF "</ZAxis>\n");
-  if (PositionStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<PositionStandardDeviation>");
-      PositionStandardDeviation->PRINTSELF;
-      XFPRINTF "</PositionStandardDeviation>\n");
-    }
-  if (OrientationStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<OrientationStandardDeviation>");
-      OrientationStandardDeviation->PRINTSELF;
-      XFPRINTF "</OrientationStandardDeviation>\n");
-    }
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class PoseOnlyLocationType
-
-*/
-
-PoseOnlyLocationType::PoseOnlyLocationType() :
-  PoseLocationType() {}
-
-PoseOnlyLocationType::PoseOnlyLocationType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- PointType * PointIn,
- VectorType * XAxisIn,
- VectorType * ZAxisIn,
- PositiveDecimalType * PositionStandardDeviationIn,
- PositiveDecimalType * OrientationStandardDeviationIn) :
-  PoseLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn,
-    PointIn,
-    XAxisIn,
-    ZAxisIn,
-    PositionStandardDeviationIn,
-    OrientationStandardDeviationIn)
-{
-  printTypp = false;
-}
-
-PoseOnlyLocationType::~PoseOnlyLocationType() {}
-
-void PoseOnlyLocationType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"PoseOnlyLocationType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Point");
-  Point->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</Point>\n");
-  SPACESZERO;
-  XFPRINTF "<XAxis");
-  XAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</XAxis>\n");
-  SPACESZERO;
-  XFPRINTF "<ZAxis");
-  ZAxis->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</ZAxis>\n");
-  if (PositionStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<PositionStandardDeviation>");
-      PositionStandardDeviation->PRINTSELF;
-      XFPRINTF "</PositionStandardDeviation>\n");
-    }
-  if (OrientationStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<OrientationStandardDeviation>");
-      OrientationStandardDeviation->PRINTSELF;
-      XFPRINTF "</OrientationStandardDeviation>\n");
-    }
   SPACESMINUS;
 }
 
@@ -745,254 +368,6 @@ void PositiveDecimalType::PRINTSELFDECL
       exit(1);
     }
   XmlDecimal::PRINTSELF;
-}
-
-/*********************************************************************/
-
-/* class RegionOfInterestType
-
-*/
-
-RegionOfInterestType::RegionOfInterestType() :
-  DataThingType()
-{
-  RefObjectName = 0;
-  UpperLeft = 0;
-  LowerRight = 0;
-}
-
-RegionOfInterestType::RegionOfInterestType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- PointType * UpperLeftIn,
- PointType * LowerRightIn) :
-  DataThingType(
-    NameIn)
-{
-  RefObjectName = RefObjectNameIn;
-  UpperLeft = UpperLeftIn;
-  LowerRight = LowerRightIn;
-  printTypp = false;
-}
-
-RegionOfInterestType::~RegionOfInterestType()
-{
-  delete RefObjectName;
-  delete UpperLeft;
-  delete LowerRight;
-}
-
-void RegionOfInterestType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"RegionOfInterestType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<RefObjectName>");
-  RefObjectName->PRINTSELF;
-  XFPRINTF "</RefObjectName>\n");
-  SPACESZERO;
-  XFPRINTF "<UpperLeft");
-  UpperLeft->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</UpperLeft>\n");
-  SPACESZERO;
-  XFPRINTF "<LowerRight");
-  LowerRight->PRINTSELF;
-  SPACESZERO;
-  XFPRINTF "</LowerRight>\n");
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class RelativeLocationInType
-
-*/
-
-RelativeLocationInType::RelativeLocationInType() :
-  RelativeLocationType() {}
-
-RelativeLocationInType::RelativeLocationInType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- XmlString * DescriptionIn) :
-  RelativeLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn,
-    DescriptionIn)
-{
-  printTypp = false;
-}
-
-RelativeLocationInType::~RelativeLocationInType() {}
-
-void RelativeLocationInType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"RelativeLocationInType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Description>");
-  Description->PRINTSELF;
-  XFPRINTF "</Description>\n");
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class RelativeLocationOnType
-
-*/
-
-RelativeLocationOnType::RelativeLocationOnType() :
-  RelativeLocationType() {}
-
-RelativeLocationOnType::RelativeLocationOnType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- XmlString * DescriptionIn) :
-  RelativeLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn,
-    DescriptionIn)
-{
-  printTypp = false;
-}
-
-RelativeLocationOnType::~RelativeLocationOnType() {}
-
-void RelativeLocationOnType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"RelativeLocationOnType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Description>");
-  Description->PRINTSELF;
-  XFPRINTF "</Description>\n");
-  SPACESMINUS;
-}
-
-/*********************************************************************/
-
-/* class RelativeLocationType
-
-*/
-
-RelativeLocationType::RelativeLocationType() :
-  PhysicalLocationType()
-{
-  Description = 0;
-}
-
-RelativeLocationType::RelativeLocationType(
- XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
- XmlString * DescriptionIn) :
-  PhysicalLocationType(
-    NameIn,
-    RefObjectNameIn,
-    TimestampIn)
-{
-  Description = DescriptionIn;
-  printTypp = false;
-}
-
-RelativeLocationType::~RelativeLocationType()
-{
-  delete Description;
-}
-
-void RelativeLocationType::PRINTSELFDECL
-{
-  if (printTypp)
-    XFPRINTF " xsi:type=\"RelativeLocationType\"");
-  XFPRINTF ">\n");
-  SPACESPLUS;
-  if (Name)
-    {
-      SPACESZERO;
-      XFPRINTF "<Name>");
-      Name->PRINTSELF;
-      XFPRINTF "</Name>\n");
-    }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
-  SPACESZERO;
-  XFPRINTF "<Description>");
-  Description->PRINTSELF;
-  XFPRINTF "</Description>\n");
-  SPACESMINUS;
 }
 
 /*********************************************************************/

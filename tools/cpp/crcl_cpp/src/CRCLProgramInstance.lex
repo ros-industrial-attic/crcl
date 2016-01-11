@@ -14,7 +14,11 @@ This ignores white space outside of meaningful strings of characters.
 #define YY_NO_UNISTD_H
 #endif
 #include <string.h>          // for strdup
+#ifdef OWL
+#include "owlCRCLProgramInstanceClasses.hh"
+#else
 #include "crcl_cpp/CRCLProgramInstanceClasses.hh"
+#endif
 #include "crcl_cpp/CRCLProgramInstanceYACC.hh"    // for tokens, yylval, etc.
 
 #ifndef NO_ECHO
@@ -91,8 +95,6 @@ W [ \t\n\r]*
 "<"{W}"ConfigureJointReport"  {ECH; return CONFIGUREJOINTREPORTSTART;}
 "</"{W}"Coordinated"{W}">"    {ECH; return COORDINATEDEND;}
 "<"{W}"Coordinated"           {ECH; return COORDINATEDSTART;}
-"</"{W}"Description"{W}">"    {ECH; return DESCRIPTIONEND;}
-"<"{W}"Description"           {ECH; return DESCRIPTIONSTART;}
 "</"{W}"DwellTime"{W}">"      {ECH; return DWELLTIMEEND;}
 "<"{W}"DwellTime"             {ECH; return DWELLTIMESTART;}
 "</"{W}"EndCanon"{W}">"       {ECH; return ENDCANONEND;}
@@ -123,8 +125,6 @@ W [ \t\n\r]*
 "<"{W}"K"                     {ECH; return KSTART;}
 "</"{W}"LinearVelocity"{W}">" {ECH; return LINEARVELOCITYEND;}
 "<"{W}"LinearVelocity"        {ECH; return LINEARVELOCITYSTART;}
-"</"{W}"LowerRight"{W}">"     {ECH; return LOWERRIGHTEND;}
-"<"{W}"LowerRight"            {ECH; return LOWERRIGHTSTART;}
 "</"{W}"Message"{W}">"        {ECH; return MESSAGEEND;}
 "<"{W}"Message"               {ECH; return MESSAGESTART;}
 "</"{W}"MiddleCommand"{W}">"  {ECH; return MIDDLECOMMANDEND;}
@@ -137,8 +137,6 @@ W [ \t\n\r]*
 "<"{W}"Name"                  {ECH; return NAMESTART;}
 "</"{W}"NumPositions"{W}">"   {ECH; return NUMPOSITIONSEND;}
 "<"{W}"NumPositions"          {ECH; return NUMPOSITIONSSTART;}
-"</"{W}"OrientationStandardDeviation"{W}">" {ECH; return ORIENTATIONSTANDARDDEVIATIONEND;}
-"<"{W}"OrientationStandardDeviation" {ECH; return ORIENTATIONSTANDARDDEVIATIONSTART;}
 "</"{W}"ParameterName"{W}">"  {ECH; return PARAMETERNAMEEND;}
 "<"{W}"ParameterName"         {ECH; return PARAMETERNAMESTART;}
 "</"{W}"ParameterSetting"{W}">" {ECH; return PARAMETERSETTINGEND;}
@@ -147,12 +145,8 @@ W [ \t\n\r]*
 "<"{W}"ParameterValue"        {ECH; return PARAMETERVALUESTART;}
 "</"{W}"Point"{W}">"          {ECH; return POINTEND;}
 "<"{W}"Point"                 {ECH; return POINTSTART;}
-"</"{W}"PositionStandardDeviation"{W}">" {ECH; return POSITIONSTANDARDDEVIATIONEND;}
-"<"{W}"PositionStandardDeviation" {ECH; return POSITIONSTANDARDDEVIATIONSTART;}
 "</"{W}"ProgramText"{W}">"    {ECH; return PROGRAMTEXTEND;}
 "<"{W}"ProgramText"           {ECH; return PROGRAMTEXTSTART;}
-"</"{W}"RefObjectName"{W}">"  {ECH; return REFOBJECTNAMEEND;}
-"<"{W}"RefObjectName"         {ECH; return REFOBJECTNAMESTART;}
 "</"{W}"ReportPosition"{W}">" {ECH; return REPORTPOSITIONEND;}
 "<"{W}"ReportPosition"        {ECH; return REPORTPOSITIONSTART;}
 "</"{W}"ReportTorqueOrForce"{W}">" {ECH; return REPORTTORQUEORFORCEEND;}
@@ -171,8 +165,6 @@ W [ \t\n\r]*
 "<"{W}"StartPosition"         {ECH; return STARTPOSITIONSTART;}
 "</"{W}"StopCondition"{W}">"  {ECH; return STOPCONDITIONEND;}
 "<"{W}"StopCondition"         {ECH; return STOPCONDITIONSTART;}
-"</"{W}"Timestamp"{W}">"      {ECH; return TIMESTAMPEND;}
-"<"{W}"Timestamp"             {ECH; return TIMESTAMPSTART;}
 "</"{W}"Tolerance"{W}">"      {ECH; return TOLERANCEEND;}
 "<"{W}"Tolerance"             {ECH; return TOLERANCESTART;}
 "</"{W}"TransAccel"{W}">"     {ECH; return TRANSACCELEND;}
@@ -183,8 +175,6 @@ W [ \t\n\r]*
 "<"{W}"Turn"                  {ECH; return TURNSTART;}
 "</"{W}"UnitName"{W}">"       {ECH; return UNITNAMEEND;}
 "<"{W}"UnitName"              {ECH; return UNITNAMESTART;}
-"</"{W}"UpperLeft"{W}">"      {ECH; return UPPERLEFTEND;}
-"<"{W}"UpperLeft"             {ECH; return UPPERLEFTSTART;}
 "</"{W}"Waypoint"{W}">"       {ECH; return WAYPOINTEND;}
 "<"{W}"Waypoint"              {ECH; return WAYPOINTSTART;}
 "</"{W}"XAxisTolerance"{W}">" {ECH; return XAXISTOLERANCEEND;}

@@ -822,7 +822,7 @@ MoveScrewType::MoveScrewType() :
 MoveScrewType::MoveScrewType(
  XmlID * NameIn,
  XmlPositiveInteger * CommandIDIn,
- PoseOnlyLocationType * StartPositionIn,
+ PoseType * StartPositionIn,
  PointType * AxisPointIn,
  XmlDecimal * AxialDistanceFreeIn,
  XmlDecimal * AxialDistanceScrewIn,
@@ -917,7 +917,7 @@ MoveThroughToType::MoveThroughToType(
  XmlID * NameIn,
  XmlPositiveInteger * CommandIDIn,
  XmlBoolean * MoveStraightIn,
- std::list<PoseOnlyLocationType *> * WaypointIn,
+ std::list<PoseType *> * WaypointIn,
  XmlPositiveInteger * NumPositionsIn) :
   MiddleCommandType(
     NameIn,
@@ -934,7 +934,7 @@ MoveThroughToType::~MoveThroughToType()
   delete MoveStraight;
   if (Waypoint)
     {
-      std::list<PoseOnlyLocationType *>::iterator iter;
+      std::list<PoseType *>::iterator iter;
       for (iter = Waypoint->begin();
            iter != Waypoint->end(); iter++)
         delete *iter;
@@ -965,7 +965,7 @@ void MoveThroughToType::PRINTSELFDECL
   MoveStraight->PRINTSELF;
   XFPRINTF "</MoveStraight>\n");
   {
-    std::list<PoseOnlyLocationType *>::iterator iter;
+    std::list<PoseType *>::iterator iter;
     for (iter = Waypoint->begin(); iter != Waypoint->end(); iter++)
       {
         SPACESZERO;
@@ -999,7 +999,7 @@ MoveToType::MoveToType(
  XmlID * NameIn,
  XmlPositiveInteger * CommandIDIn,
  XmlBoolean * MoveStraightIn,
- PoseOnlyLocationType * EndPositionIn) :
+ PoseType * EndPositionIn) :
   MiddleCommandType(
     NameIn,
     CommandIDIn)
@@ -1147,7 +1147,7 @@ void ParameterSettingType::PRINTSELFDECL
 */
 
 PoseAndSetType::PoseAndSetType() :
-  PoseOnlyLocationType()
+  PoseType()
 {
   Coordinated = 0;
   TransSpeed = 0;
@@ -1159,28 +1159,20 @@ PoseAndSetType::PoseAndSetType() :
 
 PoseAndSetType::PoseAndSetType(
  XmlID * NameIn,
- XmlIDREF * RefObjectNameIn,
- XmlDateTime * TimestampIn,
  PointType * PointIn,
  VectorType * XAxisIn,
  VectorType * ZAxisIn,
- PositiveDecimalType * PositionStandardDeviationIn,
- PositiveDecimalType * OrientationStandardDeviationIn,
  XmlBoolean * CoordinatedIn,
  TransSpeedType * TransSpeedIn,
  RotSpeedType * RotSpeedIn,
  TransAccelType * TransAccelIn,
  RotAccelType * RotAccelIn,
  PoseToleranceType * ToleranceIn) :
-  PoseOnlyLocationType(
+  PoseType(
     NameIn,
-    RefObjectNameIn,
-    TimestampIn,
     PointIn,
     XAxisIn,
-    ZAxisIn,
-    PositionStandardDeviationIn,
-    OrientationStandardDeviationIn)
+    ZAxisIn)
 {
   Coordinated = CoordinatedIn;
   TransSpeed = TransSpeedIn;
@@ -1214,20 +1206,6 @@ void PoseAndSetType::PRINTSELFDECL
       Name->PRINTSELF;
       XFPRINTF "</Name>\n");
     }
-  if (RefObjectName)
-    {
-      SPACESZERO;
-      XFPRINTF "<RefObjectName>");
-      RefObjectName->PRINTSELF;
-      XFPRINTF "</RefObjectName>\n");
-    }
-  if (Timestamp)
-    {
-      SPACESZERO;
-      XFPRINTF "<Timestamp>");
-      Timestamp->PRINTSELF;
-      XFPRINTF "</Timestamp>\n");
-    }
   SPACESZERO;
   XFPRINTF "<Point");
   Point->PRINTSELF;
@@ -1243,20 +1221,6 @@ void PoseAndSetType::PRINTSELFDECL
   ZAxis->PRINTSELF;
   SPACESZERO;
   XFPRINTF "</ZAxis>\n");
-  if (PositionStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<PositionStandardDeviation>");
-      PositionStandardDeviation->PRINTSELF;
-      XFPRINTF "</PositionStandardDeviation>\n");
-    }
-  if (OrientationStandardDeviation)
-    {
-      SPACESZERO;
-      XFPRINTF "<OrientationStandardDeviation>");
-      OrientationStandardDeviation->PRINTSELF;
-      XFPRINTF "</OrientationStandardDeviation>\n");
-    }
   SPACESZERO;
   XFPRINTF "<Coordinated>");
   Coordinated->PRINTSELF;

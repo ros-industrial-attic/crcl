@@ -496,7 +496,7 @@ PoseStatusType::PoseStatusType() :
 
 PoseStatusType::PoseStatusType(
  XmlID * NameIn,
- PoseOnlyLocationType * PoseIn,
+ PoseType * PoseIn,
  TwistType * TwistIn,
  WrenchType * WrenchIn) :
   DataThingType(

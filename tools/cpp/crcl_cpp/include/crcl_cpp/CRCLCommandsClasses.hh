@@ -243,7 +243,7 @@ public:
   MoveScrewType(
     XmlID * NameIn,
     XmlPositiveInteger * CommandIDIn,
-    PoseOnlyLocationType * StartPositionIn,
+    PoseType * StartPositionIn,
     PointType * AxisPointIn,
     XmlDecimal * AxialDistanceFreeIn,
     XmlDecimal * AxialDistanceScrewIn,
@@ -251,7 +251,7 @@ public:
   ~MoveScrewType();
   void PRINTSELFDECL;
 
-  PoseOnlyLocationType * StartPosition;
+  PoseType * StartPosition;
   PointType * AxisPoint;
   XmlDecimal * AxialDistanceFree;
   XmlDecimal * AxialDistanceScrew;
@@ -271,13 +271,13 @@ public:
     XmlID * NameIn,
     XmlPositiveInteger * CommandIDIn,
     XmlBoolean * MoveStraightIn,
-    std::list<PoseOnlyLocationType *> * WaypointIn,
+    std::list<PoseType *> * WaypointIn,
     XmlPositiveInteger * NumPositionsIn);
   ~MoveThroughToType();
   void PRINTSELFDECL;
 
   XmlBoolean * MoveStraight;
-  std::list<PoseOnlyLocationType *> * Waypoint;
+  std::list<PoseType *> * Waypoint;
   XmlPositiveInteger * NumPositions;
 
   bool printTypp;
@@ -294,12 +294,12 @@ public:
     XmlID * NameIn,
     XmlPositiveInteger * CommandIDIn,
     XmlBoolean * MoveStraightIn,
-    PoseOnlyLocationType * EndPositionIn);
+    PoseType * EndPositionIn);
   ~MoveToType();
   void PRINTSELFDECL;
 
   XmlBoolean * MoveStraight;
-  PoseOnlyLocationType * EndPosition;
+  PoseType * EndPosition;
 
   bool printTypp;
 };
@@ -344,19 +344,15 @@ public:
 /*********************************************************************/
 
 class PoseAndSetType :
-  public PoseOnlyLocationType
+  public PoseType
 {
 public:
   PoseAndSetType();
   PoseAndSetType(
     XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
     PointType * PointIn,
     VectorType * XAxisIn,
     VectorType * ZAxisIn,
-    PositiveDecimalType * PositionStandardDeviationIn,
-    PositiveDecimalType * OrientationStandardDeviationIn,
     XmlBoolean * CoordinatedIn,
     TransSpeedType * TransSpeedIn,
     RotSpeedType * RotSpeedIn,

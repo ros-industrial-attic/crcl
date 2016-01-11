@@ -39,7 +39,8 @@ int main(int argc, char * argv[])
   CommandStatusIn->Name = 0;
   CommandStatusIn->CommandID =  new XmlNonNegativeInteger("1");
   CommandStatusIn->StatusID = new XmlPositiveInteger("1");
-  CommandStatusIn->CommandState = new CommandStateEnumType(strdup("CRCL_Working"));
+  CommandStatusIn->CommandState =
+    new CommandStateEnumType(strdup("CRCL_Working"));
   JointStatus = new JointStatusType(0, new XmlPositiveInteger("1"),
 				    new XmlDecimal("30.0"),
 				    new XmlDecimal("3.7"), 0);
@@ -51,7 +52,7 @@ int main(int argc, char * argv[])
 
   PoseIn->Name = 0;
 
-  PoseIn->Pose = new PoseOnlyLocationType();
+  PoseIn->Pose = new PoseType();
 
   PoseIn->Pose->Point = new PointType(0, new XmlDecimal("1.5"),
 				new XmlDecimal("1"), new XmlDecimal("1"));

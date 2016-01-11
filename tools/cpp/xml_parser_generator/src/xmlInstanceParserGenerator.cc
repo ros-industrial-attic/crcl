@@ -7354,10 +7354,6 @@ void generator::printCppCodeComplexExtend( /* ARGUMENTS                     */
 
 /********************************************************************/
 
-#define TOMFIX 1
-
-#ifdef TOMFIX
-
 /* generator::printCppCodeDeleteElement
 
 Returned Value: none
@@ -7414,59 +7410,6 @@ void generator::printCppCodeDeleteElement( /* ARGUMENTS          */
   else
     fprintf(ccFile, "  delete %s;\n", element->newName);
 }
-
-#else
-
-/* generator::printCppCodeDeleteElement
-
-Returned Value: none
-
-Called By: printCppCodeSequenceDeletes
-
-This prints the code that deletes an element. If the element is a list, the
-elements of the list are deleted, and then the list is deleted. Otherwise,
-only the element is deleted. For example:
-
-  {
-    std::list<XmlString *>::iterator iter;
-    for (iter = Nickname->begin(); iter != Nickname->end(); iter++)
-      delete *iter;
-  }
-  delete Nickname;
-
-*/
-
-void generator::printCppCodeDeleteElement( /* ARGUMENTS          */
- XmlElementLocal * element)                /* element to delete  */
-{
-  static char typeName[NAMESIZE];
-  bool isBasic;
-
-  if (element->newTyp == 0)
-    {
-      fprintf(stderr, "element %s must have a type\n", element->name);
-      exit(1);
-    }
-  isBasic = (element->typPrefix &&
-	     (strcmp(element->typPrefix, XmlCppBase::wg3Prefix) == 0));
-  if (element->needList)
-    {  // zero or many elements are allowed
-      if (isBasic)
-	findCppTypeName(element->newTyp, typeName);
-      else
-	strncpy(typeName, element->newTyp, NAMESIZE);
-      fprintf(ccFile, "  {\n");
-      fprintf(ccFile, "    std::list<%s *>::iterator iter;\n", typeName);
-      fprintf(ccFile, "    for (iter = %s->begin();\n", element->newName);
-      fprintf(ccFile, "         iter != %s->end(); iter++)\n",
-	      element->newName);
-      fprintf(ccFile, "      delete *iter;\n");
-      fprintf(ccFile, "  }\n");
-    }
-  fprintf(ccFile, "  delete %s;\n", element->newName);
-}
-
-#endif
 
 /********************************************************************/
 
@@ -9158,7 +9101,8 @@ void generator::printCppCodeStart() /*  NO ARGUMENTS  */
   fprintf(ccFile, "#include <list>\n");
   fprintf(ccFile, "#include <boost/regex.hpp>\n");
   fprintf(ccFile, "#include <%sxmlSchemaInstance.hh>\n", includePrefix);
-  fprintf(ccFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
+  fprintf(ccFile, "#include \"%s%sClasses.hh\"\n",
+	  appIncludePrefix, baseNameNoPath);
 
   fprintf(ccFile, "\n");
   fprintf(ccFile, "#define INDENT 2\n");
@@ -11415,12 +11359,13 @@ void generator::printLexStart() /* NO ARGUMENTS  */
 "#define YY_NO_UNISTD_H\n"
 "#endif\n"
 "#include <string.h>          // for strdup\n");
-  // fprintf(lexFile, "#ifdef OWL\n");
-  // fprintf(lexFile, "#include \"owl%c%sClasses.hh\"\n",
-  // toupper(baseNameNoPath[0]), baseNameNoPath+1);
-  // fprintf(lexFile, "#else\n");
-  fprintf(lexFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
-  // fprintf(lexFile, "#endif\n");
+  fprintf(lexFile, "#ifdef OWL\n");
+  fprintf(lexFile, "#include \"owl%c%sClasses.hh\"\n",
+  toupper(baseNameNoPath[0]), baseNameNoPath+1);
+  fprintf(lexFile, "#else\n");
+  fprintf(lexFile, "#include \"%s%sClasses.hh\"\n",
+	  appIncludePrefix, baseNameNoPath);
+  fprintf(lexFile, "#endif\n");
   fprintf(lexFile, "#include \"%s%sYACC.hh\"    // for tokens, yylval, etc.\n",
 	  appIncludePrefix, baseNameNoPath);
   fprintf(lexFile, "\n");
@@ -11577,7 +11522,8 @@ void generator::printParser() /* NO ARGUMENTS */
   fprintf(parserFile, "#include <stdio.h>   // fprintf\n");
   fprintf(parserFile, "#include <string.h>  // strlen\n");
   fprintf(parserFile, "#include <stdlib.h>  // exit\n");
-  fprintf(parserFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
+  fprintf(parserFile, "#include \"%s%sClasses.hh\"\n",
+	  appIncludePrefix, baseNameNoPath);
   if (stringInput)
     fprintf(parserFile, "#define MAX_SIZE 10000000\n");
   fprintf(parserFile, "\n");
@@ -12371,12 +12317,13 @@ void generator::printYaccStart() /* NO ARGUMENTS  */
   fprintf(yaccFile, "#include <stdio.h>             // for stderr\n");
   fprintf(yaccFile, "#include <string.h>            // for strcat\n");
   fprintf(yaccFile, "#include <stdlib.h>            // for malloc, free\n");
-  // fprintf(yaccFile, "#ifdef OWL\n");
-  // fprintf(yaccFile, "#include \"owl%c%sClasses.hh\"\n",
-  // toupper(baseNameNoPath[0]), baseNameNoPath+1);
-  // fprintf(yaccFile, "#else\n");
-  fprintf(yaccFile, "#include \"%s%sClasses.hh\"\n", appIncludePrefix, baseNameNoPath);
-  // fprintf(yaccFile, "#endif\n");
+  fprintf(yaccFile, "#ifdef OWL\n");
+  fprintf(yaccFile, "#include \"owl%c%sClasses.hh\"\n",
+  toupper(baseNameNoPath[0]), baseNameNoPath+1);
+  fprintf(yaccFile, "#else\n");
+  fprintf(yaccFile, "#include \"%s%sClasses.hh\"\n",
+	  appIncludePrefix, baseNameNoPath);
+  fprintf(yaccFile, "#endif\n");
   fprintf(yaccFile, "\n");
   fprintf(yaccFile, "#define YYERROR_VERBOSE\n");
   fprintf(yaccFile, "#define YYDEBUG 1\n");

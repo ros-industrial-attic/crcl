@@ -3,7 +3,11 @@
 #include <stdio.h>             // for stderr
 #include <string.h>            // for strcat
 #include <stdlib.h>            // for malloc, free
+#ifdef OWL
+#include "owlCRCLStatusClasses.hh"
+#else
 #include "crcl_cpp/CRCLStatusClasses.hh"
+#endif
 
 #define YYERROR_VERBOSE
 #define YYDEBUG 1
@@ -25,14 +29,11 @@ int yyerror(const char * s);
   int *                               iVal;
   char *                              sVal;
   XmlBoolean *                        XmlBooleanVal;
-  XmlDateTime *                       XmlDateTimeVal;
   XmlDecimal *                        XmlDecimalVal;
   XmlID *                             XmlIDVal;
-  XmlIDREF *                          XmlIDREFVal;
   XmlNMTOKEN *                        XmlNMTOKENVal;
   XmlNonNegativeInteger *             XmlNonNegativeIntegerVal;
   XmlPositiveInteger *                XmlPositiveIntegerVal;
-  XmlString *                         XmlStringVal;
 
   CRCLStatusFile *                    CRCLStatusFileVal;
 
@@ -46,9 +47,8 @@ int yyerror(const char * s);
   std::list<JointStatusType *> *      ListJointStatusTypeVal;
   ParallelGripperStatusType *         ParallelGripperStatusTypeVal;
   PointType *                         PointTypeVal;
-  PoseOnlyLocationType *              PoseOnlyLocationTypeVal;
   PoseStatusType *                    PoseStatusTypeVal;
-  PositiveDecimalType *               PositiveDecimalTypeVal;
+  PoseType *                          PoseTypeVal;
   ThreeFingerGripperStatusType *      ThreeFingerGripperStatusTypeVal;
   TwistType *                         TwistTypeVal;
   VacuumGripperStatusType *           VacuumGripperStatusTypeVal;
@@ -61,14 +61,11 @@ int yyerror(const char * s);
 %type <XmlVersionVal>                 y_XmlVersion
 %type <CRCLStatusFileVal>             y_CRCLStatusFile
 %type <XmlBooleanVal>                 y_XmlBoolean
-%type <XmlDateTimeVal>                y_XmlDateTime
 %type <XmlDecimalVal>                 y_XmlDecimal
 %type <XmlIDVal>                      y_XmlID
-%type <XmlIDREFVal>                   y_XmlIDREF
 %type <XmlNMTOKENVal>                 y_XmlNMTOKEN
 %type <XmlNonNegativeIntegerVal>      y_XmlNonNegativeInteger
 %type <XmlPositiveIntegerVal>         y_XmlPositiveInteger
-%type <XmlStringVal>                  y_XmlString
 
 %type <VectorTypeVal>                 y_AngularVelocity_VectorType
 %type <CRCLStatusTypeVal>             y_CRCLStatusType
@@ -76,7 +73,6 @@ int yyerror(const char * s);
 %type <CommandStateEnumTypeVal>       y_CommandState_CommandStateEnumType
 %type <CommandStatusTypeVal>          y_CommandStatusType
 %type <CommandStatusTypeVal>          y_CommandStatus_CommandStatusType
-%type <XmlStringVal>                  y_Description_XmlString
 %type <XmlDecimalVal>                 y_Finger1Force_XmlDecimal_0
 %type <FractionTypeVal>               y_Finger1Position_FractionType_0
 %type <XmlDecimalVal>                 y_Finger2Force_XmlDecimal_0
@@ -101,25 +97,18 @@ int yyerror(const char * s);
 %type <XmlDecimalVal>                 y_K_XmlDecimal
 %type <VectorTypeVal>                 y_LinearVelocity_VectorType
 %type <ListJointStatusTypeVal>        y_ListJointStatus_JointStatusType_1_u
-%type <PointTypeVal>                  y_LowerRight_PointType
 %type <VectorTypeVal>                 y_Moment_VectorType
 %type <XmlIDVal>                      y_Name_XmlID_0
-%type <PositiveDecimalTypeVal>        y_OrientationStandardDeviation_P1001
 %type <PointTypeVal>                  y_PointType
 %type <PointTypeVal>                  y_Point_PointType
-%type <PoseOnlyLocationTypeVal>       y_PoseOnlyLocationType
 %type <PoseStatusTypeVal>             y_PoseStatusType
 %type <PoseStatusTypeVal>             y_PoseStatus_PoseStatusType_0
-%type <PoseOnlyLocationTypeVal>       y_Pose_PoseOnlyLocationType
-%type <PositiveDecimalTypeVal>        y_PositionStandardDeviation_Posi1002
-%type <XmlIDREFVal>                   y_RefObjectName_XmlIDREF
-%type <XmlIDREFVal>                   y_RefObjectName_XmlIDREF_0
+%type <PoseTypeVal>                   y_PoseType
+%type <PoseTypeVal>                   y_Pose_PoseType
 %type <XmlDecimalVal>                 y_Separation_XmlDecimal
 %type <XmlPositiveIntegerVal>         y_StatusID_XmlPositiveInteger
-%type <XmlDateTimeVal>                y_Timestamp_XmlDateTime_0
 %type <TwistTypeVal>                  y_TwistType
 %type <TwistTypeVal>                  y_Twist_TwistType_0
-%type <PointTypeVal>                  y_UpperLeft_PointType
 %type <VectorTypeVal>                 y_VectorType
 %type <WrenchTypeVal>                 y_WrenchType
 %type <WrenchTypeVal>                 y_Wrench_WrenchType_0
@@ -154,8 +143,6 @@ int yyerror(const char * s);
 %token <iVal> COMMANDSTATESTART
 %token <iVal> COMMANDSTATUSEND
 %token <iVal> COMMANDSTATUSSTART
-%token <iVal> DESCRIPTIONEND
-%token <iVal> DESCRIPTIONSTART
 %token <iVal> FINGER1FORCEEND
 %token <iVal> FINGER1FORCESTART
 %token <iVal> FINGER1POSITIONEND
@@ -196,34 +183,22 @@ int yyerror(const char * s);
 %token <iVal> KSTART
 %token <iVal> LINEARVELOCITYEND
 %token <iVal> LINEARVELOCITYSTART
-%token <iVal> LOWERRIGHTEND
-%token <iVal> LOWERRIGHTSTART
 %token <iVal> MOMENTEND
 %token <iVal> MOMENTSTART
 %token <iVal> NAMEEND
 %token <iVal> NAMESTART
-%token <iVal> ORIENTATIONSTANDARDDEVIATIONEND
-%token <iVal> ORIENTATIONSTANDARDDEVIATIONSTART
 %token <iVal> POINTEND
 %token <iVal> POINTSTART
 %token <iVal> POSESTATUSEND
 %token <iVal> POSESTATUSSTART
 %token <iVal> POSEEND
 %token <iVal> POSESTART
-%token <iVal> POSITIONSTANDARDDEVIATIONEND
-%token <iVal> POSITIONSTANDARDDEVIATIONSTART
-%token <iVal> REFOBJECTNAMEEND
-%token <iVal> REFOBJECTNAMESTART
 %token <iVal> SEPARATIONEND
 %token <iVal> SEPARATIONSTART
 %token <iVal> STATUSIDEND
 %token <iVal> STATUSIDSTART
-%token <iVal> TIMESTAMPEND
-%token <iVal> TIMESTAMPSTART
 %token <iVal> TWISTEND
 %token <iVal> TWISTSTART
-%token <iVal> UPPERLEFTEND
-%token <iVal> UPPERLEFTSTART
 %token <iVal> WRENCHEND
 %token <iVal> WRENCHSTART
 %token <iVal> XAXISEND
@@ -244,17 +219,9 @@ int yyerror(const char * s);
 %token <iVal> JOINTSTATUSTYPEDECL
 %token <iVal> JOINTSTATUSESTYPEDECL
 %token <iVal> PARALLELGRIPPERSTATUSTYPEDECL
-%token <iVal> PHYSICALLOCATIONTYPEDECL
 %token <iVal> POINTTYPEDECL
-%token <iVal> POSELOCATIONINTYPEDECL
-%token <iVal> POSELOCATIONONTYPEDECL
-%token <iVal> POSELOCATIONTYPEDECL
-%token <iVal> POSEONLYLOCATIONTYPEDECL
 %token <iVal> POSESTATUSTYPEDECL
-%token <iVal> REGIONOFINTERESTTYPEDECL
-%token <iVal> RELATIVELOCATIONINTYPEDECL
-%token <iVal> RELATIVELOCATIONONTYPEDECL
-%token <iVal> RELATIVELOCATIONTYPEDECL
+%token <iVal> POSETYPEDECL
 %token <iVal> THREEFINGERGRIPPERSTATUSTYPEDECL
 %token <iVal> TWISTTYPEDECL
 %token <iVal> VACUUMGRIPPERSTATUSTYPEDECL
@@ -294,15 +261,6 @@ y_XmlBoolean :
 	  }
 	;
 
-y_XmlDateTime :
-	  DATASTRING
-	  {$$ = new XmlDateTime($1);
-	   if ($$->bad)
-	     yyerror("bad XmlDateTime");
-	   free($1);
-	  }
-	;
-
 y_XmlDecimal :
 	  DATASTRING
 	  {$$ = new XmlDecimal($1);
@@ -317,15 +275,6 @@ y_XmlID :
 	  {$$ = new XmlID($1);
 	   if ($$->bad)
 	     yyerror("bad XmlID");
-	   free($1);
-	  }
-	;
-
-y_XmlIDREF :
-	  DATASTRING
-	  {$$ = new XmlIDREF($1);
-	   if ($$->bad)
-	     yyerror("bad XmlIDREF");
 	   free($1);
 	  }
 	;
@@ -353,15 +302,6 @@ y_XmlPositiveInteger :
 	  {$$ = new XmlPositiveInteger($1);
 	   if ($$->bad)
 	     yyerror("bad XmlPositiveInteger");
-	   free($1);
-	  }
-	;
-
-y_XmlString :
-	  DATASTRING
-	  {$$ = new XmlString($1);
-	   if ($$->bad)
-	     yyerror("bad XmlString");
 	   free($1);
 	  }
 	;
@@ -422,12 +362,6 @@ y_CommandStatusType :
 y_CommandStatus_CommandStatusType :
 	  COMMANDSTATUSSTART y_CommandStatusType COMMANDSTATUSEND
 	  {$$ = $2;}
-	;
-
-y_Description_XmlString :
-	  DESCRIPTIONSTART ENDITEM {yyReadData = 1;} y_XmlString
-	  DESCRIPTIONEND
-	  {$$ = $4;}
 	;
 
 y_Finger1Force_XmlDecimal_0 :
@@ -607,11 +541,6 @@ y_ListJointStatus_JointStatusType_1_u :
 	   $$->push_back($2);}
 	;
 
-y_LowerRight_PointType :
-	  LOWERRIGHTSTART y_PointType LOWERRIGHTEND
-	  {$$ = $2;}
-	;
-
 y_Moment_VectorType :
 	  MOMENTSTART y_VectorType MOMENTEND
 	  {$$ = $2;}
@@ -622,18 +551,6 @@ y_Name_XmlID_0 :
 	  {$$ = 0;}
 	| NAMESTART ENDITEM {yyReadData = 1;} y_XmlID NAMEEND
 	  {$$ = $4;}
-	;
-
-y_OrientationStandardDeviation_P1001 :
-	  /* empty */
-	  {$$ = 0;}
-	| ORIENTATIONSTANDARDDEVIATIONSTART ENDITEM {yyReadData = 1;}
-	  DATASTRING ORIENTATIONSTANDARDDEVIATIONEND
-	  {$$ = new PositiveDecimalType($4);
-	   if ($$->bad)
-	     yyerror("bad OrientationStandardDeviation value");
-	   free($4);
-	  }
 	;
 
 y_PointType :
@@ -647,17 +564,9 @@ y_Point_PointType :
 	  {$$ = $2;}
 	;
 
-y_PoseOnlyLocationType :
-	   ENDITEM y_Name_XmlID_0 y_RefObjectName_XmlIDREF_0
-	  y_Timestamp_XmlDateTime_0 y_Point_PointType y_XAxis_VectorType
-	  y_ZAxis_VectorType y_PositionStandardDeviation_Posi1002
-	  y_OrientationStandardDeviation_P1001
-	  {$$ = new PoseOnlyLocationType($2, $3, $4, $5, $6, $7, $8, $9);}
-	;
-
 y_PoseStatusType :
-	   ENDITEM y_Name_XmlID_0 y_Pose_PoseOnlyLocationType
-	  y_Twist_TwistType_0 y_Wrench_WrenchType_0
+	   ENDITEM y_Name_XmlID_0 y_Pose_PoseType y_Twist_TwistType_0
+	  y_Wrench_WrenchType_0
 	  {$$ = new PoseStatusType($2, $3, $4, $5);}
 	;
 
@@ -668,35 +577,15 @@ y_PoseStatus_PoseStatusType_0 :
 	  {$$ = $2;}
 	;
 
-y_Pose_PoseOnlyLocationType :
-	  POSESTART y_PoseOnlyLocationType POSEEND
+y_PoseType :
+	   ENDITEM y_Name_XmlID_0 y_Point_PointType y_XAxis_VectorType
+	  y_ZAxis_VectorType
+	  {$$ = new PoseType($2, $3, $4, $5);}
+	;
+
+y_Pose_PoseType :
+	  POSESTART y_PoseType POSEEND
 	  {$$ = $2;}
-	;
-
-y_PositionStandardDeviation_Posi1002 :
-	  /* empty */
-	  {$$ = 0;}
-	| POSITIONSTANDARDDEVIATIONSTART ENDITEM {yyReadData = 1;}
-	  DATASTRING POSITIONSTANDARDDEVIATIONEND
-	  {$$ = new PositiveDecimalType($4);
-	   if ($$->bad)
-	     yyerror("bad PositionStandardDeviation value");
-	   free($4);
-	  }
-	;
-
-y_RefObjectName_XmlIDREF :
-	  REFOBJECTNAMESTART ENDITEM {yyReadData = 1;} y_XmlIDREF
-	  REFOBJECTNAMEEND
-	  {$$ = $4;}
-	;
-
-y_RefObjectName_XmlIDREF_0 :
-	  /* empty */
-	  {$$ = 0;}
-	| REFOBJECTNAMESTART ENDITEM {yyReadData = 1;} y_XmlIDREF
-	  REFOBJECTNAMEEND
-	  {$$ = $4;}
 	;
 
 y_Separation_XmlDecimal :
@@ -711,14 +600,6 @@ y_StatusID_XmlPositiveInteger :
 	  {$$ = $4;}
 	;
 
-y_Timestamp_XmlDateTime_0 :
-	  /* empty */
-	  {$$ = 0;}
-	| TIMESTAMPSTART ENDITEM {yyReadData = 1;} y_XmlDateTime
-	  TIMESTAMPEND
-	  {$$ = $4;}
-	;
-
 y_TwistType :
 	   ENDITEM y_Name_XmlID_0 y_LinearVelocity_VectorType
 	  y_AngularVelocity_VectorType
@@ -729,11 +610,6 @@ y_Twist_TwistType_0 :
 	  /* empty */
 	  {$$ = 0;}
 	| TWISTSTART y_TwistType TWISTEND
-	  {$$ = $2;}
-	;
-
-y_UpperLeft_PointType :
-	  UPPERLEFTSTART y_PointType UPPERLEFTEND
 	  {$$ = $2;}
 	;
 

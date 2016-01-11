@@ -13,17 +13,9 @@ class DataThingType;
 class ForceUnitEnumType;
 class FractionType;
 class LengthUnitEnumType;
-class PhysicalLocationType;
 class PointType;
-class PoseLocationInType;
-class PoseLocationOnType;
-class PoseLocationType;
-class PoseOnlyLocationType;
+class PoseType;
 class PositiveDecimalType;
-class RegionOfInterestType;
-class RelativeLocationInType;
-class RelativeLocationOnType;
-class RelativeLocationType;
 class TorqueUnitEnumType;
 class TwistType;
 class VectorType;
@@ -103,26 +95,6 @@ public:
 
 /*********************************************************************/
 
-class PhysicalLocationType :
-  public DataThingType
-{
-public:
-  PhysicalLocationType();
-  PhysicalLocationType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn);
-  ~PhysicalLocationType();
-  void PRINTSELFDECL;
-
-  XmlIDREF * RefObjectName;
-  XmlDateTime * Timestamp;
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
 class PointType :
   public DataThingType
 {
@@ -145,51 +117,22 @@ public:
 
 /*********************************************************************/
 
-class PoseLocationType :
-  public PhysicalLocationType
+class PoseType :
+  public DataThingType
 {
 public:
-  PoseLocationType();
-  PoseLocationType(
+  PoseType();
+  PoseType(
     XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
     PointType * PointIn,
     VectorType * XAxisIn,
-    VectorType * ZAxisIn,
-    PositiveDecimalType * PositionStandardDeviationIn,
-    PositiveDecimalType * OrientationStandardDeviationIn);
-  ~PoseLocationType();
+    VectorType * ZAxisIn);
+  ~PoseType();
   void PRINTSELFDECL;
 
   PointType * Point;
   VectorType * XAxis;
   VectorType * ZAxis;
-  PositiveDecimalType * PositionStandardDeviation;
-  PositiveDecimalType * OrientationStandardDeviation;
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class PoseOnlyLocationType :
-  public PoseLocationType
-{
-public:
-  PoseOnlyLocationType();
-  PoseOnlyLocationType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    PointType * PointIn,
-    VectorType * XAxisIn,
-    VectorType * ZAxisIn,
-    PositiveDecimalType * PositionStandardDeviationIn,
-    PositiveDecimalType * OrientationStandardDeviationIn);
-  ~PoseOnlyLocationType();
-  void PRINTSELFDECL;
-
 
   bool printTypp;
 };
@@ -206,48 +149,6 @@ public:
   ~PositiveDecimalType();
   bool PositiveDecimalTypeIsBad();
   void PRINTSELFDECL;
-};
-
-/*********************************************************************/
-
-class RegionOfInterestType :
-  public DataThingType
-{
-public:
-  RegionOfInterestType();
-  RegionOfInterestType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    PointType * UpperLeftIn,
-    PointType * LowerRightIn);
-  ~RegionOfInterestType();
-  void PRINTSELFDECL;
-
-  XmlIDREF * RefObjectName;
-  PointType * UpperLeft;
-  PointType * LowerRight;
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class RelativeLocationType :
-  public PhysicalLocationType
-{
-public:
-  RelativeLocationType();
-  RelativeLocationType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    XmlString * DescriptionIn);
-  ~RelativeLocationType();
-  void PRINTSELFDECL;
-
-  XmlString * Description;
-
-  bool printTypp;
 };
 
 /*********************************************************************/
@@ -322,90 +223,6 @@ public:
 
   VectorType * Force;
   VectorType * Moment;
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class PoseLocationInType :
-  public PoseLocationType
-{
-public:
-  PoseLocationInType();
-  PoseLocationInType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    PointType * PointIn,
-    VectorType * XAxisIn,
-    VectorType * ZAxisIn,
-    PositiveDecimalType * PositionStandardDeviationIn,
-    PositiveDecimalType * OrientationStandardDeviationIn);
-  ~PoseLocationInType();
-  void PRINTSELFDECL;
-
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class PoseLocationOnType :
-  public PoseLocationType
-{
-public:
-  PoseLocationOnType();
-  PoseLocationOnType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    PointType * PointIn,
-    VectorType * XAxisIn,
-    VectorType * ZAxisIn,
-    PositiveDecimalType * PositionStandardDeviationIn,
-    PositiveDecimalType * OrientationStandardDeviationIn);
-  ~PoseLocationOnType();
-  void PRINTSELFDECL;
-
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class RelativeLocationInType :
-  public RelativeLocationType
-{
-public:
-  RelativeLocationInType();
-  RelativeLocationInType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    XmlString * DescriptionIn);
-  ~RelativeLocationInType();
-  void PRINTSELFDECL;
-
-
-  bool printTypp;
-};
-
-/*********************************************************************/
-
-class RelativeLocationOnType :
-  public RelativeLocationType
-{
-public:
-  RelativeLocationOnType();
-  RelativeLocationOnType(
-    XmlID * NameIn,
-    XmlIDREF * RefObjectNameIn,
-    XmlDateTime * TimestampIn,
-    XmlString * DescriptionIn);
-  ~RelativeLocationOnType();
-  void PRINTSELFDECL;
-
 
   bool printTypp;
 };

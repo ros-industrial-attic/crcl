@@ -3,7 +3,11 @@
 #include <stdio.h>             // for stderr
 #include <string.h>            // for strcat
 #include <stdlib.h>            // for malloc, free
+#ifdef OWL
+#include "owlCRCLProgramInstanceClasses.hh"
+#else
 #include "crcl_cpp/CRCLProgramInstanceClasses.hh"
+#endif
 
 #define YYERROR_VERBOSE
 #define YYDEBUG 1
@@ -25,10 +29,8 @@ int yyerror(const char * s);
   int *                               iVal;
   char *                              sVal;
   XmlBoolean *                        XmlBooleanVal;
-  XmlDateTime *                       XmlDateTimeVal;
   XmlDecimal *                        XmlDecimalVal;
   XmlID *                             XmlIDVal;
-  XmlIDREF *                          XmlIDREFVal;
   XmlPositiveInteger *                XmlPositiveIntegerVal;
   XmlString *                         XmlStringVal;
   XmlToken *                          XmlTokenVal;
@@ -56,7 +58,7 @@ int yyerror(const char * s);
   std::list<ConfigureJointReportType *> * ListConfigureJointReportTypeVal;
   std::list<MiddleCommandType *> *    ListMiddleCommandTypeVal;
   std::list<ParameterSettingType *> * ListParameterSettingTypeVal;
-  std::list<PoseOnlyLocationType *> * ListPoseOnlyLocationTypeVal;
+  std::list<PoseType *> *             ListPoseTypeVal;
   MessageType *                       MessageTypeVal;
   MiddleCommandType *                 MiddleCommandTypeVal;
   MoveScrewType *                     MoveScrewTypeVal;
@@ -66,9 +68,8 @@ int yyerror(const char * s);
   ParameterSettingType *              ParameterSettingTypeVal;
   PointType *                         PointTypeVal;
   PoseAndSetType *                    PoseAndSetTypeVal;
-  PoseOnlyLocationType *              PoseOnlyLocationTypeVal;
   PoseToleranceType *                 PoseToleranceTypeVal;
-  PositiveDecimalType *               PositiveDecimalTypeVal;
+  PoseType *                          PoseTypeVal;
   RotAccelAbsoluteType *              RotAccelAbsoluteTypeVal;
   RotAccelRelativeType *              RotAccelRelativeTypeVal;
   RotAccelType *                      RotAccelTypeVal;
@@ -107,10 +108,8 @@ int yyerror(const char * s);
 %type <XmlVersionVal>                 y_XmlVersion
 %type <CRCLProgramFileVal>            y_CRCLProgramFile
 %type <XmlBooleanVal>                 y_XmlBoolean
-%type <XmlDateTimeVal>                y_XmlDateTime
 %type <XmlDecimalVal>                 y_XmlDecimal
 %type <XmlIDVal>                      y_XmlID
-%type <XmlIDREFVal>                   y_XmlIDREF
 %type <XmlPositiveIntegerVal>         y_XmlPositiveInteger
 %type <XmlStringVal>                  y_XmlString
 %type <XmlTokenVal>                   y_XmlToken
@@ -127,11 +126,10 @@ int yyerror(const char * s);
 %type <ConfigureJointReportTypeVal>   y_ConfigureJointReportType
 %type <ConfigureJointReportTypeVal>   y_ConfigureJointReport_Configure1001
 %type <XmlBooleanVal>                 y_Coordinated_XmlBoolean
-%type <XmlStringVal>                  y_Description_XmlString
 %type <XmlDecimalVal>                 y_DwellTime_XmlDecimal
 %type <EndCanonTypeVal>               y_EndCanonType
 %type <EndCanonTypeVal>               y_EndCanon_EndCanonType
-%type <PoseOnlyLocationTypeVal>       y_EndPosition_PoseOnlyLocationType
+%type <PoseTypeVal>                   y_EndPosition_PoseType
 %type <VectorTypeVal>                 y_Force_VectorType
 %type <FractionTypeVal>               y_Fraction_FractionType
 %type <XmlDecimalVal>                 y_I_XmlDecimal
@@ -149,10 +147,9 @@ int yyerror(const char * s);
 %type <ListActuateJointTypeVal>       y_ListActuateJoint_ActuateJointType_1_u
 %type <ListConfigureJointReportTypeVal> y_ListConfigureJointReport_Configure1001
 %type <ListMiddleCommandTypeVal>      y_ListMiddleCommand_MiddleCommandType_0_u
-%type <ListParameterSettingTypeVal>   y_ListParameterSetting_ParameterSett1003
-%type <ListPoseOnlyLocationTypeVal>   y_ListWaypoint_PoseOnlyLocationType_2_u
-%type <ListPoseOnlyLocationTypeVal>   y_ListWaypoint_PoseOnlyLocationType_2_u_Check
-%type <PointTypeVal>                  y_LowerRight_PointType
+%type <ListParameterSettingTypeVal>   y_ListParameterSetting_ParameterSett1002
+%type <ListPoseTypeVal>               y_ListWaypoint_PoseType_2_u
+%type <ListPoseTypeVal>               y_ListWaypoint_PoseType_2_u_Check
 %type <XmlStringVal>                  y_Message_XmlString
 %type <MiddleCommandTypeVal>          y_MiddleCommandTypeAny
 %type <MiddleCommandTypeVal>          y_MiddleCommand_MiddleCommandType_0_u
@@ -160,20 +157,16 @@ int yyerror(const char * s);
 %type <XmlBooleanVal>                 y_MoveStraight_XmlBoolean
 %type <XmlIDVal>                      y_Name_XmlID_0
 %type <XmlPositiveIntegerVal>         y_NumPositions_XmlPositiveInteger
-%type <PositiveDecimalTypeVal>        y_OrientationStandardDeviation_P1002
 %type <XmlTokenVal>                   y_ParameterName_XmlToken
 %type <ParameterSettingTypeVal>       y_ParameterSettingType
-%type <ParameterSettingTypeVal>       y_ParameterSetting_ParameterSett1003
+%type <ParameterSettingTypeVal>       y_ParameterSetting_ParameterSett1002
 %type <XmlTokenVal>                   y_ParameterValue_XmlToken
 %type <PointTypeVal>                  y_PointType
 %type <PointTypeVal>                  y_Point_PointType
-%type <PoseOnlyLocationTypeVal>       y_PoseOnlyLocationType
-%type <PoseOnlyLocationTypeVal>       y_PoseOnlyLocationTypeAny
 %type <PoseToleranceTypeVal>          y_PoseToleranceType
-%type <PositiveDecimalTypeVal>        y_PositionStandardDeviation_Posi1004
+%type <PoseTypeVal>                   y_PoseType
+%type <PoseTypeVal>                   y_PoseTypeAny
 %type <XmlStringVal>                  y_ProgramText_XmlString
-%type <XmlIDREFVal>                   y_RefObjectName_XmlIDREF
-%type <XmlIDREFVal>                   y_RefObjectName_XmlIDREF_0
 %type <XmlBooleanVal>                 y_ReportPosition_XmlBoolean
 %type <XmlBooleanVal>                 y_ReportTorqueOrForce_XmlBoolean
 %type <XmlBooleanVal>                 y_ReportVelocity_XmlBoolean
@@ -187,9 +180,8 @@ int yyerror(const char * s);
 %type <FractionTypeVal>               y_Setting_FractionType
 %type <XmlDecimalVal>                 y_Setting_XmlDecimal
 %type <XmlDecimalVal>                 y_Setting_XmlDecimal_0
-%type <PoseOnlyLocationTypeVal>       y_StartPosition_PoseOnlyLocation1005
+%type <PoseTypeVal>                   y_StartPosition_PoseType_0
 %type <StopConditionEnumTypeVal>      y_StopCondition_StopConditionEnumType
-%type <XmlDateTimeVal>                y_Timestamp_XmlDateTime_0
 %type <PoseToleranceTypeVal>          y_Tolerance_PoseToleranceType
 %type <PoseToleranceTypeVal>          y_Tolerance_PoseToleranceType_0
 %type <TransAccelTypeVal>             y_TransAccelTypeAny
@@ -203,9 +195,8 @@ int yyerror(const char * s);
 %type <ForceUnitEnumTypeVal>          y_UnitName_ForceUnitEnumType
 %type <LengthUnitEnumTypeVal>         y_UnitName_LengthUnitEnumType
 %type <TorqueUnitEnumTypeVal>         y_UnitName_TorqueUnitEnumType
-%type <PointTypeVal>                  y_UpperLeft_PointType
 %type <VectorTypeVal>                 y_VectorType
-%type <PoseOnlyLocationTypeVal>       y_Waypoint_PoseOnlyLocationType_2_u
+%type <PoseTypeVal>                   y_Waypoint_PoseType_2_u
 %type <XmlDecimalVal>                 y_XAxisTolerance_XmlDecimal_0
 %type <VectorTypeVal>                 y_XAxis_VectorType
 %type <XmlDecimalVal>                 y_XPointTolerance_XmlDecimal_0
@@ -286,8 +277,6 @@ int yyerror(const char * s);
 %token <iVal> CONFIGUREJOINTREPORTSTART
 %token <iVal> COORDINATEDEND
 %token <iVal> COORDINATEDSTART
-%token <iVal> DESCRIPTIONEND
-%token <iVal> DESCRIPTIONSTART
 %token <iVal> DWELLTIMEEND
 %token <iVal> DWELLTIMESTART
 %token <iVal> ENDCANONEND
@@ -318,8 +307,6 @@ int yyerror(const char * s);
 %token <iVal> KSTART
 %token <iVal> LINEARVELOCITYEND
 %token <iVal> LINEARVELOCITYSTART
-%token <iVal> LOWERRIGHTEND
-%token <iVal> LOWERRIGHTSTART
 %token <iVal> MESSAGEEND
 %token <iVal> MESSAGESTART
 %token <iVal> MIDDLECOMMANDEND
@@ -332,8 +319,6 @@ int yyerror(const char * s);
 %token <iVal> NAMESTART
 %token <iVal> NUMPOSITIONSEND
 %token <iVal> NUMPOSITIONSSTART
-%token <iVal> ORIENTATIONSTANDARDDEVIATIONEND
-%token <iVal> ORIENTATIONSTANDARDDEVIATIONSTART
 %token <iVal> PARAMETERNAMEEND
 %token <iVal> PARAMETERNAMESTART
 %token <iVal> PARAMETERSETTINGEND
@@ -342,12 +327,8 @@ int yyerror(const char * s);
 %token <iVal> PARAMETERVALUESTART
 %token <iVal> POINTEND
 %token <iVal> POINTSTART
-%token <iVal> POSITIONSTANDARDDEVIATIONEND
-%token <iVal> POSITIONSTANDARDDEVIATIONSTART
 %token <iVal> PROGRAMTEXTEND
 %token <iVal> PROGRAMTEXTSTART
-%token <iVal> REFOBJECTNAMEEND
-%token <iVal> REFOBJECTNAMESTART
 %token <iVal> REPORTPOSITIONEND
 %token <iVal> REPORTPOSITIONSTART
 %token <iVal> REPORTTORQUEORFORCEEND
@@ -366,8 +347,6 @@ int yyerror(const char * s);
 %token <iVal> STARTPOSITIONSTART
 %token <iVal> STOPCONDITIONEND
 %token <iVal> STOPCONDITIONSTART
-%token <iVal> TIMESTAMPEND
-%token <iVal> TIMESTAMPSTART
 %token <iVal> TOLERANCEEND
 %token <iVal> TOLERANCESTART
 %token <iVal> TRANSACCELEND
@@ -378,8 +357,6 @@ int yyerror(const char * s);
 %token <iVal> TURNSTART
 %token <iVal> UNITNAMEEND
 %token <iVal> UNITNAMESTART
-%token <iVal> UPPERLEFTEND
-%token <iVal> UPPERLEFTSTART
 %token <iVal> WAYPOINTEND
 %token <iVal> WAYPOINTSTART
 %token <iVal> XAXISTOLERANCEEND
@@ -425,18 +402,10 @@ int yyerror(const char * s);
 %token <iVal> MOVETOTYPEDECL
 %token <iVal> OPENTOOLCHANGERTYPEDECL
 %token <iVal> PARAMETERSETTINGTYPEDECL
-%token <iVal> PHYSICALLOCATIONTYPEDECL
 %token <iVal> POINTTYPEDECL
 %token <iVal> POSEANDSETTYPEDECL
-%token <iVal> POSELOCATIONINTYPEDECL
-%token <iVal> POSELOCATIONONTYPEDECL
-%token <iVal> POSELOCATIONTYPEDECL
-%token <iVal> POSEONLYLOCATIONTYPEDECL
 %token <iVal> POSETOLERANCETYPEDECL
-%token <iVal> REGIONOFINTERESTTYPEDECL
-%token <iVal> RELATIVELOCATIONINTYPEDECL
-%token <iVal> RELATIVELOCATIONONTYPEDECL
-%token <iVal> RELATIVELOCATIONTYPEDECL
+%token <iVal> POSETYPEDECL
 %token <iVal> ROTACCELABSOLUTETYPEDECL
 %token <iVal> ROTACCELRELATIVETYPEDECL
 %token <iVal> ROTACCELTYPEDECL
@@ -502,15 +471,6 @@ y_XmlBoolean :
 	  }
 	;
 
-y_XmlDateTime :
-	  DATASTRING
-	  {$$ = new XmlDateTime($1);
-	   if ($$->bad)
-	     yyerror("bad XmlDateTime");
-	   free($1);
-	  }
-	;
-
 y_XmlDecimal :
 	  DATASTRING
 	  {$$ = new XmlDecimal($1);
@@ -525,15 +485,6 @@ y_XmlID :
 	  {$$ = new XmlID($1);
 	   if ($$->bad)
 	     yyerror("bad XmlID");
-	   free($1);
-	  }
-	;
-
-y_XmlIDREF :
-	  DATASTRING
-	  {$$ = new XmlIDREF($1);
-	   if ($$->bad)
-	     yyerror("bad XmlIDREF");
 	   free($1);
 	  }
 	;
@@ -660,12 +611,6 @@ y_Coordinated_XmlBoolean :
 	  {$$ = $4;}
 	;
 
-y_Description_XmlString :
-	  DESCRIPTIONSTART ENDITEM {yyReadData = 1;} y_XmlString
-	  DESCRIPTIONEND
-	  {$$ = $4;}
-	;
-
 y_DwellTime_XmlDecimal :
 	  DWELLTIMESTART ENDITEM {yyReadData = 1;} y_XmlDecimal
 	  DWELLTIMEEND
@@ -682,8 +627,8 @@ y_EndCanon_EndCanonType :
 	  {$$ = $2;}
 	;
 
-y_EndPosition_PoseOnlyLocationType :
-	  ENDPOSITIONSTART y_PoseOnlyLocationTypeAny ENDPOSITIONEND
+y_EndPosition_PoseType :
+	  ENDPOSITIONSTART y_PoseTypeAny ENDPOSITIONEND
 	  {$$ = $2;}
 	;
 
@@ -799,37 +744,31 @@ y_ListMiddleCommand_MiddleCommandType_0_u :
 	   $$->push_back($2);}
 	;
 
-y_ListParameterSetting_ParameterSett1003 :
-	  y_ListParameterSetting_ParameterSett1003
-	  y_ParameterSetting_ParameterSett1003
+y_ListParameterSetting_ParameterSett1002 :
+	  y_ListParameterSetting_ParameterSett1002
+	  y_ParameterSetting_ParameterSett1002
 	  {$$ = $1;
 	   $$->push_back($2);}
-	| y_ParameterSetting_ParameterSett1003
+	| y_ParameterSetting_ParameterSett1002
 	  {$$ = new std::list<ParameterSettingType *>;
 	   $$->push_back($1);}
 	;
 
-y_ListWaypoint_PoseOnlyLocationType_2_u :
-	  y_ListWaypoint_PoseOnlyLocationType_2_u
-	  y_Waypoint_PoseOnlyLocationType_2_u
+y_ListWaypoint_PoseType_2_u :
+	  y_ListWaypoint_PoseType_2_u y_Waypoint_PoseType_2_u
 	  {$$ = $1;
 	   $$->push_back($2);}
-	| y_Waypoint_PoseOnlyLocationType_2_u
-	  {$$ = new std::list<PoseOnlyLocationType *>;
+	| y_Waypoint_PoseType_2_u
+	  {$$ = new std::list<PoseType *>;
 	   $$->push_back($1);}
 	;
 
-y_ListWaypoint_PoseOnlyLocationType_2_u_Check :
-	  y_ListWaypoint_PoseOnlyLocationType_2_u
+y_ListWaypoint_PoseType_2_u_Check :
+	  y_ListWaypoint_PoseType_2_u
 	  {$$ = $1;
 	   if ($1->size() < 2)
 	     yyerror("must be at least 2 Waypoints");
 	  }
-	;
-
-y_LowerRight_PointType :
-	  LOWERRIGHTSTART y_PointType LOWERRIGHTEND
-	  {$$ = $2;}
 	;
 
 y_Message_XmlString :
@@ -921,18 +860,6 @@ y_NumPositions_XmlPositiveInteger :
 	  {$$ = $4;}
 	;
 
-y_OrientationStandardDeviation_P1002 :
-	  /* empty */
-	  {$$ = 0;}
-	| ORIENTATIONSTANDARDDEVIATIONSTART ENDITEM {yyReadData = 1;}
-	  DATASTRING ORIENTATIONSTANDARDDEVIATIONEND
-	  {$$ = new PositiveDecimalType($4);
-	   if ($$->bad)
-	     yyerror("bad OrientationStandardDeviation value");
-	   free($4);
-	  }
-	;
-
 y_ParameterName_XmlToken :
 	  PARAMETERNAMESTART ENDITEM {yyReadData = 1;} y_XmlToken
 	  PARAMETERNAMEEND
@@ -945,7 +872,7 @@ y_ParameterSettingType :
 	  {$$ = new ParameterSettingType($2, $3, $4);}
 	;
 
-y_ParameterSetting_ParameterSett1003 :
+y_ParameterSetting_ParameterSett1002 :
 	  PARAMETERSETTINGSTART y_ParameterSettingType PARAMETERSETTINGEND
 	  {$$ = $2;}
 	;
@@ -967,21 +894,6 @@ y_Point_PointType :
 	  {$$ = $2;}
 	;
 
-y_PoseOnlyLocationType :
-	   ENDITEM y_Name_XmlID_0 y_RefObjectName_XmlIDREF_0
-	  y_Timestamp_XmlDateTime_0 y_Point_PointType y_XAxis_VectorType
-	  y_ZAxis_VectorType y_PositionStandardDeviation_Posi1004
-	  y_OrientationStandardDeviation_P1002
-	  {$$ = new PoseOnlyLocationType($2, $3, $4, $5, $6, $7, $8, $9);}
-	;
-
-y_PoseOnlyLocationTypeAny :
-	  y_PoseOnlyLocationType
-	  {$$ = $1;}
-	| y_x_PoseAndSetType
-	  {$$ = $1;}
-	;
-
 y_PoseToleranceType :
 	   ENDITEM y_Name_XmlID_0 y_XPointTolerance_XmlDecimal_0
 	  y_YPointTolerance_XmlDecimal_0 y_ZPointTolerance_XmlDecimal_0
@@ -989,35 +901,22 @@ y_PoseToleranceType :
 	  {$$ = new PoseToleranceType($2, $3, $4, $5, $6, $7);}
 	;
 
-y_PositionStandardDeviation_Posi1004 :
-	  /* empty */
-	  {$$ = 0;}
-	| POSITIONSTANDARDDEVIATIONSTART ENDITEM {yyReadData = 1;}
-	  DATASTRING POSITIONSTANDARDDEVIATIONEND
-	  {$$ = new PositiveDecimalType($4);
-	   if ($$->bad)
-	     yyerror("bad PositionStandardDeviation value");
-	   free($4);
-	  }
+y_PoseType :
+	   ENDITEM y_Name_XmlID_0 y_Point_PointType y_XAxis_VectorType
+	  y_ZAxis_VectorType
+	  {$$ = new PoseType($2, $3, $4, $5);}
+	;
+
+y_PoseTypeAny :
+	  y_PoseType
+	  {$$ = $1;}
+	| y_x_PoseAndSetType
+	  {$$ = $1;}
 	;
 
 y_ProgramText_XmlString :
 	  PROGRAMTEXTSTART ENDITEM {yyReadData = 1;} y_XmlString
 	  PROGRAMTEXTEND
-	  {$$ = $4;}
-	;
-
-y_RefObjectName_XmlIDREF :
-	  REFOBJECTNAMESTART ENDITEM {yyReadData = 1;} y_XmlIDREF
-	  REFOBJECTNAMEEND
-	  {$$ = $4;}
-	;
-
-y_RefObjectName_XmlIDREF_0 :
-	  /* empty */
-	  {$$ = 0;}
-	| REFOBJECTNAMESTART ENDITEM {yyReadData = 1;} y_XmlIDREF
-	  REFOBJECTNAMEEND
 	  {$$ = $4;}
 	;
 
@@ -1103,10 +1002,10 @@ y_Setting_XmlDecimal_0 :
 	  {$$ = $4;}
 	;
 
-y_StartPosition_PoseOnlyLocation1005 :
+y_StartPosition_PoseType_0 :
 	  /* empty */
 	  {$$ = 0;}
-	| STARTPOSITIONSTART y_PoseOnlyLocationTypeAny STARTPOSITIONEND
+	| STARTPOSITIONSTART y_PoseTypeAny STARTPOSITIONEND
 	  {$$ = $2;}
 	;
 
@@ -1118,14 +1017,6 @@ y_StopCondition_StopConditionEnumType :
 	     yyerror("bad StopCondition value");
 	   free($4);
 	  }
-	;
-
-y_Timestamp_XmlDateTime_0 :
-	  /* empty */
-	  {$$ = 0;}
-	| TIMESTAMPSTART ENDITEM {yyReadData = 1;} y_XmlDateTime
-	  TIMESTAMPEND
-	  {$$ = $4;}
 	;
 
 y_Tolerance_PoseToleranceType :
@@ -1219,21 +1110,16 @@ y_UnitName_TorqueUnitEnumType :
 	  }
 	;
 
-y_UpperLeft_PointType :
-	  UPPERLEFTSTART y_PointType UPPERLEFTEND
-	  {$$ = $2;}
-	;
-
 y_VectorType :
 	   ENDITEM y_Name_XmlID_0 y_I_XmlDecimal y_J_XmlDecimal
 	  y_K_XmlDecimal
 	  {$$ = new VectorType($2, $3, $4, $5);}
 	;
 
-y_Waypoint_PoseOnlyLocationType_2_u :
-	  WAYPOINTSTART y_PoseOnlyLocationType WAYPOINTEND
+y_Waypoint_PoseType_2_u :
+	  WAYPOINTSTART y_PoseType WAYPOINTEND
 	  {$$ = $2;}
-	| WAYPOINTSTART y_PoseOnlyLocationTypeAny WAYPOINTEND
+	| WAYPOINTSTART y_PoseTypeAny WAYPOINTEND
 	  {$$ = $2;}
 	;
 
@@ -1370,10 +1256,9 @@ y_x_MessageType :
 
 y_x_MoveScrewType :
 	  MOVESCREWTYPEDECL ENDITEM y_Name_XmlID_0
-	  y_CommandID_XmlPositiveInteger
-	  y_StartPosition_PoseOnlyLocation1005 y_AxisPoint_PointType_0
-	  y_AxialDistanceFree_XmlDecimal_0 y_AxialDistanceScrew_XmlDecimal
-	  y_Turn_XmlDecimal
+	  y_CommandID_XmlPositiveInteger y_StartPosition_PoseType_0
+	  y_AxisPoint_PointType_0 y_AxialDistanceFree_XmlDecimal_0
+	  y_AxialDistanceScrew_XmlDecimal y_Turn_XmlDecimal
 	  {$$ = new MoveScrewType($3, $4, $5, $6, $7, $8, $9);
 	   $$->printTypp = true;
 	  }
@@ -1382,7 +1267,7 @@ y_x_MoveScrewType :
 y_x_MoveThroughToType :
 	  MOVETHROUGHTOTYPEDECL ENDITEM y_Name_XmlID_0
 	  y_CommandID_XmlPositiveInteger y_MoveStraight_XmlBoolean
-	  y_ListWaypoint_PoseOnlyLocationType_2_u_Check
+	  y_ListWaypoint_PoseType_2_u_Check
 	  y_NumPositions_XmlPositiveInteger
 	  {$$ = new MoveThroughToType($3, $4, $5, $6, $7);
 	   $$->printTypp = true;
@@ -1392,7 +1277,7 @@ y_x_MoveThroughToType :
 y_x_MoveToType :
 	  MOVETOTYPEDECL ENDITEM y_Name_XmlID_0
 	  y_CommandID_XmlPositiveInteger y_MoveStraight_XmlBoolean
-	  y_EndPosition_PoseOnlyLocationType
+	  y_EndPosition_PoseType
 	  {$$ = new MoveToType($3, $4, $5, $6);
 	   $$->printTypp = true;
 	  }
@@ -1407,15 +1292,12 @@ y_x_OpenToolChangerType :
 	;
 
 y_x_PoseAndSetType :
-	  POSEANDSETTYPEDECL ENDITEM y_Name_XmlID_0
-	  y_RefObjectName_XmlIDREF_0 y_Timestamp_XmlDateTime_0
-	  y_Point_PointType y_XAxis_VectorType y_ZAxis_VectorType
-	  y_PositionStandardDeviation_Posi1004
-	  y_OrientationStandardDeviation_P1002 y_Coordinated_XmlBoolean
+	  POSEANDSETTYPEDECL ENDITEM y_Name_XmlID_0 y_Point_PointType
+	  y_XAxis_VectorType y_ZAxis_VectorType y_Coordinated_XmlBoolean
 	  y_TransSpeed_TransSpeedType_0 y_RotSpeed_RotSpeedType_0
 	  y_TransAccel_TransAccelType_0 y_RotAccel_RotAccelType_0
 	  y_Tolerance_PoseToleranceType_0
-	  {$$ = new PoseAndSetType($3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16);
+	  {$$ = new PoseAndSetType($3, $4, $5, $6, $7, $8, $9, $10, $11, $12);
 	   $$->printTypp = true;
 	  }
 	;
@@ -1471,7 +1353,7 @@ y_x_SetAngleUnitsType :
 y_x_SetEndEffectorParametersType :
 	  SETENDEFFECTORPARAMETERSTYPEDECL ENDITEM y_Name_XmlID_0
 	  y_CommandID_XmlPositiveInteger
-	  y_ListParameterSetting_ParameterSett1003
+	  y_ListParameterSetting_ParameterSett1002
 	  {$$ = new SetEndEffectorParametersType($3, $4, $5);
 	   $$->printTypp = true;
 	  }
@@ -1528,7 +1410,7 @@ y_x_SetMotionCoordinationType :
 y_x_SetRobotParametersType :
 	  SETROBOTPARAMETERSTYPEDECL ENDITEM y_Name_XmlID_0
 	  y_CommandID_XmlPositiveInteger
-	  y_ListParameterSetting_ParameterSett1003
+	  y_ListParameterSetting_ParameterSett1002
 	  {$$ = new SetRobotParametersType($3, $4, $5);
 	   $$->printTypp = true;
 	  }
