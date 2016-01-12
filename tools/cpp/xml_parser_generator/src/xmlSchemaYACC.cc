@@ -2831,8 +2831,8 @@ void doXmlUniqueAttributes(
 
 /* In a future release of Bison, this section will be replaced
    by #include "xmlSchemaYACC.hh".  */
-#ifndef YY_YY_SRC_XMLSCHEMAYACC_HH_INCLUDED
-# define YY_YY_SRC_XMLSCHEMAYACC_HH_INCLUDED
+#ifndef YY_YY_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_XMLSCHEMAYACC_HH_INCLUDED
+# define YY_YY_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_XMLSCHEMAYACC_HH_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -3024,7 +3024,7 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_SRC_XMLSCHEMAYACC_HH_INCLUDED  */
+#endif /* !YY_YY_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_XMLSCHEMAYACC_HH_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 

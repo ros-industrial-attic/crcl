@@ -148,8 +148,8 @@ extern FILE * yyrein;
 
 /* In a future release of Bison, this section will be replaced
    by #include "patternYACC.hh".  */
-#ifndef YY_YYRE_SRC_PATTERNYACC_HH_INCLUDED
-# define YY_YYRE_SRC_PATTERNYACC_HH_INCLUDED
+#ifndef YY_YYRE_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_PATTERNYACC_HH_INCLUDED
+# define YY_YYRE_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_PATTERNYACC_HH_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -226,7 +226,7 @@ extern YYSTYPE yyrelval;
 
 int yyreparse (void);
 
-#endif /* !YY_YYRE_SRC_PATTERNYACC_HH_INCLUDED  */
+#endif /* !YY_YYRE_HOME_ISD_PROCTOR_TEST_WS_SRC_CRCL_TOOLS_CPP_XML_PARSER_GENERATOR_SRC_PATTERNYACC_HH_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
