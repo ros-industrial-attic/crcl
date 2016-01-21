@@ -5,6 +5,7 @@ makeCommandEndCanon.cc
 makeCommandEndCanonAuto.cc
 makeCommandEndCanonNoLeak.cc
 makeStatusExample.cc
+CRCLProgramInstanceHandler.cc
 ```
 
 These files are generated from the XML generator in the `xml_parser_generator` package, using the CRCL schemas:

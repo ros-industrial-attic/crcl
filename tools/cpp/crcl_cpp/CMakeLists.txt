@@ -39,6 +39,16 @@ target_link_libraries(CRCLCommandInstanceParser
   xml_instance
   )
 
+add_library(crcl_program_instance_parser
+  src/CRCLProgramInstanceLex.cc
+  src/CRCLProgramInstanceYACC.cc
+  include/crcl_cpp/CRCLProgramInstanceYACC.hh
+  )
+
+set_target_properties(crcl_program_instance_parser
+  PROPERTIES COMPILE_FLAGS -DNO_ECHO
+)
+
 add_executable(CRCLProgramInstanceParser
   src/CRCLProgramInstanceParser.cc
   src/CRCLProgramInstanceLex.cc
@@ -160,7 +170,7 @@ IF(FLEX_FOUND)
   FLEX_TARGET(Status ${PROJECT_SOURCE_DIR}/src/CRCLStatus.lex ${PROJECT_SOURCE_DIR}/src/CRCLStatusLex.cc COMPILE_FLAGS "-L")
 ENDIF()
 
-install(TARGETS crcl_cpp
+install(TARGETS crcl_cpp crcl_program_instance_parser
   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
   )
 

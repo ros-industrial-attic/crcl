@@ -19,6 +19,7 @@ only in the InitCanon command.
     <CommandID>1</CommandID>
   </InitCanon>
   <MiddleCommand xsi:type="ActuateJointsType">
+    <Name>ActuateJoints</Name>
     <CommandID>2</CommandID>
     <ActuateJoint>
       <JointNumber>1</JointNumber>
