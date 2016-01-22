@@ -50,7 +50,7 @@
 
         DataThingType is an abstract type from which more specific types
         of data thing are derived. That includes all complex data
-        types such as VectorType, PoseType, etc.
+        types such as Vector, PoseType, etc.
       </xs:documentation>
     </xs:annotation>
     <xs:sequence>
@@ -157,6 +157,12 @@
     </xs:complexContent>
   </xs:complexType>
 
+  <xs:simpleType name="PositiveDecimalType">
+    <xs:restriction base="xs:decimal">
+      <xs:minExclusive value="0"/>
+    </xs:restriction>
+  </xs:simpleType>
+
   <xs:simpleType name="TorqueUnitEnumType">
     <xs:annotation>
       <xs:documentation>
@@ -169,6 +175,31 @@
       <xs:enumeration value="footPound"/>
     </xs:restriction>
   </xs:simpleType>
+
+  <xs:complexType name="TwistType">
+    <xs:annotation>
+      <xs:documentation>
+        TwistType is derived from DataThingType.
+        An instance of TwistType has the following elements:
+          Name (inherited, optional)
+          LinearVelocity
+          AngularVelocity.
+
+        A TwistType object represents the velocity of a
+        rigid object in SE(3).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="LinearVelocity"
+            type="VectorType"/>
+          <xs:element name="AngularVelocity"
+            type="VectorType"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
 
   <xs:complexType name="VectorType">
     <xs:annotation>
@@ -193,6 +224,31 @@
             type="xs:decimal"/>
           <xs:element name="K"
             type="xs:decimal"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="WrenchType">
+    <xs:annotation>
+      <xs:documentation>
+        WrenchType is derived from DataThingType.
+        An instance of WrenchType has the following elements:
+          Name (inherited, optional)
+          Force
+          Moment.
+
+        A WrenchType object represents generalized forces and torques on a
+        rigid object in SE(3).
+      </xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+      <xs:extension base="DataThingType">
+        <xs:sequence>
+          <xs:element name="Force"
+            type="VectorType"/>
+          <xs:element name="Moment"
+            type="VectorType"/>
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

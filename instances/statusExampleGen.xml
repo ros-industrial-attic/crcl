@@ -2,7 +2,6 @@
 <CRCLStatus
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="../xmlSchemas/CRCLStatus.xsd">
-
   <CommandStatus>
     <CommandID>1</CommandID>
     <StatusID>1</StatusID>
@@ -11,30 +10,36 @@
   <JointStatuses>
     <JointStatus>
       <JointNumber>1</JointNumber>
-      <JointPosition>30.0</JointPosition>
-      <JointTorqueOrForce>3.7</JointTorqueOrForce>
+      <JointPosition>30.000000</JointPosition>
+      <JointTorqueOrForce>3.700000</JointTorqueOrForce>
     </JointStatus>
     <JointStatus>
       <JointNumber>3</JointNumber>
-      <JointPosition>90.0</JointPosition>
-      <JointVelocity>0.87</JointVelocity>
+      <JointPosition>90.000000</JointPosition>
+      <JointVelocity>0.870000</JointVelocity>
     </JointStatus>
   </JointStatuses>
   <PoseStatus>
     <Pose>
       <Point>
-	<X>1.5</X> <Y>1</Y> <Z>1</Z>
+	<X>1.500000</X>
+	<Y>1.000000</Y>
+	<Z>1.000000</Z>
       </Point>
       <XAxis>
-	<I>1</I> <J>0</J> <K>0</K>
+	<I>1.000000</I>
+	<J>0.000000</J>
+	<K>0.000000</K>
       </XAxis>
       <ZAxis>
-	<I>0</I> <J>0</J> <K>-1</K>
+	<I>0.000000</I>
+	<J>0.000000</J>
+	<K>-1.000000</K>
       </ZAxis>
     </Pose>
   </PoseStatus>
   <GripperStatus xsi:type="ParallelGripperStatusType">
     <GripperName>jaws</GripperName>
-    <Separation>0.44</Separation>
+    <Separation>0.440000</Separation>
   </GripperStatus>
 </CRCLStatus>

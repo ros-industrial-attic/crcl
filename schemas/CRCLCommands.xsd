@@ -85,10 +85,10 @@
       also have the same understanding of where the zero point is and which
       direction is positive for each joint.
 
-      In order that this file may be translateable into OWL, all
+      In order that this file may be translatable into OWL, all
       complexTypes in this file include the (optional) Name element,
       inherited from DataThingType. If an instance file has instances of
-      complex data without names, it will not be translateable into OWL.
+      complex data without names, it will not be translatable into OWL.
 
       This file uses the term 'single axis rotation' (and similar terms
       such as 'single axis rotational speed'). When referring to motion
@@ -143,7 +143,7 @@
 
         JointPosition is the target position for the joint. JointDetails
         provides either (1) the speed and acceleration to use in getting to
-        the position or (2)the force or torque and rate of change of force
+        the position or (2) the force or torque and rate of change of force
         or torque to use in getting to the position.
       </xs:documentation>
     </xs:annotation>
@@ -859,7 +859,7 @@
           Name (inherited, optional)
           .
 
-        RotAccelType is an abstract type used as the parent type of: 
+        RotAccelType is an abstract type used as the parent type of:
           RotAccelAbsoluteType
           RotAccelRelativeType.
       </xs:documentation>
@@ -1418,8 +1418,7 @@
     <xs:annotation>
       <xs:documentation>
         The abstract TransAccelType is derived from DataThingType.
-        An instance of TransAccelType has the following
-        elements:
+        An instance of TransAccelType has the following elements:
           Name (inherited, optional)
           .
 
@@ -1488,7 +1487,7 @@
           Name (inherited, optional)
           .
 
-        TransSpeedType is and abstract type used as the parent type of: 
+        TransSpeedType is an abstract type used as the parent type of: 
           TransSpeedAbsoluteType
           TransSpeedRelativeType.
       </xs:documentation>
