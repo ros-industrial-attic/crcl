@@ -1,0 +1,20 @@
+
+
+<CRCLStatus>
+    <CommandStatus>
+        <Name>InitCanonType</Name>
+        <CommandID>4</CommandID>
+        <StatusID>1</StatusID>
+        <CommandState>CRCL_Working</CommandState>
+    </CommandStatus>
+    <SensorStatuses>
+        <ForceTorqueSensorStatus>
+            <Fx>185.0</Fx>
+            <Fy>500.0</Fy>
+            <Fz>668.0</Fz>
+            <Tx>500.0</Tx>
+            <Ty>500.0</Ty>
+            <Tz>500.0</Tz>
+        </ForceTorqueSensorStatus>
+    </SensorStatuses>
+</CRCLStatus>

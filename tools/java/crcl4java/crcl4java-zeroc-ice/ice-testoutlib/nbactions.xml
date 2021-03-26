@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-setuponly</actionName>
+            <displayName>setuponly</displayName>
+            <goals>
+                <goal>validate</goal>
+                <goal>-Dneedinstall=true</goal>
+            </goals>
+        </action>
+    </actions>

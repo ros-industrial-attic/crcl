@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "motoPlusTcpServer", "motoPlusTcpServer\motoPlusTcpServer.vcxproj", "{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DX100|x86 = DX100|x86
+		DX200|x86 = DX200|x86
+		FS100|x86 = FS100|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.DX100|x86.ActiveCfg = DX100|Win32
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.DX100|x86.Build.0 = DX100|Win32
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.DX200|x86.ActiveCfg = DX200|Win32
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.DX200|x86.Build.0 = DX200|Win32
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.FS100|x86.ActiveCfg = FS100|Win32
+		{9B37D9B2-939B-441E-AD7D-B20FD4A06FFC}.FS100|x86.Build.0 = FS100|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

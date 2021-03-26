@@ -1,0 +1,140 @@
+<html><head>
+<!-- CSS goes in the document HEAD or added to your external stylesheet -->
+<style type="text/css">
+table.altrowstable {
+               font-family: verdana,arial,sans-serif;
+               font-size:11px;
+               color:#333333;
+               border-width: 1px;
+               border-color: #a9c6c9;
+               border-collapse: collapse;
+}
+table.altrowstable th {
+               border-width: 1px;
+               padding: 0px;
+               border-style: solid;
+               border-color: #a9c6c9;
+}
+table.altrowstable td {
+               border-width: 1px;
+               padding: 0px;
+               border-style: solid;
+               border-color: #a9c6c9;
+}
+.oddrowcolor{
+               background-color:#d4e3e5;
+}
+.evenrowcolor{
+               background-color:#c3dde0;
+}
+@page {
+    @bottom {
+        content: "Page " counter(page) " of " counter(pages)
+    }
+}
+</style>
+</head>
+<body>
+<h1>nistcrcl</h1>
+<h2><A NAME="nistcrcl_CrclCommandMsg">nistcrcl/CrclCommandMsg</A></h2>
+<table class="altrowstable"">
+<p></p><tr><th>Type</th><th> Name </th><th> Comment </th></tr>
+<tr><td>uint8</td><td>initCanon=1</td><td></td></tr>
+<tr><td>uint8</td><td>endCanon=2</td><td></td></tr>
+<tr><td>uint8</td><td>actuatejoints=3</td><td></td></tr>
+<tr><td>uint8</td><td>moveto=4</td><td></td></tr>
+<tr><td>uint8</td><td>dwell=5</td><td></td></tr>
+<tr><td>uint8</td><td>message=6</td><td></td></tr>
+<tr><td>uint8</td><td>moveThroughTo=7</td><td></td></tr>
+<tr><td>uint8</td><td>setCoordinatedMotion=8</td><td></td></tr>
+<tr><td>uint8</td><td>stopMotion=9</td><td></td></tr>
+<tr><td>uint8</td><td>setEndEffector=10</td><td></td></tr>
+<tr><td>uint8</td><td>openToolChange=11</td><td></td></tr>
+<tr><td>uint8</td><td>closeToolChanger=12</td><td></td></tr>
+<tr><td><A HREF="#std_msgs_Header">std_msgs/Header</A></td><td>header</td><td></td></tr>
+<tr><td>uint32</td><td>seq</td><td></td></tr>
+<tr><td>time</td><td>stamp</td><td></td></tr>
+<tr><td>string</td><td>frame_id</td><td></td></tr>
+<tr><td>uint8</td><td>crclcommand</td><td></td></tr>
+<tr><td>uint64</td><td>crclcommandnum</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Pose">geometry_msgs/Pose</A></td><td>finalpose</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Point">geometry_msgs/Point</A></td><td>position</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Quaternion">geometry_msgs/Quaternion</A></td><td>orientation</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td>float64</td><td>w</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Pose">geometry_msgs/Pose[]</A></td><td>waypoints</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Point">geometry_msgs/Point</A></td><td>position</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Quaternion">geometry_msgs/Quaternion</A></td><td>orientation</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td>float64</td><td>w</td><td></td></tr>
+<tr><td><A HREF="#sensor_msgs_JointState">sensor_msgs/JointState</A></td><td>joints</td><td></td></tr>
+<tr><td><A HREF="#std_msgs_Header">std_msgs/Header</A></td><td>header</td><td></td></tr>
+<tr><td>uint32</td><td>seq</td><td></td></tr>
+<tr><td>time</td><td>stamp</td><td></td></tr>
+<tr><td>string</td><td>frame_id</td><td></td></tr>
+<tr><td>string[]</td><td>name</td><td></td></tr>
+<tr><td>float64[]</td><td>position</td><td></td></tr>
+<tr><td>float64[]</td><td>velocity</td><td></td></tr>
+<tr><td>float64[]</td><td>effort</td><td></td></tr>
+<tr><td>bool</td><td>bStraight</td><td></td></tr>
+<tr><td>float64</td><td>dwell_seconds</td><td></td></tr>
+<tr><td>string</td><td>opmessage</td><td></td></tr>
+<tr><td>bool</td><td>bCoordinated</td><td></td></tr>
+<tr><td>float64</td><td>eepercent</td><td></td></tr>
+<tr><td><A HREF="#nistcrcl_CrclMaxProfileMsg">nistcrcl/CrclMaxProfileMsg[]</A></td><td>profile</td><td></td></tr>
+<tr><td>float64</td><td>maxvel</td><td></td></tr>
+<tr><td>float64</td><td>maxacc</td><td></td></tr>
+<tr><td>float64</td><td>maxjerk</td><td></td></tr>
+</table>
+<h2><A NAME="nistcrcl_CrclMaxProfileMsg">nistcrcl/CrclMaxProfileMsg</A></h2>
+<table class="altrowstable"">
+<p></p><tr><th>Type</th><th> Name </th><th> Comment </th></tr>
+<tr><td>float64</td><td>maxvel</td><td></td></tr>
+<tr><td>float64</td><td>maxacc</td><td></td></tr>
+<tr><td>float64</td><td>maxjerk</td><td></td></tr>
+</table>
+<h2><A NAME="nistcrcl_CrclStatusMsg">nistcrcl/CrclStatusMsg</A></h2>
+<table class="altrowstable"">
+<p></p><tr><th>Type</th><th> Name </th><th> Comment </th></tr>
+<tr><td>uint8</td><td>done=0</td><td></td></tr>
+<tr><td>uint8</td><td>error=1</td><td></td></tr>
+<tr><td>uint8</td><td>working=2</td><td></td></tr>
+<tr><td><A HREF="#std_msgs_Header">std_msgs/Header</A></td><td>header</td><td></td></tr>
+<tr><td>uint32</td><td>seq</td><td></td></tr>
+<tr><td>time</td><td>stamp</td><td></td></tr>
+<tr><td>string</td><td>frame_id</td><td></td></tr>
+<tr><td>uint8</td><td>crclcommandnum</td><td></td></tr>
+<tr><td>uint8</td><td>crclstatusnum</td><td></td></tr>
+<tr><td>uint8</td><td>crclcommandstatus</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Pose">geometry_msgs/Pose</A></td><td>statuspose</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Point">geometry_msgs/Point</A></td><td>position</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td><A HREF="#geometry_msgs_Quaternion">geometry_msgs/Quaternion</A></td><td>orientation</td><td></td></tr>
+<tr><td>float64</td><td>x</td><td></td></tr>
+<tr><td>float64</td><td>y</td><td></td></tr>
+<tr><td>float64</td><td>z</td><td></td></tr>
+<tr><td>float64</td><td>w</td><td></td></tr>
+<tr><td><A HREF="#sensor_msgs_JointState">sensor_msgs/JointState</A></td><td>statusjoints</td><td></td></tr>
+<tr><td><A HREF="#std_msgs_Header">std_msgs/Header</A></td><td>header</td><td></td></tr>
+<tr><td>uint32</td><td>seq</td><td></td></tr>
+<tr><td>time</td><td>stamp</td><td></td></tr>
+<tr><td>string</td><td>frame_id</td><td></td></tr>
+<tr><td>string[]</td><td>name</td><td></td></tr>
+<tr><td>float64[]</td><td>position</td><td></td></tr>
+<tr><td>float64[]</td><td>velocity</td><td></td></tr>
+<tr><td>float64[]</td><td>effort</td><td></td></tr>
+<tr><td>float64</td><td>eepercent</td><td></td></tr>
+</table>
+</body></html>

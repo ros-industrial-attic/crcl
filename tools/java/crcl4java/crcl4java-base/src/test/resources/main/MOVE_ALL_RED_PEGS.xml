@@ -1,0 +1,3709 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<CRCLProgram>
+    <InitCanon>
+        <CommandID>1</CommandID>
+    </InitCanon>
+    <MiddleCommand xsi:type="SetLengthUnitsType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>1</CommandID>
+        <UnitName>millimeter</UnitName>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndPoseToleranceType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>2</CommandID>
+        <Tolerance>
+            <XPointTolerance>0.1</XPointTolerance>
+            <YPointTolerance>0.1</YPointTolerance>
+            <ZPointTolerance>0.1</ZPointTolerance>
+            <XAxisTolerance>0.0017453292519943296</XAxisTolerance>
+            <ZAxisTolerance>0.0017453292519943296</ZAxisTolerance>
+        </Tolerance>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>2</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>GO_HOME_1_2_L_PR_1_200mm_sec_FINE</Name>
+        <CommandID>3</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26167397340989584</I>
+                <J>0.9651544435833265</J>
+                <K>0.0019056944237158169</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056944237160116</I>
+                <J>0.002491161593823162</J>
+                <K>-0.9999950812092412</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ALL_RED_PEGS_4_4_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>4</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>4</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_4_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>5</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>6</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_6_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>7</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_8_WAIT_10_sec_</Name>
+        <CommandID>8</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_9_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>9</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_10_WAIT_10_sec_</Name>
+        <CommandID>10</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>11</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_11_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>12</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>13</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_13_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>14</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>15</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_15_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>16</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-136.361572265625</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_17_WAIT_0_00_sec_</Name>
+        <CommandID>17</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_18_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>18</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_19_WAIT_10_sec_</Name>
+        <CommandID>19</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>20</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_20_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>21</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>21</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_21_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>22</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>23</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_23_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>24</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_25_WAIT_10_sec_</Name>
+        <CommandID>25</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_26_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>26</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_27_WAIT_10_sec_</Name>
+        <CommandID>27</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>28</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_28_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>29</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>30</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_30_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>31</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>32</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_32_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>33</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-134.52291870117188</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_34_WAIT_0_00_sec_</Name>
+        <CommandID>34</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_35_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>35</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_36_WAIT_10_sec_</Name>
+        <CommandID>36</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>37</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_37_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>38</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>38</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_38_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>39</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>40</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_40_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>41</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_42_WAIT_10_sec_</Name>
+        <CommandID>42</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_43_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>43</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_44_WAIT_10_sec_</Name>
+        <CommandID>44</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>45</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_45_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>46</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>47</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_47_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>48</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>49</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_49_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>50</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-134.31536865234375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_51_WAIT_0_00_sec_</Name>
+        <CommandID>51</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_52_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>52</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_53_WAIT_10_sec_</Name>
+        <CommandID>53</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>54</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_54_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>55</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>55</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_55_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>56</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>57</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_57_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>58</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_59_WAIT_10_sec_</Name>
+        <CommandID>59</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_60_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>60</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_61_WAIT_10_sec_</Name>
+        <CommandID>61</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>62</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_62_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>63</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>64</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_64_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>65</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>66</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_66_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>67</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-134.6617889404297</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_68_WAIT_0_00_sec_</Name>
+        <CommandID>68</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_69_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>69</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_70_WAIT_10_sec_</Name>
+        <CommandID>70</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>71</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_71_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>72</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>72</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_72_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>73</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>74</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_74_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>75</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_76_WAIT_10_sec_</Name>
+        <CommandID>76</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_77_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>77</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_78_WAIT_10_sec_</Name>
+        <CommandID>78</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>79</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_79_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>80</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>81</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_81_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>82</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>83</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_83_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>84</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-138.5015411376953</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_85_WAIT_0_00_sec_</Name>
+        <CommandID>85</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_86_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>86</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_87_WAIT_10_sec_</Name>
+        <CommandID>87</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>88</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_88_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>89</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>89</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_89_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>90</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>91</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_91_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>92</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_93_WAIT_10_sec_</Name>
+        <CommandID>93</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_94_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>94</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_95_WAIT_10_sec_</Name>
+        <CommandID>95</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>96</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_96_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>97</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>98</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_98_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>99</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>100</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_100_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>101</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-137.89268493652344</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_102_WAIT_0_00_sec_</Name>
+        <CommandID>102</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_103_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>103</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_104_WAIT_10_sec_</Name>
+        <CommandID>104</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>105</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_105_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>106</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>106</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_106_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>107</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>108</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_108_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>109</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-133.8551025390625</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_110_WAIT_10_sec_</Name>
+        <CommandID>110</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_111_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>111</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_112_WAIT_10_sec_</Name>
+        <CommandID>112</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>113</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_113_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>114</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>115</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_115_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>116</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>117</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_117_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>118</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-133.36155700683594</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_119_WAIT_0_00_sec_</Name>
+        <CommandID>119</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_120_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>120</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_121_WAIT_10_sec_</Name>
+        <CommandID>121</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>122</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_122_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>123</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>123</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_123_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>124</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>125</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_125_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>126</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_127_WAIT_10_sec_</Name>
+        <CommandID>127</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_128_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>128</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_129_WAIT_10_sec_</Name>
+        <CommandID>129</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>130</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_130_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>131</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>132</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_132_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>133</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>134</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_134_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>135</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-136.7181396484375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_136_WAIT_0_00_sec_</Name>
+        <CommandID>136</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_137_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>137</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_138_WAIT_10_sec_</Name>
+        <CommandID>138</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>139</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_139_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>140</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>140</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_140_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>141</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>142</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_142_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>143</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_144_WAIT_10_sec_</Name>
+        <CommandID>144</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_145_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>145</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_146_WAIT_10_sec_</Name>
+        <CommandID>146</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>147</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_147_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>148</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>149</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_149_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>150</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>151</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_151_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>152</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-137.171630859375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_153_WAIT_0_00_sec_</Name>
+        <CommandID>153</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_154_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>154</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_155_WAIT_10_sec_</Name>
+        <CommandID>155</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>156</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_156_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>157</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>157</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>GO_HOME_1_157_L_PR_1_200mm_sec_FINE</Name>
+        <CommandID>158</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26167397340989584</I>
+                <J>0.9651544435833265</J>
+                <K>0.0019056944237158169</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056944237160116</I>
+                <J>0.002491161593823162</J>
+                <K>-0.9999950812092412</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_THEM_BACK_2_159_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>159</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>159</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_159_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>160</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>161</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_161_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>162</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-136.361572265625</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_163_WAIT_10_sec_</Name>
+        <CommandID>163</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_164_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>164</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_165_WAIT_10_sec_</Name>
+        <CommandID>165</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>166</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_166_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>167</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>303.8851013183594</X>
+                <Y>113.24005126953125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9978503110856028</I>
+                <J>0.06511219913337864</J>
+                <K>-0.007426856022623267</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.009239831150800692</I>
+                <J>0.02758709093353831</J>
+                <K>-0.9995766993753552</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>168</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_168_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>169</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>170</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_170_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>171</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_172_WAIT_0_00_sec_</Name>
+        <CommandID>172</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_173_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>173</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_174_WAIT_10_sec_</Name>
+        <CommandID>174</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>175</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_175_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>176</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>547.0760498046875</X>
+                <Y>-64.95968627929688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26168075876593166</I>
+                <J>0.9651525750161974</J>
+                <K>0.0019202685461681861</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019202685461683809</I>
+                <J>0.0025102313857608216</J>
+                <K>-0.9999950056410785</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>176</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_176_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>177</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>178</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_178_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>179</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-134.52291870117188</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_180_WAIT_10_sec_</Name>
+        <CommandID>180</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_181_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>181</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_182_WAIT_10_sec_</Name>
+        <CommandID>182</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>183</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_183_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>184</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>336.2189025878906</X>
+                <Y>95.46905517578125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9896504088176348</I>
+                <J>0.1434985235813727</J>
+                <K>0.0004919929416245594</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0004919929416248038</I>
+                <J>0.006821550676889984</J>
+                <K>-0.9999766119211528</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>185</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_185_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>186</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>187</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_187_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>188</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_189_WAIT_0_00_sec_</Name>
+        <CommandID>189</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_190_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>190</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_191_WAIT_10_sec_</Name>
+        <CommandID>191</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>192</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_192_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>193</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>542.7169189453125</X>
+                <Y>-102.75902557373047</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616860262988555</I>
+                <J>0.9651511603090736</J>
+                <K>0.0019134769305972235</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019134769305974182</I>
+                <J>0.002501367366152738</J>
+                <K>-0.9999950408713714</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>193</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_193_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>194</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>195</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_195_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>196</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-134.31536865234375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_197_WAIT_10_sec_</Name>
+        <CommandID>197</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_198_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>198</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_199_WAIT_10_sec_</Name>
+        <CommandID>199</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>200</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_200_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>201</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>368.79681396484375</X>
+                <Y>73.70558166503906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.970942833178245</I>
+                <J>0.2392249800496257</J>
+                <K>0.006436118400006978</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0039432208698092774</I>
+                <J>0.010897875780332017</J>
+                <K>-0.9999328414011855</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>202</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_202_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>203</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>204</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_204_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>205</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_206_WAIT_0_00_sec_</Name>
+        <CommandID>206</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_207_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>207</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_208_WAIT_10_sec_</Name>
+        <CommandID>208</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>209</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_209_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>210</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>539.1090087890625</X>
+                <Y>-140.50814819335938</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2617016992076787</I>
+                <J>0.965146935500267</J>
+                <K>0.0019009277359660303</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.001900927735966225</I>
+                <J>0.0024850044717781307</J>
+                <K>-0.9999951056012814</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>210</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_210_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>211</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>212</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_212_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>213</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-134.6617889404297</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_214_WAIT_10_sec_</Name>
+        <CommandID>214</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_215_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>215</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_216_WAIT_10_sec_</Name>
+        <CommandID>216</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>217</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_217_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>218</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>327.3106994628906</X>
+                <Y>146.7194366455078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9900451080911793</I>
+                <J>0.14059962213787597</J>
+                <K>0.006513846744553807</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0050992792908141045</I>
+                <J>0.01041888984174789</J>
+                <K>-0.9999327197792758</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>219</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_219_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>220</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>221</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_221_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>222</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_223_WAIT_0_00_sec_</Name>
+        <CommandID>223</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_224_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>224</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_225_WAIT_10_sec_</Name>
+        <CommandID>225</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>226</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_226_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>227</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>584.0950927734375</X>
+                <Y>-68.9915542602539</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616573542656705</I>
+                <J>0.9651589802569154</J>
+                <K>0.0018899174904989787</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018899174904991735</I>
+                <J>0.002470493677208074</J>
+                <K>-0.999995162424734</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>227</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_227_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>228</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>229</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_229_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>230</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-138.5015411376953</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_231_WAIT_10_sec_</Name>
+        <CommandID>231</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_232_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>232</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_233_WAIT_10_sec_</Name>
+        <CommandID>233</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>234</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_234_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>235</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>357.8976745605469</X>
+                <Y>124.9627456665039</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9817310753682316</I>
+                <J>0.1901612620182119</J>
+                <K>0.0065414129954213165</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004625034839974304</I>
+                <J>0.010519706375346043</J>
+                <K>-0.9999339702352879</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>236</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_236_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>237</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>238</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_238_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>239</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_240_WAIT_0_00_sec_</Name>
+        <CommandID>240</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_241_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>241</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_242_WAIT_10_sec_</Name>
+        <CommandID>242</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>243</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_243_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>244</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>579.0619506835938</X>
+                <Y>-106.41331481933594</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616750913243979</I>
+                <J>0.965154156329814</J>
+                <K>0.001897656357991077</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018976563579912718</I>
+                <J>0.002480657092398794</J>
+                <K>-0.999995122608474</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>244</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_244_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>245</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>246</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_246_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>247</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-137.89268493652344</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_248_WAIT_10_sec_</Name>
+        <CommandID>248</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_249_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>249</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_250_WAIT_10_sec_</Name>
+        <CommandID>250</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>251</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_251_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>252</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>390.3021240234375</X>
+                <Y>104.56739807128906</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9853655796573249</I>
+                <J>0.1703279115708141</J>
+                <K>0.006563304541851706</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.0048728846531476576</I>
+                <J>0.01034065922218138</J>
+                <K>-0.9999346607463948</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>253</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_253_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>254</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>255</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_255_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>256</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_257_WAIT_0_00_sec_</Name>
+        <CommandID>257</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_258_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>258</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_259_WAIT_10_sec_</Name>
+        <CommandID>259</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>260</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_260_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>261</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.261673939274252</I>
+                <J>0.9651544528923985</J>
+                <K>0.0019056669882412127</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056669882414074</I>
+                <J>0.002491125638478969</J>
+                <K>-0.999995081351095</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>261</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_261_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>262</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>263</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_263_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>264</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-133.36155700683594</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_265_WAIT_10_sec_</Name>
+        <CommandID>265</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_266_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>266</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_267_WAIT_10_sec_</Name>
+        <CommandID>267</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>268</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_268_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>269</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>346.5329895019531</X>
+                <Y>178.9469757080078</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9926549393391253</I>
+                <J>0.12075473094027292</J>
+                <K>-0.007380132870060932</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.00811465008599984</I>
+                <J>0.005592103915570804</J>
+                <K>-0.9999514392348157</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>270</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_270_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>271</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>272</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_272_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>273</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-133.8551025390625</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_274_WAIT_0_00_sec_</Name>
+        <CommandID>274</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_275_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>275</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_276_WAIT_10_sec_</Name>
+        <CommandID>276</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>277</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_277_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>278</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>623.0814208984375</X>
+                <Y>-71.85511016845703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616086735013329</I>
+                <J>0.9651720699185674</J>
+                <K>0.001943552927294327</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019435529272945216</I>
+                <J>0.002540472693155858</J>
+                <K>-0.9999948842871718</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>278</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_278_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>279</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>280</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_280_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>281</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-136.7181396484375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_282_WAIT_10_sec_</Name>
+        <CommandID>282</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_283_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>283</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_284_WAIT_10_sec_</Name>
+        <CommandID>284</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>285</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_285_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>286</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>380.8109130859375</X>
+                <Y>157.32940673828125</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9885867270328333</I>
+                <J>0.15051361922095316</J>
+                <K>0.00647561298412906</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004950485736600733</I>
+                <J>0.010505307140876278</J>
+                <K>-0.9999325633325717</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>287</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_287_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>288</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>289</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_289_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>290</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_291_WAIT_0_00_sec_</Name>
+        <CommandID>291</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_292_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>292</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_293_WAIT_10_sec_</Name>
+        <CommandID>293</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>294</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_294_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>295</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>618.6532592773438</X>
+                <Y>-109.67142486572266</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616603094850669</I>
+                <J>0.9651581814095266</J>
+                <K>0.0018887293174670826</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018887293174672773</I>
+                <J>0.002468948339957292</J>
+                <K>-0.9999951684861582</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>295</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_5_295_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>296</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>297</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_6_297_L_PR_2_200mm_sec_FINE</Name>
+        <CommandID>298</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-137.171630859375</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_7_299_WAIT_10_sec_</Name>
+        <CommandID>299</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_8_300_CALL_CLOSE_GRIPPER_</Name>
+        <CommandID>300</CommandID>
+        <Setting>0</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_9_301_WAIT_10_sec_</Name>
+        <CommandID>301</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>302</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_10_302_L_PR_12_200mm_sec_FINE</Name>
+        <CommandID>303</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>412.08660888671875</X>
+                <Y>137.0296173095703</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.9728633359036716</I>
+                <J>0.23129036448378762</J>
+                <K>0.006457317658022602</K>
+            </XAxis>
+            <ZAxis>
+                <I>-0.004061306840589597</I>
+                <J>0.010833952860812575</J>
+                <K>-0.999933063385823</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>304</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_11_304_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>305</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>306</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>100.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_12_306_L_PR_22_100mm_sec_FINE</Name>
+        <CommandID>307</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-135.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_13_308_WAIT_0_00_sec_</Name>
+        <CommandID>308</CommandID>
+        <DwellTime>0.0</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetEndEffectorType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_14_309_CALL_OPEN_GRIPPER_</Name>
+        <CommandID>309</CommandID>
+        <Setting>1</Setting>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="DwellType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_15_310_WAIT_10_sec_</Name>
+        <CommandID>310</CommandID>
+        <DwellTime>0.1</DwellTime>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>311</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>MOVE_ONE_RED_PEG_16_311_L_PR_23_200mm_sec_FINE</Name>
+        <CommandID>312</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>617.2059326171875</X>
+                <Y>-147.81307983398438</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.2616381948376605</I>
+                <J>0.965164212210838</J>
+                <K>0.001870419611473054</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0018704196114732487</I>
+                <J>0.002444955925657906</J>
+                <K>-0.9999952618492742</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>312</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>GO_HOME_1_312_L_PR_1_200mm_sec_FINE</Name>
+        <CommandID>313</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26167397340989584</I>
+                <J>0.9651544435833265</J>
+                <K>0.0019056944237158169</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056944237160116</I>
+                <J>0.002491161593823162</J>
+                <K>-0.9999950812092412</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="SetTransSpeedType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <CommandID>313</CommandID>
+        <TransSpeed xsi:type="TransSpeedAbsoluteType">
+            <Setting>200.0</Setting>
+        </TransSpeed>
+    </MiddleCommand>
+    <MiddleCommand xsi:type="MoveToType" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <Name>GO_HOME_1_313_L_PR_1_200mm_sec_FINE</Name>
+        <CommandID>314</CommandID>
+        <MoveStraight>false</MoveStraight>
+        <EndPosition>
+            <Point>
+                <X>577.2686157226562</X>
+                <Y>-144.21554565429688</Y>
+                <Z>-80.0</Z>
+            </Point>
+            <XAxis>
+                <I>-0.26167397340989584</I>
+                <J>0.9651544435833265</J>
+                <K>0.0019056944237158169</K>
+            </XAxis>
+            <ZAxis>
+                <I>0.0019056944237160116</I>
+                <J>0.002491161593823162</J>
+                <K>-0.9999950812092412</K>
+            </ZAxis>
+        </EndPosition>
+    </MiddleCommand>
+    <EndCanon>
+        <CommandID>315</CommandID>
+    </EndCanon>
+</CRCLProgram>

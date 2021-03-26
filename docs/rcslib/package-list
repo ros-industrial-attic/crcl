@@ -1,0 +1,10 @@
+diagapplet
+diagapplet.CodeGen
+diagapplet.plotter
+diagapplet.utils
+pvjscript
+rcs
+rcs.nml
+rcs.posemath
+rcs.utils
+rcsdesign

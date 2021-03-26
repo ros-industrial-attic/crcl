@@ -1,0 +1,2111 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>XML Schema Documentation</title>
+<meta http-equiv="Content-Type" content="text/xml; charset=iso-8859-1" />
+<style type="text/css">
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* More-configurable styles */
+
+/******** General ********/
+
+/* Document body */
+body {
+   color: Black;
+   background-color: White;
+   font-family: Arial, sans-serif;
+   font-size: 10pt;
+}
+/* Horizontal rules */
+hr {
+   color: black;
+}
+/* Document title */
+h1 {
+   font-size: 18pt;
+   letter-spacing: 2px;
+   border-bottom: 1px #ccc solid;
+   padding-top: 5px;
+   padding-bottom: 5px;
+}
+/* Main section headers */
+h2 {
+   font-size: 14pt;
+   letter-spacing: 1px;
+}
+/* Sub-section headers */
+h3, h3 a, h3 span {
+   font-size: 12pt;
+   font-weight: bold;
+   color: black;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties th, table.properties th a {
+   color: black;
+   background-color: #F99; /* Pink */
+}
+table.properties td {
+   background-color: #eee; /* Gray */
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   color: #963; /* Orange-brown */
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   border: 2px solid #999;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+   background-color: #ccc;
+}
+table.namespaces td {
+   background-color: #eee;
+}
+/* Target namespace of the schema */
+span.targetNS {
+   color: #06C;
+   font-weight: bold;
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+   color: #F93; /* Orange */
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   border: 2px solid #999; /* Gray */
+}
+
+/* XML Instance Representation table */
+div.sample div.contents {
+   border: 2px dashed black;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent div.contents {
+   border: 2px black solid;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   color: #036; /* Blue */
+}
+
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Printer-version styles */
+
+@media print {
+
+/* Ensures that controls are hidden when printing */
+div#printerControls {
+   visibility: hidden;
+}
+div#globalControls {
+   visibility: hidden;
+}
+#legend {
+   display: none;
+}
+#legendTOC {
+   display: none;
+}
+#glossary {
+   display: none;
+}
+#glossaryTOC {
+   display: none;
+}
+
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Base styles */
+
+/******** General ********/
+
+/* Unordered lists */
+ul {
+   margin-left: 1.5em;
+   margin-bottom: 0em;
+}
+/* Tables */
+table {
+   margin-top: 10px;
+   margin-bottom: 10px;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+table th, table td {
+   font-size: 10pt;
+   vertical-align: top;
+   padding-top: 3px;
+   padding-bottom: 3px;
+   padding-left: 10px;
+   padding-right: 10px;
+}
+table th {
+   font-weight: bold;
+   text-align: left;
+}
+/* Table displaying the properties of the schema components or the
+   schema document itself */
+table.properties {
+   width: 90%;
+}
+table.properties th {
+   width: 30%;
+}
+/* Boxes that can make its content appear and disappear*/
+div.box {
+   margin: 1em;
+}
+   /* Box caption */
+div.box span.caption {
+   font-weight: bold;
+}
+   /* Button to open and close the box */
+div.box input.control {
+   width: 1.4em;
+   height: 1.4em;
+   text-align: center;
+   vertical-align: middle;
+   font-size: 11pt;
+}
+   /* Box contents */
+div.box div.contents {
+   margin-top: 3px;
+}
+
+
+/******** Table of Contents Section ********/
+
+/* Controls for switching between printing and viewing modes */
+div#printerControls {
+   white-space: nowrap;
+   font-weight: bold;
+   padding: 5px;
+   margin: 5px;
+}
+/* Controls that can collapse or expand all XML Instance
+   Representation and Schema Component Representation boxes */
+div#globalControls {
+   padding: 10px;
+   margin: 5px;
+}
+
+
+/******** Schema Document Properties Section ********/
+
+/* Table displaying the namespaces declared in the schema */
+table.namespaces th {
+}
+table.namespaces td {
+}
+/* Target namespace of the schema */
+span.targetNS {
+}
+
+
+/******** Schema Components' Sections ********/
+
+/* Name of schema component */
+.name {
+}
+
+/* Hierarchy table */
+table.hierarchy {
+   width: 90%;
+}
+table.hierarchy th {
+   font-weight: normal;
+   font-style: italic;
+   width: 20%;
+}
+table.hierarchy th, table.hierarchy td {
+   padding: 5px;
+}
+
+/* XML Instance Representation table */
+div.sample {
+   width: 90%;
+}
+div.sample div.contents {
+   padding: 5px;
+   font-family: Courier New, sans-serif;
+   font-size: 10pt;
+}
+   /* Normal elements and attributes */
+div.sample div.contents, div.sample div.contents a {
+   color: black;
+}
+   /* Group Headers */
+div.sample div.contents .group, div.sample div.contents .group a {
+   color: #999; /* Light gray */
+}
+   /* Type Information */
+div.sample div.contents .type, div.sample div.contents .type a {
+   color: #999; /* Light gray */
+}
+   /* Occurrence Information */
+div.sample div.contents .occurs, div.sample div.contents .occurs a {
+   color: #999; /* Light gray */
+}
+   /* Fixed values */
+div.sample div.contents .fixed {
+   color: #063; /* Green */
+   font-weight: bold;
+}
+   /* Simple type constraints */
+div.sample div.contents .constraint, div.sample div.contents .constraint a {
+   color: #999; /* Light gray */
+}
+   /* Elements and attributes inherited from base type */
+div.sample div.contents .inherited, div.sample div.contents .inherited a {
+   color: #666; /* Dark gray */
+}
+   /* Elements and attributes added to or changed from base type */
+div.sample div.contents .newFields {
+   font-weight: bold;
+}
+   /* Other type of information */
+div.sample div.contents .other, div.sample div.contents .other a {
+   color: #369; /* Blue */
+   font-style: italic;
+}
+   /* Link to open up window displaying documentation */
+div.sample div.contents a.documentation {
+   text-decoration: none;
+   padding-left: 3px;
+   padding-right: 3px;
+   padding-top: 0px;
+   padding-bottom: 0px;
+   font-weight: bold;
+   font-size: 11pt;
+   background-color: #FFD;
+   color: #069;
+}
+   /* Invert colors when hovering over link to open up window 
+      displaying documentation */
+div.sample div.contents a.documentation:hover {
+   color: #FFD;
+   background-color: #069;
+}
+
+/* Schema Component Representation table */
+div.schemaComponent {
+   width: 90%;
+}
+div.schemaComponent div.contents {
+   font-family: Courier New, sans-serif;
+   font-size: 10pt;
+   padding: 5px;
+}
+   /* Syntax characters */
+div.schemaComponent div.contents {
+   color: #00f; /* blue */
+}
+   /* Element and attribute tags */
+div.schemaComponent div.contents .scTag {
+   color: #933; /* maroon */
+}
+   /* Element and attribute content */
+div.schemaComponent div.contents .scContent, div.schemaComponent div.contents .scContent a {
+   color: black;
+   font-weight: bold;
+}
+   /* Comments */
+div.schemaComponent div.contents .comment {
+   color: #999; /* Light gray */
+}
+
+/******** Legend Section ********/
+
+div#legend table, div#legend div {
+   margin-bottom: 3px;
+}
+div#legend div.hint {
+   color: #999; /* Light gray */
+   width: 90%;
+   margin-left: 1em;
+   margin-bottom: 2em;
+}
+
+
+/******** Glossary Section ********/
+
+/* Glossary Terms */
+.glossaryTerm {
+   font-weight: bold;
+}
+
+
+/******** Footer ********/
+
+.footer {
+   font-size: 8pt;
+}
+</style>
+<script type="text/javascript">
+<!--
+/* IDs of XML Instance Representation boxes */
+var xiBoxes = new Array('element_CRCLStatus_xibox', 'type_CommandStateEnumType_xibox', 'type_CommandStatusType_xibox', 'type_CRCLStatusType_xibox', 'type_GripperStatusType_xibox', 'type_JointStatusesType_xibox', 'type_JointStatusType_xibox', 'type_JointLimitType_xibox', 'type_ParallelGripperStatusType_xibox', 'type_PoseStatusType_xibox', 'type_SettingsStatusType_xibox', 'type_ThreeFingerGripperStatusType_xibox', 'type_VacuumGripperStatusType_xibox');
+/* IDs of Schema Component Representation boxes */
+var scBoxes = new Array('schema_scbox', 'element_CRCLStatus_scbox', 'type_CommandStateEnumType_scbox', 'type_CommandStatusType_scbox', 'type_CRCLStatusType_scbox', 'type_GripperStatusType_scbox', 'type_JointStatusesType_scbox', 'type_JointStatusType_scbox', 'type_JointLimitType_scbox', 'type_ParallelGripperStatusType_scbox', 'type_PoseStatusType_scbox', 'type_SettingsStatusType_scbox', 'type_ThreeFingerGripperStatusType_scbox', 'type_VacuumGripperStatusType_scbox');
+
+/**
+ * Can get the ID of the button controlling
+ * a collapseable box by concatenating
+ * this string onto the ID of the box itself.
+ */
+var B_SFIX = "_button";
+
+/**
+ * Counter of documentation windows
+ * Used to give each window a unique name
+ */
+var windowCount = 0;
+
+/**
+ * Returns an element in the current HTML document.
+ * 
+ * @param elementID Identifier of HTML element
+ * @return               HTML element object
+ */
+function getElementObject(elementID) {
+    var elemObj = null;
+    if (document.getElementById) {
+        elemObj = document.getElementById(elementID);
+    }
+    return elemObj;
+}             
+
+/**
+ * Closes a collapseable box.
+ * 
+ * @param boxObj       Collapseable box
+ * @param buttonObj Button controlling box
+ */
+function closeBox(boxObj, buttonObj) {
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else {
+     // Change 'display' CSS property of box
+     boxObj.style.display="none";
+
+     // Change text of button 
+     if (boxObj.style.display=="none") {
+        buttonObj.value=" + ";
+     }
+  }
+}
+
+/**
+ * Opens a collapseable box.
+ * 
+ * @param boxObj       Collapseable box
+ * @param buttonObj Button controlling box
+ */
+function openBox(boxObj, buttonObj) {
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else {
+     // Change 'display' CSS property of box
+     boxObj.style.display="block";
+
+     // Change text of button
+     if (boxObj.style.display=="block") {
+        buttonObj.value=" - ";
+     }
+  }
+}
+
+/**
+ * Sets the state of a collapseable box.
+ * 
+ * @param boxID Identifier of box
+ * @param open If true, box is "opened",
+ *             Otherwise, box is "closed".
+ */
+function setState(boxID, open) {
+  var boxObj = getElementObject(boxID);
+  var buttonObj = getElementObject(boxID+B_SFIX);
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else if (open) {
+     openBox(boxObj, buttonObj);
+     // Make button visible
+     buttonObj.style.display="inline";
+  } else {
+     closeBox(boxObj, buttonObj);
+     // Make button visible
+     buttonObj.style.display="inline";
+  }
+}
+
+/**
+ * Switches the state of a collapseable box, e.g.
+ * if it's opened, it'll be closed, and vice versa.
+ * 
+ * @param boxID Identifier of box
+ */
+function switchState(boxID) {
+  var boxObj = getElementObject(boxID);
+  var buttonObj = getElementObject(boxID+B_SFIX);
+  if (boxObj == null || buttonObj == null) {
+     // Box or button not found
+  } else if (boxObj.style.display=="none") {
+     // Box is closed, so open it
+     openBox(boxObj, buttonObj);
+  } else if (boxObj.style.display=="block") {
+     // Box is opened, so close it
+     closeBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Closes all boxes in a given list.
+ * 
+ * @param boxList Array of box IDs
+ */
+function collapseAll(boxList) {
+  var idx;
+  for (idx = 0; idx < boxList.length; idx++) {
+     var boxObj = getElementObject(boxList[idx]);
+     var buttonObj = getElementObject(boxList[idx]+B_SFIX);
+     closeBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Open all boxes in a given list.
+ * 
+ * @param boxList Array of box IDs
+ */
+function expandAll(boxList) {
+  var idx;
+  for (idx = 0; idx < boxList.length; idx++) {
+     var boxObj = getElementObject(boxList[idx]);
+     var buttonObj = getElementObject(boxList[idx]+B_SFIX);
+     openBox(boxObj, buttonObj);
+  }
+}
+
+/**
+ * Makes all the control buttons of boxes appear.
+ * 
+ * @param boxList Array of box IDs
+ */
+function viewControlButtons(boxList) {
+    var idx;
+    for (idx = 0; idx < boxList.length; idx++) {
+        buttonObj = getElementObject(boxList[idx]+B_SFIX);
+        if (buttonObj != null) {
+            buttonObj.style.display = "inline";
+        }
+    }
+}
+
+/**
+ * Makes all the control buttons of boxes disappear.
+ * 
+ * @param boxList Array of box IDs
+ */
+function hideControlButtons(boxList) {
+    var idx;
+    for (idx = 0; idx < boxList.length; idx++) {
+        buttonObj = getElementObject(boxList[idx]+B_SFIX);
+        if (buttonObj != null) {
+            buttonObj.style.display = "none";
+        }
+    }
+}
+
+/**
+ * Sets the page for either printing mode
+ * or viewing mode. In printing mode, the page
+ * is made to be more readable when printing it out.
+ * In viewing mode, the page is more browsable.
+ *
+ * @param isPrinterVersion If true, display in
+ *                                 printing mode; otherwise, 
+ *                                 in viewing mode
+ */
+function displayMode(isPrinterVersion) {
+    var obj;
+    if (isPrinterVersion) {
+        // Hide global control buttons
+        obj = getElementObject("globalControls");
+        if (obj != null) {
+            obj.style.visibility = "hidden";
+        }
+        // Hide Legend
+        obj = getElementObject("legend");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        obj = getElementObject("legendTOC");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        // Hide Glossary
+        obj = getElementObject("glossary");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+        obj = getElementObject("glossaryTOC");
+        if (obj != null) {
+            obj.style.display = "none";
+        }
+
+        // Expand all XML Instance Representation tables
+        expandAll(xiBoxes);
+        // Expand all Schema Component Representation tables
+        expandAll(scBoxes);
+
+        // Hide Control buttons
+        hideControlButtons(xiBoxes);
+        hideControlButtons(scBoxes);
+    } else {
+        // View global control buttons
+        obj = getElementObject("globalControls");
+        if (obj != null) {
+            obj.style.visibility = "visible";
+        }
+        // View Legend
+        obj = getElementObject("legend");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        obj = getElementObject("legendTOC");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        // View Glossary
+        obj = getElementObject("glossary");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+        obj = getElementObject("glossaryTOC");
+        if (obj != null) {
+            obj.style.display = "block";
+        }
+
+        // Expand all XML Instance Representation tables
+        expandAll(xiBoxes);
+        // Collapse all Schema Component Representation tables
+        collapseAll(scBoxes);
+
+        // View Control buttons
+        viewControlButtons(xiBoxes);
+        viewControlButtons(scBoxes);
+    }
+}
+
+/**
+ * Opens up a window displaying the documentation
+ * of a schema component in the XML Instance
+ * Representation table.
+ * 
+ * @param compDesc      Description of schema component 
+ * @param compName      Name of schema component 
+ * @param docTextArray Array containing the paragraphs 
+ *                           of the new document
+ */
+function viewDocumentation(compDesc, compName, docTextArray) {
+  var width = 400;
+  var height = 200;
+  var locX = 100;
+  var locY = 200;
+
+  /* Generate content */
+  var actualText = "<html>";
+  actualText += "<head><title>";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": " + compName;
+  }
+  actualText += "</title></head>";
+  actualText += "<body bgcolor=\"#FFFFEE\">";
+  // Title
+  actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 12pt; font-weight: bold; letter-spacing:1px;\">";
+  actualText += compDesc;
+  if (compName != '') {
+     actualText += ": <span style=\"color:#006699\">" + compName + "</span>";
+  }
+  actualText += "</p>";
+  // Documentation
+  var idx;
+  for (idx = 0; idx < docTextArray.length; idx++) {
+     actualText += "<p style=\"font-family: Arial, sans-serif; font-size: 10pt;\">" + docTextArray[idx] + "</p>";
+  }
+  // Link to close window
+  actualText += "<a href=\"javascript:void(0)\" onclick=\"window.close();\" style=\"font-family: Arial, sans-serif; font-size: 8pt;\">Close</a>";
+  actualText += "</body></html>";
+
+  /* Display window */
+  windowCount++;
+  var docWindow = window.open("", "documentation"+windowCount, "toolbar=no,location=no,status=no,menubar=no,scrollbars=yes,resizable,alwaysRaised,dependent,titlebar=no,width="+width+",height="+height+",screenX="+locX+",left="+locX+",screenY="+locY+",top="+locY);
+  docWindow.document.write(actualText);
+}
+
+// -->
+</script>
+</head>
+<body>
+<h1><a name="top">XML Schema Documentation</a></h1>
+<div style="float: right;">
+<div id="printerControls" style="display:none;">
+<input type="checkbox" onclick="displayMode(this.checked)" />Printer-friendly Version</div>
+<script type="text/javascript">
+<!--
+
+var pc = getElementObject("printerControls");
+if (pc != null) {
+   pc.style.display="block";
+}
+               
+// -->
+</script>
+<div id="globalControls" style="display:none">
+<strong>XML Instance Representation:</strong><br />
+<span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(xiBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(xiBoxes)">Collapse All</a> ]</span><br /><br />
+<strong>Schema Component Representation:</strong><br />
+<span style="margin-left: 1em; white-space: nowrap">[ <a href="javascript:void(0)" onclick="expandAll(scBoxes)">Expand All</a> | <a href="javascript:void(0)" onclick="collapseAll(scBoxes)">Collapse All</a> ]</span>
+</div>
+<script type="text/javascript">
+<!--
+
+var gc = getElementObject("globalControls");
+if (gc != null) {
+   gc.style.display="block";
+}
+               
+// -->
+</script>
+</div>
+<h2>Table of Contents</h2>
+<ul>
+<li>
+<a href="#SchemaProperties">Schema Document Properties</a>
+</li>
+<li><a href="#SchemaDeclarations">Global Declarations</a>
+<ul>
+<li>
+<a href="#element_CRCLStatus">Element: <strong>CRCLStatus</strong>
+</a>
+</li>
+</ul>
+</li>
+<li><a href="#SchemaDefinitions">Global Definitions</a>
+<ul>
+<li>
+<a href="#type_CommandStatusType">Complex Type: <strong>CommandStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_CRCLStatusType">Complex Type: <strong>CRCLStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_GripperStatusType">Complex Type: <strong>GripperStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_JointLimitType">Complex Type: <strong>JointLimitType</strong>
+</a>
+</li>
+<li>
+<a href="#type_JointStatusesType">Complex Type: <strong>JointStatusesType</strong>
+</a>
+</li>
+<li>
+<a href="#type_JointStatusType">Complex Type: <strong>JointStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_ParallelGripperStatusType">Complex Type: <strong>ParallelGripperStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_PoseStatusType">Complex Type: <strong>PoseStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_SettingsStatusType">Complex Type: <strong>SettingsStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_ThreeFingerGripperStatusType">Complex Type: <strong>ThreeFingerGripperStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_VacuumGripperStatusType">Complex Type: <strong>VacuumGripperStatusType</strong>
+</a>
+</li>
+<li>
+<a href="#type_CommandStateEnumType">Simple Type: <strong>CommandStateEnumType</strong>
+</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul id="legendTOC" style="margin-top: 0em">
+<li><a href="#Legend">Legend</a></li>
+</ul>
+<ul id="glossaryTOC" style="margin-top: 0em">
+<li><a href="#Glossary">Glossary</a></li>
+</ul>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h2><a name="SchemaProperties">Schema Document Properties</a></h2>
+<table class="properties">
+<tr>
+<th>
+<a title="Look up 'Target Namespace' in glossary" href="#term_TargetNS">Target Namespace</a>
+</th>
+<td>None</td>
+</tr>
+<tr>
+<th>Version</th>
+<td>2017May01</td>
+</tr>
+<tr>
+<th>Element and Attribute Namespaces</th>
+<td>
+<ul>
+<li>Global element and attribute declarations belong to this schema's target namespace.</li>
+<li>By default, local element declarations belong to this schema's target namespace.</li>
+<li>By default, local attribute declarations have no namespace.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th>Schema Composition</th>
+<td>
+<ul>
+<li>This schema includes components from the following schema document(s):<ul>
+<li>DataPrimitives.xsd</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+      This ontology models a status message from a low-level robot
+      controller to a controller sending commands to the low-level
+      controller. The messages are designed to work with the canonical
+      robot command language (CRCL).
+
+      If any joint status reporting is done, it is assumed that the system
+      sending canonical commands and the system executing them both know
+      the kinematics of the robot and have the same numbering system for
+      the joints, starting with 1. The two systems also have the same
+      understanding of where the zero point is and which direction is
+      positive for each joint.
+
+      Status items for joints must be configured using a
+      ConfigureJointReports command. 
+      For each joint for which anything is to be reported,
+      ConfigureJointReports specifies:
+        - whether joint position should be reported
+        - whether joint torque or force should be reported
+        - whether joint velocity should be reported
+
+      During a CRCL session, until a ConfigureJointReports command has
+      been executed that sets the reporting status for a joint, no joint
+      status should be reported for that joint. The ConfigureJointReports
+      command may be used more than once during a session to change joint
+      status reporting.
+
+      The units used in a status report are the following, where linear
+      units are set by a SetLinearUnits command, and angular units are set
+      by a SetAngularUnits command.
+        distance - linear units
+        angle - angular units
+        linear speed - linear units per second
+        angular speed - angular units per second
+        linear acceleration - linear units per second per second
+        angular acceleration - angular units per second per second
+        force - as set by a SetForceUnits command
+        torque - as set by a SetTorqueUnits command
+
+      If reporting a joint status requires a unit, the units are as
+      set by the most recent SetXXXUnits command. If no SetXXXUnits
+      command for a given unit type has been executed since the last
+      InitCanonType command was executed, the following default units
+      apply:
+        length -- meter
+        angle  -- radian
+        force  -- newton
+        torque -- newtonMeter
+
+      In order that this file may be translateable into OWL, all
+      complexTypes in this file include the (optional) Name element,
+      inherited from DataThingType. If an instance file has instances of
+      complex data without names, it will not be translateable into OWL.
+
+      See the in-line documentation of ConfigureJointReportsType in
+      CRCL.xsd for further information.
+    <br /><br />owlPrefix=stat</td>
+</tr>
+</table>
+<h3>Declared Namespaces</h3>
+<table class="namespaces">
+<tr>
+<th>Prefix</th>
+<th>Namespace</th>
+</tr>
+<tr>
+<td>
+<a name="ns_xml">xml</a>
+</td>
+<td>http://www.w3.org/XML/1998/namespace</td>
+</tr>
+<tr>
+<td>
+<a name="ns_xs">xs</a>
+</td>
+<td>http://www.w3.org/2001/XMLSchema</td>
+</tr>
+</table>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="schema_scbox_button" class="control" onclick="switchState('schema_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="schema_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:schema</span> <span class="scTag">elementFormDefault</span>="<span class="scContent">qualified</span>" <span class="scTag">attributeFormDefault</span>="<span class="scContent">unqualified</span>" <span class="scTag">version</span>="<span class="scContent">2017May01</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:include</span> <span class="scTag">schemaLocation</span>="<span class="scContent">DataPrimitives.xsd</span>"/&gt;</div><div class="scContent" style="margin-left: 1.5em">...</div>&lt;/<span class="scTag">xs:schema</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('schema_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h2><a name="SchemaDeclarations">Global Declarations</a></h2>
+<h3>Element: <a name="element_CRCLStatus" class="name">CRCLStatus</a>
+</h3>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>CRCLStatus</td>
+</tr>
+<tr>
+<th>Type</th>
+<td>
+<span class="type">
+<a title="Jump to &quot;CRCLStatusType&quot; type definition." href="#type_CRCLStatusType">CRCLStatusType</a>
+</span>
+</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Nillable' in glossary" href="#term_Nillable">Nillable</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        Root element
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="element_CRCLStatus_xibox_button" class="control" onclick="switchState('element_CRCLStatus_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="element_CRCLStatus_xibox" class="contents">
+<div style="margin-left: 0em">&lt;CRCLStatus&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em">&lt;CommandStatus&gt; <span class="type"><a title="Jump to &quot;CommandStatusType&quot; type definition." href="#type_CommandStatusType">CommandStatusType</a></span> &lt;/CommandStatus&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em">&lt;JointStatuses&gt; <span class="type"><a title="Jump to &quot;JointStatusesType&quot; type definition." href="#type_JointStatusesType">JointStatusesType</a></span> &lt;/JointStatuses&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em">&lt;PoseStatus&gt; <span class="type"><a title="Jump to &quot;PoseStatusType&quot; type definition." href="#type_PoseStatusType">PoseStatusType</a></span> &lt;/PoseStatus&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em">&lt;GripperStatus&gt; <span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span> &lt;/GripperStatus&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em">&lt;SettingsStatus&gt; <span class="type"><a title="Jump to &quot;SettingsStatusType&quot; type definition." href="#type_SettingsStatusType">SettingsStatusType</a></span> &lt;/SettingsStatus&gt; <span class="occurs">[0..1]</span></div>&lt;/CRCLStatus&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('element_CRCLStatus_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="element_CRCLStatus_scbox_button" class="control" onclick="switchState('element_CRCLStatus_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="element_CRCLStatus_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">CRCLStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;CRCLStatusType&quot; type definition." href="#type_CRCLStatusType">CRCLStatusType</a></span></span>"/&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('element_CRCLStatus_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h2><a name="SchemaDefinitions">Global Definitions</a></h2>
+<h3>Complex Type: <a name="type_CommandStatusType" class="name">CommandStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>CommandStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>CommandStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        CommandStatusType is derived from DataThingType.
+        An instance of CommandStatusType has the following elements:
+          Name (inherited, optional)
+          CommandID
+          StatusID
+          CommandState
+          StateDescription (optional)
+          ProgramFile (optional)
+          ProgramIndex (optional)
+          ProgramLength (optional).
+
+        The CommandStatusType relates the execution status of the
+        currently executing command (or the most recently executed
+        command, if there is no current command).
+          CommandID echoes the command id from the received command to
+            which the status message applies
+          StatusID is an ID associated with this particular status
+             message.
+          StateDescription is an optional brief description of the state
+          such as "Joint 3 at -171.0 less than limit -170.0" or 
+          "Waiting for Operator".
+          ProgramFile provides an optional reference if the currently executing 
+             command is known to have come from a particular file.
+          ProgramIndex provoides an optional reference to the element within a 
+             program. If the currently executing command is known to have come 
+             from a particular file. The InitCanon command will have index 0, 
+             and first MiddleCommand will have index 1.
+          ProgramLength is the number of commands in the current program if 
+             known.
+          
+          
+          
+        The combination of StatusID and CommandID must be unique
+        within a session.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_CommandStatusType_xibox_button" class="control" onclick="switchState('type_CommandStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_CommandStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;CommandID&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:long</span> &lt;/CommandID&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;StatusID&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:long</span> &lt;/StatusID&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;CommandState&gt; <span class="type"><a title="Jump to &quot;CommandStateEnumType&quot; type definition." href="#type_CommandStateEnumType">CommandStateEnumType</a></span> &lt;/CommandState&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;StateDescription&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt;/StateDescription&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;ProgramFile&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt;/ProgramFile&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;ProgramIndex&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> &lt;/ProgramIndex&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;ProgramLength&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> &lt;/ProgramLength&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_CommandStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_CommandStatusType_scbox_button" class="control" onclick="switchState('type_CommandStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_CommandStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">CommandStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">CommandID</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:long</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">StatusID</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:long</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">CommandState</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;CommandStateEnumType&quot; type definition." href="#type_CommandStateEnumType">CommandStateEnumType</a></span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">StateDescription</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">ProgramFile</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">ProgramIndex</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">ProgramLength</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_CommandStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_CRCLStatusType" class="name">CRCLStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>CRCLStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>CRCLStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        CRCLStatusType is derived from DataThingType.
+        An instance of CRCLStatusType has the following elements:
+          Name (inherited, optional)
+          CommandStatus
+          JointStatuses (optional)
+          PoseStatus (optional)
+          GripperStatus (optional)
+          SettingsStatus (optional).
+
+        Status is returned periodically by the controller.
+
+        See notes at the beginning of this file regarding configuring
+        CRCL status messages.
+
+        GripperStatus should not be reported when there is no gripper
+        and should be reported when there is a gripper.
+
+        The coordinate system in which the Pose is reported is always
+        robot coordinates.
+
+        If CRCL status is being reported on separate channels for both
+        a robot and a gripper, the status reported on the robot
+        channel should include a Pose, while the status reported on the
+        gripper channel should not include a Pose.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_CRCLStatusType_xibox_button" class="control" onclick="switchState('type_CRCLStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_CRCLStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;CommandStatus&gt; <span class="type"><a title="Jump to &quot;CommandStatusType&quot; type definition." href="#type_CommandStatusType">CommandStatusType</a></span> &lt;/CommandStatus&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointStatuses&gt; <span class="type"><a title="Jump to &quot;JointStatusesType&quot; type definition." href="#type_JointStatusesType">JointStatusesType</a></span> &lt;/JointStatuses&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;PoseStatus&gt; <span class="type"><a title="Jump to &quot;PoseStatusType&quot; type definition." href="#type_PoseStatusType">PoseStatusType</a></span> &lt;/PoseStatus&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;GripperStatus&gt; <span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span> &lt;/GripperStatus&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;SettingsStatus&gt; <span class="type"><a title="Jump to &quot;SettingsStatusType&quot; type definition." href="#type_SettingsStatusType">SettingsStatusType</a></span> &lt;/SettingsStatus&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_CRCLStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_CRCLStatusType_scbox_button" class="control" onclick="switchState('type_CRCLStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_CRCLStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">CRCLStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">CommandStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;CommandStatusType&quot; type definition." href="#type_CommandStatusType">CommandStatusType</a></span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointStatuses</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;JointStatusesType&quot; type definition." href="#type_JointStatusesType">JointStatusesType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">PoseStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;PoseStatusType&quot; type definition." href="#type_PoseStatusType">PoseStatusType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">GripperStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">SettingsStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;SettingsStatusType&quot; type definition." href="#type_SettingsStatusType">SettingsStatusType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_CRCLStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_GripperStatusType" class="name">GripperStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>GripperStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>
+<ul><li><span class="type"><a title="Jump to &quot;ParallelGripperStatusType&quot; type definition." href="#type_ParallelGripperStatusType">ParallelGripperStatusType</a></span> (by extension)</li><li><span class="type"><a title="Jump to &quot;ThreeFingerGripperStatusType&quot; type definition." href="#type_ThreeFingerGripperStatusType">ThreeFingerGripperStatusType</a></span> (by extension)</li><li><span class="type"><a title="Jump to &quot;VacuumGripperStatusType&quot; type definition." href="#type_VacuumGripperStatusType">VacuumGripperStatusType</a></span> (by extension)</li></ul></td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>GripperStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>yes</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        The abstract GripperStatusType is derived from DataThingType.
+        An instance of GripperStatusType has the following elements:
+          Name (inherited, optional)
+          GripperName
+          HoldingObject (optional).
+ 
+        GripperStatusType is an abstract type from which more specialized
+        types of gripper status are derived. HoldingObject is true if the 
+          gripper is expected to be holding an object given its position and/or 
+          pressure sensors on the finger tips.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_GripperStatusType_xibox_button" class="control" onclick="switchState('type_GripperStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_GripperStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;GripperName&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:NMTOKEN</span> &lt;/GripperName&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;HoldingObject&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/HoldingObject&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_GripperStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_GripperStatusType_scbox_button" class="control" onclick="switchState('type_GripperStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_GripperStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">GripperStatusType</span>" <span class="scTag">abstract</span>="<span class="scContent">true</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">GripperName</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:NMTOKEN</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">HoldingObject</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_GripperStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_JointLimitType" class="name">JointLimitType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>JointLimitType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>JointLimitType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        JointLimitType is derived from DataThingType.
+        JointLimitType reports the limits of one joint.
+        An instance of JointStatusType has the following elements:
+          Name (inherited, optional)
+          JointNumber
+          JointMinPosition (optional)
+          JointMaxPosition (optional)
+          JointMaxTorqueOrForce (optional)
+          JointMaxVelocity (optional).
+
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_JointLimitType_xibox_button" class="control" onclick="switchState('type_JointLimitType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_JointLimitType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;JointNumber&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> &lt;/JointNumber&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointMinPosition&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointMinPosition&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointMaxPosition&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointMaxPosition&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointMaxTorqueOrForce&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointMaxTorqueOrForce&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointMaxVelocity&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointMaxVelocity&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointLimitType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_JointLimitType_scbox_button" class="control" onclick="switchState('type_JointLimitType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_JointLimitType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">JointLimitType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointNumber</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointMinPosition</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointMaxPosition</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointMaxTorqueOrForce</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointMaxVelocity</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointLimitType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_JointStatusesType" class="name">JointStatusesType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>JointStatusesType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>JointStatusesType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        JointStatusesType is derived from DataThingType.
+        An instance of JointStatusesType has the following elements:
+          Name (inherited, optional)
+          JointStatus (multiple).
+ 
+        Each JointStatus element gives the status of one joint. No
+        joint may be reported more than once in an instance of
+        JointStatusesType. See notes at the beginning of this file
+        regarding configuring joint status.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_JointStatusesType_xibox_button" class="control" onclick="switchState('type_JointStatusesType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_JointStatusesType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;JointStatus&gt; <span class="type"><a title="Jump to &quot;JointStatusType&quot; type definition." href="#type_JointStatusType">JointStatusType</a></span> &lt;/JointStatus&gt; <span class="occurs">[1..*]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointStatusesType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_JointStatusesType_scbox_button" class="control" onclick="switchState('type_JointStatusesType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_JointStatusesType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">JointStatusesType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointStatus</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;JointStatusType&quot; type definition." href="#type_JointStatusType">JointStatusType</a></span></span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointStatusesType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_JointStatusType" class="name">JointStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>JointStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>JointStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        JointStatusType is derived from DataThingType.
+        JointStatusType reports the status of one joint.
+        An instance of JointStatusType has the following elements:
+          Name (inherited, optional)
+          JointNumber
+          JointPosition (optional)
+          JointTorqueOrForce (optional)
+          JointVelocity (optional).
+
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_JointStatusType_xibox_button" class="control" onclick="switchState('type_JointStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_JointStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;JointNumber&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span> &lt;/JointNumber&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointPosition&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointPosition&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointTorqueOrForce&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointTorqueOrForce&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointVelocity&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/JointVelocity&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_JointStatusType_scbox_button" class="control" onclick="switchState('type_JointStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_JointStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">JointStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointNumber</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:int</span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointPosition</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointTorqueOrForce</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointVelocity</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_JointStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_ParallelGripperStatusType" class="name">ParallelGripperStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <span class="type">
+<a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a>
+</span> (by extension) &lt; <strong>ParallelGripperStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>ParallelGripperStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        "ParallelGripperStatusType is derived from GripperStatusType.
+        An instance of ParallelGripperStatusType has the following elements:
+          Name (inherited, optional)
+          GripperName (inherited)
+          Separation.
+ 
+        ParallelGripperStatusType gives gripper status for a parallel
+        jaw gripper. The Separation element gives the distance between
+        the jaws in length units.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_ParallelGripperStatusType_xibox_button" class="control" onclick="switchState('type_ParallelGripperStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_ParallelGripperStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="inherited">&lt;GripperName&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:NMTOKEN</span> &lt;/GripperName&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="inherited">&lt;HoldingObject&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/HoldingObject&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Separation&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/Separation&gt; <span class="occurs">[1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_ParallelGripperStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_ParallelGripperStatusType_scbox_button" class="control" onclick="switchState('type_ParallelGripperStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_ParallelGripperStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">ParallelGripperStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Separation</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_ParallelGripperStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_PoseStatusType" class="name">PoseStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>PoseStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>PoseStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        PoseStatusType is derived from DataThingType.
+        An instance of PoseStatusType has the following elements:
+          Name (inherited, optional)
+          Pose
+          Twist (optional)
+          Wrench (optional)
+          Configuration (optional).
+
+        PoseStatusType provides a Cartesian counterpart to
+        JointStatusesType, representing the generalized
+        position/orientation, velocities, and forces.
+        of a reference frame.
+          
+        Configuration provides a robot specific description of the current 
+            configuration flags and turns.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_PoseStatusType_xibox_button" class="control" onclick="switchState('type_PoseStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_PoseStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;Pose&gt; <span class="type"><a title="&quot;PoseType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseType&quot; type definition could not be found.');">PoseType</a></span> &lt;/Pose&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Twist&gt; <span class="type"><a title="&quot;TwistType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TwistType&quot; type definition could not be found.');">TwistType</a></span> &lt;/Twist&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Wrench&gt; <span class="type"><a title="&quot;WrenchType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;WrenchType&quot; type definition could not be found.');">WrenchType</a></span> &lt;/Wrench&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Configuration&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt;/Configuration&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_PoseStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_PoseStatusType_scbox_button" class="control" onclick="switchState('type_PoseStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_PoseStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">PoseStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Pose</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;PoseType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseType&quot; type definition could not be found.');">PoseType</a></span></span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Twist</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TwistType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TwistType&quot; type definition could not be found.');">TwistType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Wrench</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;WrenchType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;WrenchType&quot; type definition could not be found.');">WrenchType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Configuration</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_PoseStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_SettingsStatusType" class="name">SettingsStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <strong>SettingsStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>SettingsStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        SettingsStatusType is derived from DataThingType. It provides the values
+        echoed back from the appropriate command to set that parameter. It might
+        also provide the initial default value read from a configuration file or
+        from a lower level controller on startup if no command has yet been 
+        given.
+        
+        An instance of SettingsStatusType has the following elements:
+          Name (inherited, optional)
+          AngleUnitName (optional)
+          EndEffectorParameterSetting (optional)
+          EndEffectorSetting (optional)
+          ForceUnitName (optional)
+          IntermediatePoseTolerance (optional)
+          JointLimits (optional)
+          LengthUnitName (optional)
+          MaxCartesianLimit (optional)
+          MinCartesianLimit (optional)
+          MotionCoordinated (optional)
+          PoseTolerance (optional)
+          RobotParameterSetting (optional)
+          RotAccelAbsolute (optional)
+          RotAccelRelative (optional)
+          RotSpeedAbsolute (optional)
+          RotSpeedRelative (optional)
+          TorqueUnitName (optional)
+          TransAccelAbsolute (optional)
+          TransAccelRelative (optional)
+          TransSpeedAbsolute (optional)
+          TransSpeedRelative (optional).
+
+        AngleUnitName is a string that can be only the literals 'radian' or
+          'degree'. This tells the robot that all further commands
+           giving angle values will implicitly use the named unit.
+        EndEffectorParameterSetting is for setting parameters of end
+           effectors that have parameters. The meaning of the parameter
+           settings is not part of CRCL. It is expected that this command will
+           be used only to send parameter values that can be used by the end
+           effector currently in use.
+        EndEffectorSetting is for setting the effectivity of end effectors.
+           If an end effector has multiple control modes, the control mode
+           must be set using a SetEndEffectorParameters command, so that the
+           meaning of SetEndEffector commands is unambiguous. For end effectors
+           that have a continuously variable setting, the Setting means a 
+           fraction of maximum openness, force, torque, power, etc. For end 
+           effectors that have only two choices (powered or unpowered, open or 
+           closed, on or off), a positive Setting value means powered, open, 
+           or on, while a zero Setting value means unpowered, closed, or off.
+        ForceUnitName is a string that can be only the literals 'newton',
+           'pound', or 'ounce'. This tells the robot that all further commands
+           giving force values will implicitly use the named unit.
+        JointLimits represents a list of different possible limits associated 
+           with each joint. These limits can not be directly set through CRCL.
+        IntermediatePoseTolerance indicates to the robot the precision with
+           which it must reach each intermediate waypoint.
+        LengthUnitName is a string that can be only the literals 'meter',
+           'millimeter', or 'inch'. This tells the robot that all further
+            commands giving position or length values will implicitly use the
+            named unit. 
+        MaxCartesianLimit is the point with greatest X,Y, and Z values that can 
+            be reached without violating a configured cartesian limit. It can no
+            be directly changed through CRCL.
+        MinCartesianLimit is the point with lowest X,Y, and Z values that can 
+            be reached without violating a configured cartesian limit. It can no
+            be directly changed through CRCL.
+        MotionCoordinated is a boolean. If the value is true, rotational and
+            translational motion must finish simultaneously in motion commands
+            (including each segment in a multiple segment motion command),
+            except as possibly temporarily overridden in the the motion
+            command. If the value is false, there is no such requirement.
+        PoseTolerance indicates to the robot the precision with
+           which it must reach its end location.
+        RobotParameterSetting is for setting robot parameters that
+            cannot be set by any other CRCL command. The meaning of the
+            parameter settings is not part of CRCL.
+        RotAccelAbsolute represents the target single axis
+            rotational acceleration for the robot, in current angle units per
+            second per second.
+        RotAccelRelative represents the fraction of the 
+            robot's maximum rotational acceleration that it should use.
+        RotSpeedAbsolute represents the target single axis
+            rotational speed for the robot, in current angle units per
+            second.
+        RotSpeedRelative represents the fraction of the 
+            robot's maximum rotational speed that it should use.
+        TorqueUnitName is a string that can be only the literals 'newtonMeter'
+            or 'footPound'. This tells the robot that all further commands
+            giving torque values will implicitly use the named unit.
+        TransAccelAbsolute represents the translational acceleration for the 
+            controlled point, in current length units per second per second.
+        TransAccelRelative represents the fraction of the 
+            robot's maximum translational acceleration that it should use.
+        TransSpeedAbsolute represents the translational speed for the 
+            controlled point, in current length units per second.
+        TransSpeedRelative represents the fraction of the 
+            robot's maximum translational speed that it should use.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_SettingsStatusType_xibox_button" class="control" onclick="switchState('type_SettingsStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_SettingsStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="newFields">&lt;AngleUnitName&gt; <span class="type"><a title="&quot;AngleUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;AngleUnitEnumType&quot; type definition could not be found.');">AngleUnitEnumType</a></span> &lt;/AngleUnitName&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;EndEffectorParameterSetting&gt; <span class="type"><a title="&quot;ParameterSettingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ParameterSettingType&quot; type definition could not be found.');">ParameterSettingType</a></span> &lt;/EndEffectorParameterSetting&gt; <span class="occurs">[0..*]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;EndEffectorSetting&gt; <span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span> &lt;/EndEffectorSetting&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;ForceUnitName&gt; <span class="type"><a title="&quot;ForceUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ForceUnitEnumType&quot; type definition could not be found.');">ForceUnitEnumType</a></span> &lt;/ForceUnitName&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;JointLimits&gt; <span class="type"><a title="Jump to &quot;JointLimitType&quot; type definition." href="#type_JointLimitType">JointLimitType</a></span> &lt;/JointLimits&gt; <span class="occurs">[0..*]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;IntermediatePoseTolerance&gt; <span class="type"><a title="&quot;PoseToleranceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseToleranceType&quot; type definition could not be found.');">PoseToleranceType</a></span> &lt;/IntermediatePoseTolerance&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;LengthUnitName&gt; <span class="type"><a title="&quot;LengthUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;LengthUnitEnumType&quot; type definition could not be found.');">LengthUnitEnumType</a></span> &lt;/LengthUnitName&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;MaxCartesianLimit&gt; <span class="type"><a title="&quot;PointType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PointType&quot; type definition could not be found.');">PointType</a></span> &lt;/MaxCartesianLimit&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;MinCartesianLimit&gt; <span class="type"><a title="&quot;PointType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PointType&quot; type definition could not be found.');">PointType</a></span> &lt;/MinCartesianLimit&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;MotionCoordinated&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/MotionCoordinated&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;PoseTolerance&gt; <span class="type"><a title="&quot;PoseToleranceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseToleranceType&quot; type definition could not be found.');">PoseToleranceType</a></span> &lt;/PoseTolerance&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;RobotParameterSetting&gt; <span class="type"><a title="&quot;ParameterSettingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ParameterSettingType&quot; type definition could not be found.');">ParameterSettingType</a></span> &lt;/RobotParameterSetting&gt; <span class="occurs">[0..*]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;RotAccelAbsolute&gt; <span class="type"><a title="&quot;RotAccelAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotAccelAbsoluteType&quot; type definition could not be found.');">RotAccelAbsoluteType</a></span> &lt;/RotAccelAbsolute&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;RotAccelRelative&gt; <span class="type"><a title="&quot;RotAccelRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotAccelRelativeType&quot; type definition could not be found.');">RotAccelRelativeType</a></span> &lt;/RotAccelRelative&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;RotSpeedAbsolute&gt; <span class="type"><a title="&quot;RotSpeedAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotSpeedAbsoluteType&quot; type definition could not be found.');">RotSpeedAbsoluteType</a></span> &lt;/RotSpeedAbsolute&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;RotSpeedRelative&gt; <span class="type"><a title="&quot;RotSpeedRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotSpeedRelativeType&quot; type definition could not be found.');">RotSpeedRelativeType</a></span> &lt;/RotSpeedRelative&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;TorqueUnitName&gt; <span class="type"><a title="&quot;TorqueUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TorqueUnitEnumType&quot; type definition could not be found.');">TorqueUnitEnumType</a></span> &lt;/TorqueUnitName&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;TransAccelAbsolute&gt; <span class="type"><a title="&quot;TransAccelAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransAccelAbsoluteType&quot; type definition could not be found.');">TransAccelAbsoluteType</a></span> &lt;/TransAccelAbsolute&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;TransAccelRelative&gt; <span class="type"><a title="&quot;TransAccelRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransAccelRelativeType&quot; type definition could not be found.');">TransAccelRelativeType</a></span> &lt;/TransAccelRelative&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;TransSpeedAbsolute&gt; <span class="type"><a title="&quot;TransSpeedAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransSpeedAbsoluteType&quot; type definition could not be found.');">TransSpeedAbsoluteType</a></span> &lt;/TransSpeedAbsolute&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;TransSpeedRelative&gt; <span class="type"><a title="&quot;TransSpeedRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransSpeedRelativeType&quot; type definition could not be found.');">TransSpeedRelativeType</a></span> &lt;/TransSpeedRelative&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_SettingsStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_SettingsStatusType_scbox_button" class="control" onclick="switchState('type_SettingsStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_SettingsStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">SettingsStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">AngleUnitName</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;AngleUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;AngleUnitEnumType&quot; type definition could not be found.');">AngleUnitEnumType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">EndEffectorParameterSetting</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;ParameterSettingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ParameterSettingType&quot; type definition could not be found.');">ParameterSettingType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">EndEffectorSetting</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">ForceUnitName</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;ForceUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ForceUnitEnumType&quot; type definition could not be found.');">ForceUnitEnumType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">JointLimits</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;JointLimitType&quot; type definition." href="#type_JointLimitType">JointLimitType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">IntermediatePoseTolerance</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;PoseToleranceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseToleranceType&quot; type definition could not be found.');">PoseToleranceType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">LengthUnitName</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;LengthUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;LengthUnitEnumType&quot; type definition could not be found.');">LengthUnitEnumType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MaxCartesianLimit</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;PointType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PointType&quot; type definition could not be found.');">PointType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MinCartesianLimit</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;PointType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PointType&quot; type definition could not be found.');">PointType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">MotionCoordinated</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">PoseTolerance</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;PoseToleranceType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;PoseToleranceType&quot; type definition could not be found.');">PoseToleranceType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">RobotParameterSetting</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;ParameterSettingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;ParameterSettingType&quot; type definition could not be found.');">ParameterSettingType</a></span></span>" <span class="scTag">maxOccurs</span>="<span class="scContent">unbounded</span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">RotAccelAbsolute</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;RotAccelAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotAccelAbsoluteType&quot; type definition could not be found.');">RotAccelAbsoluteType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">RotAccelRelative</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;RotAccelRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotAccelRelativeType&quot; type definition could not be found.');">RotAccelRelativeType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">RotSpeedAbsolute</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;RotSpeedAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotSpeedAbsoluteType&quot; type definition could not be found.');">RotSpeedAbsoluteType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">RotSpeedRelative</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;RotSpeedRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;RotSpeedRelativeType&quot; type definition could not be found.');">RotSpeedRelativeType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">TorqueUnitName</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TorqueUnitEnumType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TorqueUnitEnumType&quot; type definition could not be found.');">TorqueUnitEnumType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">TransAccelAbsolute</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TransAccelAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransAccelAbsoluteType&quot; type definition could not be found.');">TransAccelAbsoluteType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">TransAccelRelative</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TransAccelRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransAccelRelativeType&quot; type definition could not be found.');">TransAccelRelativeType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">TransSpeedAbsolute</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TransSpeedAbsoluteType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransSpeedAbsoluteType&quot; type definition could not be found.');">TransSpeedAbsoluteType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">TransSpeedRelative</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;TransSpeedRelativeType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;TransSpeedRelativeType&quot; type definition could not be found.');">TransSpeedRelativeType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_SettingsStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_ThreeFingerGripperStatusType" class="name">ThreeFingerGripperStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <span class="type">
+<a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a>
+</span> (by extension) &lt; <strong>ThreeFingerGripperStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>ThreeFingerGripperStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        ThreeFingerGripperStatusType is derived from GripperStatusType.
+        An instance of ThreeFingerGripperStatusType has the following elements:
+          Name (inherited, optional)
+          GripperName (inherited)
+          Finger1Position (optional)
+          Finger2Position (optional)
+          Finger3Position (optional)
+          Finger1Force (optional)
+          Finger2Force (optional)
+          Finger3Force (optional).
+ 
+        ThreeFingerGripperStatusType gives gripper status for a three
+        finger gripper. The fingers are assumed to be non-articulated.
+        Finger position is 0.0 at fully closed and 1.0 at fully open and
+        linear in either angle or distance for rotating fingers or
+        sliding fingers, respectively. All elements are optional, but
+        typically all three positions will be used if any one of
+        them is used, and similarly for the three forces.
+
+        Force units are as set by the most recent SetForceUnits command.
+        The system sending CRCL commands and the system executing them
+        must agree on which fingers are Finger1, Finger2,and Finger3.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_ThreeFingerGripperStatusType_xibox_button" class="control" onclick="switchState('type_ThreeFingerGripperStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_ThreeFingerGripperStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="inherited">&lt;GripperName&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:NMTOKEN</span> &lt;/GripperName&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="inherited">&lt;HoldingObject&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/HoldingObject&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger1Position&gt; <span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span> &lt;/Finger1Position&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger2Position&gt; <span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span> &lt;/Finger2Position&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger3Position&gt; <span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span> &lt;/Finger3Position&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger1Force&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/Finger1Force&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger2Force&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/Finger2Force&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;Finger3Force&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span> &lt;/Finger3Force&gt; <span class="occurs">[0..1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_ThreeFingerGripperStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_ThreeFingerGripperStatusType_scbox_button" class="control" onclick="switchState('type_ThreeFingerGripperStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_ThreeFingerGripperStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">ThreeFingerGripperStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger1Position</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger2Position</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger3Position</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a title="&quot;FractionType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;FractionType&quot; type definition could not be found.');">FractionType</a></span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger1Force</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger2Force</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">Finger3Force</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:double</span></span>" <span class="scTag">minOccurs</span>="<span class="scContent">0</span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_ThreeFingerGripperStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Complex Type: <a name="type_VacuumGripperStatusType" class="name">VacuumGripperStatusType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a>
+</span> &lt; <span class="type">
+<a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a>
+</span> (by extension) &lt; <strong>VacuumGripperStatusType</strong> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>VacuumGripperStatusType</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        VacuumGripperStatusType is derived from GripperStatusType.
+        An instance of VacuumGripperStatusType has the following elements:
+          Name (inherited, optional)
+          GripperName (inherited)
+          IsPowered.
+ 
+        VacuumGripperStatusType gives gripper status for a vacuum
+        gripper. The IsPowered element is true if a vacuum is being
+        applied and is false if not.
+      </td>
+</tr>
+</table>
+<div class="sample box">
+<div>
+<input type="button" id="type_VacuumGripperStatusType_xibox_button" class="control" onclick="switchState('type_VacuumGripperStatusType_xibox'); return false;" style="display: none" /> <span class="caption">XML Instance Representation</span>
+</div>
+<div id="type_VacuumGripperStatusType_xibox" class="contents">
+<div style="margin-left: 0em">&lt;...&gt; <br /><div class="other" style="margin-left: 1.5em;">&lt;!-- '<span class="type"><a title="&quot;DataThingType&quot; type definition could not be found." href="javascript:void(0)" onclick="alert('&quot;DataThingType&quot; type definition could not be found.');">DataThingType</a></span>' super type was not found in this schema. Some elements and attributes may be missing. --&gt;</div><div style="margin-left: 1.5em" class="inherited">&lt;GripperName&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:NMTOKEN</span> &lt;/GripperName&gt; <span class="occurs">[1]</span></div><div style="margin-left: 1.5em" class="inherited">&lt;HoldingObject&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/HoldingObject&gt; <span class="occurs">[0..1]</span></div><div style="margin-left: 1.5em" class="newFields">&lt;IsPowered&gt; <span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span> &lt;/IsPowered&gt; <span class="occurs">[1]</span></div>&lt;/...&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_VacuumGripperStatusType_xibox', true);
+// -->
+</script>
+</div>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_VacuumGripperStatusType_scbox_button" class="control" onclick="switchState('type_VacuumGripperStatusType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_VacuumGripperStatusType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:complexType</span> <span class="scTag">name</span>="<span class="scContent">VacuumGripperStatusType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:complexContent</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:extension</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a title="Jump to &quot;GripperStatusType&quot; type definition." href="#type_GripperStatusType">GripperStatusType</a></span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:sequence</span>&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:element</span> <span class="scTag">name</span>="<span class="scContent">IsPowered</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:boolean</span></span>"/&gt;</div>&lt;/<span class="scTag">xs:sequence</span>&gt;</div>&lt;/<span class="scTag">xs:extension</span>&gt;</div>&lt;/<span class="scTag">xs:complexContent</span>&gt;</div>&lt;/<span class="scTag">xs:complexType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_VacuumGripperStatusType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<h3>Simple Type: <a name="type_CommandStateEnumType" class="name">CommandStateEnumType</a>
+</h3>
+<table class="hierarchy">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type">
+<a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span> &lt; <strong>CommandStateEnumType</strong> (by restriction)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>None</td>
+</tr>
+</table>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>CommandStateEnumType</td>
+</tr>
+<tr>
+<th>Content</th>
+<td>
+<ul><li>Base XSD Type: string</li></ul>
+<ul>
+<li>
+<em>value</em> comes from list: {'CRCL_Done'|'CRCL_Error'|'CRCL_Working'|'CRCL_Ready'}</li>
+</ul>
+</td>
+</tr>
+<tr>
+<th>Documentation</th>
+<td>
+        CommandStateEnumType enumerates the command states that may be used
+        to describe command status.
+
+        CRCL_Done means that the most recent command is done.
+
+        CRCL_Error means that the most recent command resulted in an error
+        of some sort.
+
+        CRCL_Working means that the most recent command is being executed,
+        and no error has occurred so far, but execution of the command
+        is not yet done.
+
+        CRCL_Ready means that the robot is ready to receive commands but
+        has not yet received a command.
+      </td>
+</tr>
+</table>
+<div class="schemaComponent box">
+<div>
+<input type="button" id="type_CommandStateEnumType_scbox_button" class="control" onclick="switchState('type_CommandStateEnumType_scbox'); return false;" style="display: none" /> <span class="caption">Schema Component Representation</span>
+</div>
+<div id="type_CommandStateEnumType_scbox" class="contents">
+<div style="margin-left: 0em">&lt;<span class="scTag">xs:simpleType</span> <span class="scTag">name</span>="<span class="scContent">CommandStateEnumType</span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:restriction</span> <span class="scTag">base</span>="<span class="scContent"><span class="type"><a href="#ns_xs" title="Find out namespace of 'xs' prefix">xs</a>:string</span></span>"&gt;<div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">CRCL_Done</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">CRCL_Error</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">CRCL_Working</span>"/&gt;</div><div style="margin-left: 1.5em">&lt;<span class="scTag">xs:enumeration</span> <span class="scTag">value</span>="<span class="scContent">CRCL_Ready</span>"/&gt;</div>&lt;/<span class="scTag">xs:restriction</span>&gt;</div>&lt;/<span class="scTag">xs:simpleType</span>&gt;</div></div>
+<script type="text/javascript">
+<!--
+setState('type_CommandStateEnumType_scbox', false);
+// -->
+</script>
+</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+<div id="legend">
+<h2><a name="Legend">Legend</a></h2>
+<div style="float: left; width: 15em;">
+<h3 style="margin-bottom: 0px;">Complex Type:</h3>
+<div class="hint" style="margin-left: 0em;">Schema Component Type</div>
+</div>
+<div style="float: left; width: 15em;">
+<h3 style="margin-bottom: 0px;"><span class="name">AusAddress</span></h3>
+<div class="hint" style="margin-left: 0em;">Schema Component Name</div>
+</div>
+<table class="hierarchy" style="clear : both">
+<tr>
+<th>Super-types:</th>
+<td>
+<span class="type" style="color: #0000FF; text-decoration:underline;">Address</span> &lt; <span class="current">AusAddress</span> (by extension)</td>
+</tr>
+<tr>
+<th>Sub-types:</th>
+<td>
+<ul>
+<li>
+<span class="type" style="color: #0000FF; text-decoration:underline;">QLDAddress</span> (by restriction)</li>
+</ul>
+</td>
+</tr>
+</table>
+<div class="hint">If this schema component is a type definition, its type hierarchy is shown in a gray-bordered box.</div>
+<table class="properties">
+<tr>
+<th>Name</th>
+<td>AusAddress</td>
+</tr>
+<tr>
+<th>
+<a title="Look up 'Abstract' in glossary" href="#term_Abstract">Abstract</a>
+</th>
+<td>no</td>
+</tr>
+</table>
+<div class="hint">The table above displays the properties of this schema component.</div>
+<div class="sample box">
+<div>
+<span class="caption">XML Instance Representation</span>
+</div>
+<div class="contents">
+<span style="margin-left: 0em">&lt;...</span>
+<span class="newFields">
+<span> country="<span class="fixed">Australia</span>"</span>
+</span>&gt; <br />
+<span style="margin-left: 1.5em" class="inherited">&lt;unitNo&gt; <span class="type">string</span> &lt;/unitNo&gt; <span class="occurs">[0..1]</span></span><br />
+<span style="margin-left: 1.5em" class="inherited">&lt;houseNo&gt; <span class="type">string</span> &lt;/houseNo&gt; <span class="occurs">[1]</span></span><br />
+<span style="margin-left: 1.5em" class="inherited">&lt;street&gt; <span class="type">string</span> &lt;/street&gt; <span class="occurs">[1]</span></span><br />
+<span class="group" style="margin-left: 1.5em">Start <a title="Look up 'Choice' in glossary" href="#term_Choice">Choice</a>
+<span class="occurs">[1]</span></span><br />
+<span style="margin-left: 3em" class="inherited">&lt;city&gt; <span class="type">string</span> &lt;/city&gt; <span class="occurs">[1]</span></span><br />
+<span style="margin-left: 3em" class="inherited">&lt;town&gt; <span class="type">string</span> &lt;/town&gt; <span class="occurs">[1]</span></span><br />
+<span class="group" style="margin-left: 1.5em">End Choice</span><br />
+<span class="newFields">
+<span style="margin-left: 1.5em">&lt;state&gt; <span class="type" style="text-decoration:underline;">AusStates</span> &lt;/state&gt; <span class="occurs">[1]</span></span><br />
+<span style="margin-left: 1.5em">&lt;postcode&gt; <span class="constraint">string &lt;&lt;<em>pattern</em> = [1-9][0-9]{3}&gt;&gt;</span> &lt;/postcode&gt; <span class="occurs">[1]</span>
+<a href="javascript:void(0)" title="View Documentation" class="documentation" onclick="docArray = new Array('Post code must be a four-digit number.'); viewDocumentation('Element', 'postcode', docArray);">?</a>
+</span><br />
+</span>
+<span style="margin-left: 0em">&lt;/...&gt;</span><br />
+</div>
+</div>
+<div class="hint">
+<p>The XML Instance Representation table above shows the schema component's content as an XML instance.</p>
+<ul>
+<li>The minimum and maximum occurrence of elements and attributes are provided in square brackets, e.g. [0..1].</li>
+<li>Model group information are shown in gray, e.g. Start Choice ... End Choice.</li>
+<li>For type derivations, the elements and attributes that have been added to or changed from the base type's content are shown in <span style="font-weight: bold">bold</span>.</li>
+<li>If an element/attribute has a fixed value, the fixed value is shown in green, e.g. country="Australia".</li>
+<li>Otherwise, the type of the element/attribute is displayed.
+               <ul>
+<li>If the element/attribute's type is in the schema, a link is provided to it.</li>
+<li>For local simple type definitions, the constraints are displayed in angle brackets, e.g. &lt;&lt;<em>pattern</em> = [1-9][0-9]{3}&gt;&gt;.</li>
+</ul>
+</li>
+<li>If a local element/attribute has documentation, it will be displayed in a window that pops up when the question mark inside the attribute or next to the element is clicked, e.g. &lt;postcode&gt;.</li>
+</ul>
+</div>
+<div class="schemaComponent box">
+<div>
+<span class="caption">Schema Component Representation</span>
+</div>
+<div class="contents">
+<span style="margin-left: 0em">&lt;<span class="scTag">complexType</span>
+<span class="scTag">name</span>="<span class="scContent">AusAddress</span>"&gt;</span><br />
+<span style="margin-left: 1.5em">&lt;<span class="scTag">complexContent</span>&gt;</span><br />
+<span style="margin-left: 3em">&lt;<span class="scTag">extension</span>
+<span class="scTag">base</span>="<span class="scContent"><span class="type" style="text-decoration:underline;">Address</span></span>"&gt;</span><br />
+<span style="margin-left: 4.5em">&lt;<span class="scTag">sequence</span>&gt;</span><br />
+<span style="margin-left: 6em">&lt;<span class="scTag">element</span>
+<span class="scTag">name</span>="<span class="scContent">state</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type" style="text-decoration:underline;">AusStates</span></span>"/&gt;</span><br />
+<span style="margin-left: 6em">&lt;<span class="scTag">element</span>
+<span class="scTag">name</span>="<span class="scContent">postcode</span>"&gt;</span><br />
+<span style="margin-left: 7.5em">&lt;<span class="scTag">simpleType</span>&gt;</span><br />
+<span style="margin-left: 9em">&lt;<span class="scTag">restriction</span>
+<span class="scTag">base</span>="<span class="scContent"><span class="type">string</span></span>"&gt;</span><br />
+<span style="margin-left: 10.5em">&lt;<span class="scTag">pattern</span>
+<span class="scTag">value</span>="<span class="scContent">[1-9][0-9]{3}</span>"/&gt;</span><br />
+<span style="margin-left: 9em">&lt;/<span class="scTag">restriction</span>&gt;</span><br />
+<span style="margin-left: 7.5em">&lt;/<span class="scTag">simpleType</span>&gt;</span><br />
+<span style="margin-left: 6em">&lt;/<span class="scTag">element</span>&gt;</span><br />
+<span style="margin-left: 4.5em">&lt;/<span class="scTag">sequence</span>&gt;</span><br />
+<span style="margin-left: 4.5em">&lt;<span class="scTag">attribute</span>
+<span class="scTag">name</span>="<span class="scContent">country</span>" <span class="scTag">type</span>="<span class="scContent"><span class="type">string</span></span>" <span class="scTag">fixed</span>="<span class="scContent">Australia</span>"/&gt;</span><br />
+<span style="margin-left: 3em">&lt;/<span class="scTag">extension</span>&gt;</span><br />
+<span style="margin-left: 1.5em">&lt;/<span class="scTag">complexContent</span>&gt;</span><br />
+<span style="margin-left: 0em">&lt;/<span class="scTag">complexType</span>&gt;</span><br />
+</div>
+</div>
+<div class="hint">The Schema Component Representation table above displays the underlying XML representation of the schema component. (Annotations are not shown.)</div>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+</div>
+<div id="glossary">
+<h2><a name="Glossary">Glossary</a></h2>
+<p>
+<span class="glossaryTerm">
+<a name="term_Abstract">Abstract</a> </span>(Applies to complex type definitions and element declarations). An abstract element or complex type cannot used to validate an element instance. If there is a reference to an abstract element, only element declarations that can substitute the abstract element can be used to validate the instance. For references to abstract type definitions, only derived types can be used.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_All">All Model Group</a> </span>Child elements can be provided <em>in any order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-all" href="http://www.w3.org/TR/xmlschema-1/#element-all">http://www.w3.org/TR/xmlschema-1/#element-all</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Choice">Choice Model Group</a> </span>
+<em>Only one</em> from the list of child elements and model groups can be provided in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-choice" href="http://www.w3.org/TR/xmlschema-1/#element-choice">http://www.w3.org/TR/xmlschema-1/#element-choice</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_CollapseWS">Collapse Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32). Then, collapse contiguous sequences of space characters into single space character, and remove leading and trailing space characters.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_ElemBlock">Disallowed Substitutions</a> </span>(Applies to element declarations). If <em>substitution</em> is specified, then <a title="Look up 'substitution group' in glossary" href="#term_SubGroup">substitution group</a> members cannot be used in place of the given element declaration to validate element instances. If <em>derivation methods</em>, e.g. extension, restriction, are specified, then the given element declaration will not validate element instances that have types derived from the element declaration's type using the specified derivation methods. Normally, element instances can override their declaration's type by specifying an <code>xsi:type</code> attribute.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Key">Key Constraint</a> </span>Like <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>, but additionally requires that the specified value(s) must be provided. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_KeyRef">Key Reference Constraint</a> </span>Ensures that the specified value(s) must match value(s) from a <a title="Look up 'Key Constraint' in glossary" href="#term_Key">Key Constraint</a> or <a title="Look up 'Uniqueness Constraint' in glossary" href="#term_Unique">Uniqueness Constraint</a>. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_ModelGroup">Model Group</a> </span>Groups together element content, specifying the order in which the element content can occur and the number of times the group of element content may be repeated. See: <a title="http://www.w3.org/TR/xmlschema-1/#Model_Groups" href="http://www.w3.org/TR/xmlschema-1/#Model_Groups">http://www.w3.org/TR/xmlschema-1/#Model_Groups</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Nillable">Nillable</a> </span>(Applies to element declarations). If an element declaration is nillable, instances can use the <code>xsi:nil</code> attribute. The <code>xsi:nil</code> attribute is the boolean attribute, <em>nil</em>, from the <em>http://www.w3.org/2001/XMLSchema-instance</em> namespace. If an element instance has an <code>xsi:nil</code> attribute set to true, it can be left empty, even though its element declaration may have required content.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Notation">Notation</a> </span>A notation is used to identify the format of a piece of data. Values of elements and attributes that are of type, NOTATION, must come from the names of declared notations. See: <a title="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations" href="http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations">http://www.w3.org/TR/xmlschema-1/#cNotation_Declarations</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_PreserveWS">Preserve Whitespace Policy</a> </span>Preserve whitespaces exactly as they appear in instances.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_TypeFinal">Prohibited Derivations</a> </span>(Applies to type definitions). Derivation methods that cannot be used to create sub-types from a given type definition.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_TypeBlock">Prohibited Substitutions</a> </span>(Applies to complex type definitions). Prevents sub-types that have been derived using the specified derivation methods from validating element instances in place of the given type definition.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_ReplaceWS">Replace Whitespace Policy</a> </span>Replace tab, line feed, and carriage return characters with space character (Unicode character 32).</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Sequence">Sequence Model Group</a> </span>Child elements and model groups must be provided <em>in the specified order</em> in instances. See: <a title="http://www.w3.org/TR/xmlschema-1/#element-sequence" href="http://www.w3.org/TR/xmlschema-1/#element-sequence">http://www.w3.org/TR/xmlschema-1/#element-sequence</a>.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_SubGroup">Substitution Group</a> </span>Elements that are <em>members</em> of a substitution group can be used wherever the <em>head</em> element of the substitution group is referenced.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_ElemFinal">Substitution Group Exclusions</a> </span>(Applies to element declarations). Prohibits element declarations from nominating themselves as being able to substitute a given element declaration, if they have types that are derived from the original element's type using the specified derivation methods.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_TargetNS">Target Namespace</a> </span>The target namespace identifies the namespace that components in this schema belongs to. If no target namespace is provided, then the schema components do not belong to any namespace.</p>
+<p>
+<span class="glossaryTerm">
+<a name="term_Unique">Uniqueness Constraint</a> </span>Ensures uniqueness of an element/attribute value, or a combination of values, within a specified scope. See: <a title="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions" href="http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions">http://www.w3.org/TR/xmlschema-1/#cIdentity-constraint_Definitions</a>.</p>
+<div style="text-align: right; clear: both;"><a href="#top">top</a></div>
+<hr />
+</div>
+<p class="footer">Generated by <a href="http://xml.fiforms.org/xs3p/">xs3p</a> (<a href="http://titanium.dstc.edu.au/xml/xs3p">old link</a>)
+               . Last modified: <script type="text/javascript">
+<!--
+document.write(document.lastModified);
+// -->
+</script>
+</p>
+</body>
+</html>
