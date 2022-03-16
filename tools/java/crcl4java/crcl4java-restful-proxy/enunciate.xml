@@ -1,7 +1,0 @@
-<enunciate xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://enunciate.webcohesion.com/schemas/enunciate-2.0.0-M.4.xsd">
-
-  <title>Canonical Robot Control Language(CRCL) REST Interfaces</title>
-  <description package="crcl.restful.proxy"/>
-  <application root="http://localhost:8080/crcl4java-restful-proxy/webresources/"/>
-
-</enunciate>

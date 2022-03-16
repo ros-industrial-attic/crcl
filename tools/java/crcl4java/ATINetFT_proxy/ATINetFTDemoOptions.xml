@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<java version="11.0.2" class="java.beans.XMLDecoder">
- <object class="netftsample.NetFTOptions">
-  <void property="lastIPAddress">
-   <string>192.168.1.1</string>
-  </void>
- </object>
-</java>
